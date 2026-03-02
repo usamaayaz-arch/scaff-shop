@@ -32,9 +32,65 @@
         "button_bg": "#ffffff",
         "button_color": "#000000"
       }
+    },
+    "ticker_gc9UrR": {
+      "type": "ticker",
+      "blocks": {
+        "ticker_tmWzVJ": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/Group_495.svg",
+            "text": "<p>Handcrafted in the UK</p>"
+          }
+        },
+        "ticker_pKQgch": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/Group_494.svg",
+            "text": "<p>Nationwide shipping</p>"
+          }
+        },
+        "ticker_m98WpN": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/Group_493.svg",
+            "text": "<p>Satisfaction Guarantee</p>"
+          }
+        },
+        "ticker_KkHxWM": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/Group_491.svg",
+            "text": "<p>Sustainably Crafted</p>"
+          }
+        },
+        "ticker_WazpjG": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/Group_492.svg",
+            "text": "<p>Reclaimed & Reused</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ticker_tmWzVJ",
+        "ticker_pKQgch",
+        "ticker_m98WpN",
+        "ticker_KkHxWM",
+        "ticker_WazpjG"
+      ],
+      "name": "Ticker",
+      "settings": {
+        "justify_content": "space-between",
+        "flex_wrapper": false,
+        "image_size": 1.6,
+        "font_size": 1.6,
+        "padding_y": 1.8
+      }
     }
   },
   "order": [
-    "hero"
+    "hero",
+    "ticker_gc9UrR"
   ]
 }
