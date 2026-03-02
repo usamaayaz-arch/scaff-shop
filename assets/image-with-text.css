@@ -1,0 +1,35 @@
+.image-text-section {
+    width: 100%;
+}
+
+.section-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.section-heading {
+    margin-bottom: 0.5rem;
+}
+
+.section-subheading {
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #717171;
+}
+
+.button {
+    margin-top: 2rem;
+    padding: 12px 58px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s ease;
+}
+
+.button:hover {
+    opacity: 0.85;
+}
