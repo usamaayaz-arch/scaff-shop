@@ -11,7 +11,27 @@
   "sections": {
     "hero": {
       "type": "hero-image-with-text",
-      "settings": {}
+      "settings": {
+        "image": "shopify://shop_images/DSC00296-Edit-2_450543d8-7234-400a-819c-f9bea712aedb.jpg",
+        "image_height": 40,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.4,
+        "heading": "From Scaffold Boards to Sustainable Masterpieces",
+        "sub_heading": "<h3>Handcrafted furniture, shelving, and interiors—designed  from reclaimed wood in the UK.<br/><br/>⭐⭐⭐⭐⭐ Chosen by over 20k+ builders and scaffolders</h3>",
+        "text_color": "#ffffff",
+        "heading_size": "48px",
+        "heading_letter_spacing": -2,
+        "heading_line_height": 40,
+        "heading_weight": "700",
+        "heading_case": "uppercase",
+        "sub_heading_weight": "400",
+        "is_in_container": true,
+        "container_width": 50,
+        "button_label": "Shop Now",
+        "button_url": "shopify://pages/contact-us",
+        "button_bg": "#ffffff",
+        "button_color": "#000000"
+      }
     }
   },
   "order": [
