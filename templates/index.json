@@ -87,10 +87,103 @@
         "font_size": 1.6,
         "padding_y": 1.8
       }
+    },
+    "ticker_HPg4N3": {
+      "type": "ticker",
+      "blocks": {
+        "ticker_N3Yir9": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_52.png",
+            "text": ""
+          }
+        },
+        "ticker_QEcDQB": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_53.png",
+            "text": ""
+          }
+        },
+        "ticker_TEwhqj": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_54.png",
+            "text": ""
+          }
+        },
+        "ticker_hfYFyh": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_55.png",
+            "text": ""
+          }
+        },
+        "ticker_XqP9q6": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_56.png",
+            "text": ""
+          }
+        },
+        "ticker_JKpyU9": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_57.png",
+            "text": ""
+          }
+        },
+        "ticker_kFLAbG": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_58.png",
+            "text": ""
+          }
+        },
+        "ticker_gKby93": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_59.png",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "ticker_N3Yir9",
+        "ticker_QEcDQB",
+        "ticker_TEwhqj",
+        "ticker_hfYFyh",
+        "ticker_XqP9q6",
+        "ticker_JKpyU9",
+        "ticker_kFLAbG",
+        "ticker_gKby93"
+      ],
+      "name": "Ticker",
+      "settings": {
+        "justify_content": "space-between",
+        "flex_wrapper": false,
+        "image_size": 7,
+        "font_size": 1,
+        "padding_y": 1
+      }
+    },
+    "image_with_text_KwVih3": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_68.png",
+        "heading": "Handmade and repurposed",
+        "sub_heading": "",
+        "description": "<p>Founded and run by life-long scaffolder and maker Jack Cornish, The Scaff Shop is a real passion project, turning new and used scaffold boards in to beautiful and functional items for your home or business and supplying them for you to do the same.  <br/><br/>From our premises in Frome, Somerset, we hold a large stock of scaffold boards and pallet wood, as well as scaffold tubes and clamps, and can offer these in any quantity - from individual boards courier delivered nationwide, to bulk orders ideal for cladding, shop fitting or a whole range of other uses.<br/><br/></p>",
+        "button_label": "About Us",
+        "button_url": ""
+      }
     }
   },
   "order": [
     "hero",
-    "ticker_gc9UrR"
+    "ticker_gc9UrR",
+    "ticker_HPg4N3",
+    "image_with_text_KwVih3"
   ]
 }
