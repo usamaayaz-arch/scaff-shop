@@ -1,0 +1,124 @@
+[
+  {
+    "name": "Global Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary Color",
+        "default": "#666666"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Border Color",
+        "default": "#e5e5e5"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading Font",
+        "default": "helvetica_n7"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body Font",
+        "default": "helvetica_n4"
+      },
+      {
+        "type": "range",
+        "id": "font_base_size",
+        "label": "Base Font Size",
+        "min": 14,
+        "max": 20,
+        "step": 1,
+        "default": 16
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "container_width",
+        "label": "Container Width",
+        "min": 1000,
+        "max": 1600,
+        "step": 20,
+        "default": 1200
+      }
+    ]
+  },
+  {
+    "name": "Buttons",
+    "settings": [
+      {
+        "type": "range",
+        "id": "button_radius",
+        "label": "Button Radius",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "default": 4
+      },
+      {
+        "type": "color",
+        "id": "button_background",
+        "label": "background Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "button_color",
+        "label": "Text Color",
+        "default": "#ffffff"
+      }
+    ]
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "brand_logo",
+        "label": "Brand Logo"
+      },
+      {
+        "label": "Logo Width",
+        "id": "brand_logo_width",
+        "type": "range",
+        "min": 3,
+        "max": 20,
+        "step": 1,
+        "unit": "rem",
+        "default": 7
+      }
+    ]
+  }
+]

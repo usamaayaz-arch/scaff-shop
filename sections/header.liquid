@@ -1,0 +1,368 @@
+{{ 'header.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'header.js' | asset_url }}" defer></script>
+
+{% comment %}
+  <header-menu>
+    <header class="site-header">
+      <div class="site-header__container page-pa d-flex align-center py-1 {% if settings.brand_logo %}justify-center{% else %}justify-space-between{% endif %}">
+        <span class="mini-menu-icon">
+          {{ 'hamburger-menu.svg' | inline_asset_content }}
+        </span>
+        {% if settings.brand_logo %}
+          <div class="site-header__logo">
+            <a href="{{ routes.root_url }}">
+              {%- assign logo_width = settings.brand_logo_width | times: 8 -%}
+              <img
+                src="{{ settings.brand_logo | image_url }}"
+                alt="{{ settings.brand_logo.alt | default: shop.name }}"
+                width="{{ logo_width }}"
+                height="auto"
+                loading="lazy"
+              >
+            </a>
+          </div>
+        {% endif %}
+
+        <nav class="site-header__nav flex-2" role="navigation">
+          <ul class="site-header__menu d-flex wrap justify-center align-center gap-4 py-1">
+            {% for link in section.settings.menu.links %}
+              <li class="site-header__menu-item">
+                <a class="site-header__menu-link" href="{{ link.url }}">
+                  {{ link.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+
+        <div class="site-header__actions d-flex wrap justify-center align-center gap-1">
+          {% assign icons = 'search,empty-cart,profile' | split: ',' %}
+          {% for icon in icons %}
+            {% assign icon_file = icon | append: '-icon.svg' %}
+            <button class="site-header__icon site-header__icon--{{ icon_file }}" aria-label="{{ icon_file }}">
+              {{ icon_file | inline_asset_content }}
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <nav class="mini-drawer-menu d-flex column flex-2" role="navigation">
+        <div class="site-header__actions d-flex align-center justify-space-between">
+          <button class="site-header__icon site-header__icon--search" aria-label="Search">
+            {{ 'search-icon.svg' | inline_asset_content }}
+          </button>
+          <button class="site-header__icon site-header__icon--close" aria-label="Close">
+            {{ 'close-icon.svg' | inline_asset_content }}
+          </button>
+        </div>
+
+        <ul class="site-header__menu d-flex column align-left">
+          {% for link in section.settings.menu.links %}
+            <li class="site-header__menu-item">
+              <a class="site-header__menu-link" href="{{ link.url }}">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div class="mini-drawer-bottom d-flex justify-space-between">
+          <div class="announcement__social d-flex-imp">
+            {% render 'social-media' %}
+          </div>
+          <div class="announcement__localization d-flex-imp">
+            {% render 'localization' %}
+          </div>
+        </div>
+      </nav>
+    </header>
+  </header-menu>
+{% endcomment %}
+{% comment %}
+  {% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "menu",
+        "default": "main-menu",
+        "label": "Menu"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Header",
+        "settings": {}
+      }
+    ]
+  }
+  {% endschema %}
+{% endcomment %}
+{{ 'header.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'header.js' | asset_url }}" defer></script>
+<style>
+  .site-header--{{ section.id }} .site-header__icon {
+    fill: {{ section.settings.text_color }}!important;
+  }
+  .site-header--{{ section.id }} .site-header__container .site-header__nav ul li a
+  {
+    color: {{ section.settings.text_color }};
+  }
+  .site-header--{{ section.id }} {
+    background: {{ section.settings.background_color }};
+    {% if section.settings.show_border %}
+      border-bottom: 1px solid {{ section.settings.border_color }};
+    {% endif %}
+  }
+
+  .site-header--{{ section.id }} .site-header__container {
+    min-height: {{ section.settings.header_height }}px;
+    padding-top: {{ section.settings.padding_vertical }}px;
+    padding-bottom: {{ section.settings.padding_vertical }}px;
+  }
+
+  .site-header--{{ section.id }} .site-header__menu {
+    gap: {{ section.settings.menu_gap }}rem;
+  }
+  
+  @media screen and (max-width:768px){
+    .site-header--{{ section.id }} .site-header__menu {
+      gap: 0rem !important;
+    }
+  .site-header--{{ section.id }} .site-header__icon[aria-label="profile"] {
+      display:none;
+    }
+  }
+
+  .site-header--{{ section.id }} .site-header__menu-link {
+    font-size: {{ section.settings.menu_font_size }}px;
+    text-transform: {{ section.settings.menu_text_transform }};
+  }
+
+  .site-header--{{ section.id }} .site-header__icon {
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+  }
+
+  .site-header--{{ section.id }} .site-header__icon svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<header-menu>
+  <header class="site-header site-header--{{ section.id }} {% if section.settings.sticky %}is-sticky{% endif %} ">
+    <div class="site-header__container {% if section.settings.full_width %}width-100{% else %}page-pa{% endif %} d-flex align-center {% if section.settings.logo_alignment == 'center' %}justify-center {% else %} justify-space-between {% endif %} ">
+      <span class="mini-menu-icon">{{ 'hamburger-menu.svg' | inline_asset_content }}</span>
+      {% if settings.brand_logo %}
+        <div class="site-header__logo">
+          <a href="{{ routes.root_url }}">
+            {%- assign logo_width = settings.brand_logo_width | times: 8 -%}
+            <img
+              src="{{ settings.brand_logo | image_url }}"
+              alt="{{ settings.brand_logo.alt | default: shop.name }}"
+              width="{{ logo_width }}"
+              height="auto"
+              loading="lazy"
+            >
+          </a>
+        </div>
+      {% endif %}
+      <nav class="site-header__nav" role="navigation">
+        <ul class="site-header__menu d-flex wrap justify-center align-center py-1">
+          {% for link in section.settings.menu.links %}
+            <li class="site-header__menu-item">
+              <a class="site-header__menu-link" href="{{ link.url }}">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      <div class="site-header__actions d-flex wrap justify-center align-center gap-1">
+        {% assign icons = 'search,empty-cart,profile' | split: ',' %}
+        {% for icon in icons %}
+          {% assign icon_file = icon | append: '-icon.svg' %}
+          <button class="site-header__icon" aria-label="{{ icon }}">
+            {{ icon_file | inline_asset_content }}
+          </button>
+        {% endfor %}
+      </div>
+    </div>
+    <nav class="mini-drawer-menu d-flex column flex-2" role="navigation">
+      <div class="site-header__actions d-flex align-center justify-space-between">
+        <button class="site-header__icon" aria-label="Search">
+          {{ 'search-icon.svg' | inline_asset_content }}
+        </button>
+        <button class="site-header__icon" aria-label="Close">
+          {{ 'close-icon.svg' | inline_asset_content }}
+        </button>
+      </div>
+      <ul class="site-header__menu d-flex column align-left">
+        {% for link in section.settings.menu.links %}
+          <li class="site-header__menu-item">
+            <a class="site-header__menu-link" href="{{ link.url }}">
+              {{ link.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="mini-drawer-bottom d-flex justify-space-between">
+        <div class="announcement__social d-flex-imp">
+          {% render 'social-media' %}
+        </div>
+        <div class="announcement__localization d-flex-imp">
+          {% render 'localization' %}
+        </div>
+      </div>
+    </nav>
+  </header>
+</header-menu>
+{% schema %}
+{
+  "name": "Header",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Menu"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full Width Header",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Sticky Header",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "header_height",
+      "label": "Header Height (px)",
+      "min": 50,
+      "max": 150,
+      "step": 5,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Vertical Padding (px)",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 10
+    },
+    {
+      "type": "select",
+      "id": "logo_alignment",
+      "label": "Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "left"
+    },
+
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_border",
+      "label": "Show Bottom Border",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#eeeeee"
+    },
+
+    {
+      "type": "header",
+      "content": "Menu"
+    },
+    {
+      "type": "range",
+      "id": "menu_font_size",
+      "label": "Menu Font Size (px)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "menu_text_transform",
+      "label": "Menu Text Transform",
+      "options": [
+        { "value": "none", "label": "Default" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "menu_gap",
+      "label": "Menu Gap (rem)",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "default": 2
+    },
+
+    {
+      "type": "header",
+      "content": "Icons"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon Size (px)",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon Color",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

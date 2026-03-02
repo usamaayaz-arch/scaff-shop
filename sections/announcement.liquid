@@ -1,0 +1,97 @@
+{{ 'announcement.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'announcement.js' | asset_url }}" defer="defer"></script>
+{% assign has_social = section.settings.social_media_flag %}
+{% assign slide_count = section.blocks.size %}
+
+<section class="announcement">
+  <div class="announcement__container page-pa">
+    {% if has_social %}
+      <div class="announcement__social">
+        {% render 'social-media' %}
+      </div>
+    {% endif %}
+
+    <div class="announcement__slider-wrapper">
+      {% if slide_count > 1 %}
+        <button
+          class="announcement__control announcement__control--prev"
+          aria-label="Previous announcement"
+        >
+          {{ 'arrow-back-icon.svg' | inline_asset_content }}
+        </button>
+      {% endif %}
+
+      <announcement-slider
+        class="announcement__slider"
+        data-interval="4000"
+        {% if slide_count == 1 %}
+          data-single="true"
+        {% endif %}
+      >
+        {% for block in section.blocks %}
+          <div class="announcement__slide" {{ block.shopify_attributes }}>
+            {% if block.settings.advertisment_link != blank %}
+              <a class="announcement__link" href="{{ block.settings.advertisment_link }}">
+                {{ block.settings.advertisment_title }}
+              </a>
+            {% else %}
+              <span class="announcement__text">
+                {{ block.settings.advertisment_title }}
+              </span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </announcement-slider>
+
+      {% if slide_count > 1 %}
+        <button
+          class="announcement__control announcement__control--next"
+          aria-label="Next announcement"
+        >
+          {{ 'arrow-forward-icon.svg' | inline_asset_content }}
+        </button>
+      {% endif %}
+    </div>
+
+    <div class="announcement__localization">
+      {% render 'localization' %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Advertisement",
+  "settings": [
+    {
+      "id": "social_media_flag",
+      "type": "checkbox",
+      "label": "Show social media",
+      "info": "This will show the social media icons"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Advertisment",
+      "type": "advertisment",
+      "settings": [
+        {
+          "type": "url",
+          "id": "advertisment_link",
+          "label": "Ad URL"
+        },
+        {
+          "type": "text",
+          "id": "advertisment_title",
+          "label": "Ad title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advertisement"
+    }
+  ]
+}
+{% endschema %}

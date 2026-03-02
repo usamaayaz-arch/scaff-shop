@@ -1,0 +1,246 @@
+/* .site-header.is-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header.is-transparent {
+  position: absolute;
+  width: 100%;
+  background: transparent !important;
+} 
+.mini-menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.site-header__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header__menu-link {
+    text-decoration: none;
+}
+
+.site-header__actions svg,
+svg {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.site-header__icon {
+    background: unset;
+    border: unset;
+}
+
+.mini-drawer-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.mini-drawer-menu.active {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mini-drawer-menu .site-header__actions,
+.mini-drawer-menu .site-header__menu li {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease-in-out;
+}
+
+.mini-drawer-menu.active .site-header__actions,
+.mini-drawer-menu.active .site-header__menu li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.mini-drawer-menu .site-header__actions {
+    padding: 0.75rem;
+    border-bottom: 1px solid lightgrey;
+}
+
+.mini-drawer-menu .site-header__menu li {
+    width: 100%;
+    padding: 0.75rem;
+    border-bottom: 1px solid lightgrey;
+}
+
+.mini-drawer-bottom {
+    margin-top: auto;
+    padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .site-header__container {
+        justify-content: space-between !important;
+    }
+
+    .site-header__nav,
+    .site-header__icon--profile {
+        display: none;
+    }
+
+    .mini-menu-icon {
+        display: block;
+    }
+} */
+
+/* ============================= */
+/* Header States */
+/* ============================= */
+
+.site-header {
+  position: relative;
+  width: 100%;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.site-header.is-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.site-header.is-transparent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent !important;
+}
+
+
+/* ============================= */
+/* General Header Elements */
+/* ============================= */
+
+.mini-menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.site-header__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header__menu-link {
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.site-header__menu-link:hover {
+  opacity: 0.7;
+}
+
+/* Remove global svg override */
+.site-header__actions svg {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+
+.site-header__icon {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+
+/* ============================= */
+/* Mobile Drawer */
+/* ============================= */
+
+.mini-drawer-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--color-background);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+  will-change: transform;
+}
+
+.mini-drawer-menu.active {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Drawer animation */
+.mini-drawer-menu .site-header__actions,
+.mini-drawer-menu .site-header__menu li {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.mini-drawer-menu.active .site-header__actions,
+.mini-drawer-menu.active .site-header__menu li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Drawer sections */
+.mini-drawer-menu .site-header__actions {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mini-drawer-menu .site-header__menu li {
+  width: 100%;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mini-drawer-bottom {
+  margin-top: auto;
+  padding: 1rem;
+}
+
+
+/* ============================= */
+/* Responsive */
+/* ============================= */
+
+@media screen and (max-width: 768px) {
+
+  .site-header__container {
+    justify-content: space-between !important;
+  }
+
+  .site-header__nav,
+  .site-header__icon--profile {
+    display: none;
+  }
+
+  .mini-menu-icon {
+    display: block;
+  }
+
+}

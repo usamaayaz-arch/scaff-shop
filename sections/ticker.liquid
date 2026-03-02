@@ -1,0 +1,129 @@
+<style>
+  .ticker--{{ section.id }} {
+    overflow: hidden;
+  }
+
+  .ticker--{{ section.id }} .ticker__container {
+    flex-wrap: {{section.settings.flex_wrapper}};
+    padding-top: {{ section.settings.padding_y }}rem;
+    padding-bottom: {{ section.settings.padding_y }}rem;
+    justify-content: {{ section.settings.justify_content }};
+    gap: 1rem;
+    border: 1px solid #EDEDED;
+  }
+
+  .ticker--{{ section.id }} .ticker__item {
+    gap: 0.5rem;
+    font-size: {{ section.settings.font_size }}rem;
+  }
+
+  {% for block in section.blocks %}
+  .ticker--{{ section.id }} .ticker__image--{{ block.id }} {
+    width: {{ section.settings.image_size }}rem;
+    height: auto;
+    display: block;
+  }
+  {% endfor %}
+</style>
+
+<div class="ticker ticker--{{ section.id }}">
+  <div class="ticker__container d-flex align-center page-pa ">
+    {% for block in section.blocks %}
+      <div class="ticker__item d-flex align-center no-wrap" {{ block.shopify_attributes }}>
+        {% if block.settings.image %}
+          <img
+            width="auto"
+            height="auto"
+            class="ticker__image ticker__image--{{ block.id }}"
+            src="{{ block.settings.image | image_url }}"
+            alt="{{ block.settings.image.alt | escape }}"
+            loading="lazy"
+          >
+        {% endif %}
+
+        {% if block.settings.text != blank %}
+          <div class="ticker__label">
+            {{ block.settings.text }}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ticker",
+  "settings": [
+    {
+      "type": "select",
+      "id": "justify_content",
+      "label": "Justify Content",
+      "options": [
+        { "value": "space-around", "label": "Space Around" },
+        { "value": "space-evenly", "label": "Space Evenly" },
+        { "value": "space-between", "label": "Space Between" },
+        { "value": "flex-start", "label": "Start" },
+        { "value": "flex-end", "label": "End" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "space-between"
+    },
+    {
+      "type": "checkbox",
+      "id": "flex_wrapper",
+      "label": "Allow the ticker list to be wrap",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "image_size",
+      "label": "Image Size",
+      "min": 1,
+      "max": 20,
+      "step": 0.2,
+      "unit": "rem",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font Size",
+      "min": 1,
+      "max": 20,
+      "step": 0.2,
+      "unit": "rem",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Padding Y",
+      "min": 1,
+      "max": 10,
+      "step": 0.2,
+      "unit": "rem",
+      "default": 1
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Ticker Item",
+      "type": "ticker",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Ticker" }]
+}
+{% endschema %}

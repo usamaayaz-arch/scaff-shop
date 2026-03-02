@@ -1,0 +1,38 @@
+<div class="social-media">
+  <a class="social-media-link" href="#">
+    {{ 'facebook-icon.svg' | inline_asset_content }}
+  </a>
+  <a class="social-media-link" href="#">
+    {{ 'yahoo-icon.svg' | inline_asset_content }}
+  </a>
+  <a class="social-media-link" href="#">
+    {{ 'pinterest-icon.svg' | inline_asset_content }}
+  </a>
+  <a class="social-media-link" href="#">
+    {{ 'instagram-icon.svg' | inline_asset_content }}
+  </a>
+</div>
+
+<style>
+  .social-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 12px;
+  }
+  .social-media-link svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .social-media-link {
+    width: 2rem;
+    height: 2rem;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
