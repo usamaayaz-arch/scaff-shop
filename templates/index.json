@@ -175,8 +175,26 @@
         "heading": "Handmade and repurposed",
         "sub_heading": "",
         "description": "<p>Founded and run by life-long scaffolder and maker Jack Cornish, The Scaff Shop is a real passion project, turning new and used scaffold boards in to beautiful and functional items for your home or business and supplying them for you to do the same.  <br/><br/>From our premises in Frome, Somerset, we hold a large stock of scaffold boards and pallet wood, as well as scaffold tubes and clamps, and can offer these in any quantity - from individual boards courier delivered nationwide, to bulk orders ideal for cladding, shop fitting or a whole range of other uses.<br/><br/></p>",
+        "row_direction": "0",
         "button_label": "About Us",
-        "button_url": ""
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_url": "shopify://products/coffee-in-hand-hoodie-copy-1"
+      }
+    },
+    "image_with_text_mRPrxG": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_69.png",
+        "heading": "We are a team of scaff board stylists",
+        "sub_heading": "",
+        "description": "<p>How much can you do with a scaffold board? Well, actually, quite a lot. We can sand it and oil it or leave it raw, create a simple but beautifiul shelf or a whole dining table, or flame our boards to an amazing Japanese style Shou Sugi Ban finish.<br/><br/>We love boards and love creating awesome things from them.</p>",
+        "row_direction": "1",
+        "button_label": "About Us",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_url": "shopify://pages/contact-us"
       }
     }
   },
@@ -184,6 +202,7 @@
     "hero",
     "ticker_gc9UrR",
     "ticker_HPg4N3",
-    "image_with_text_KwVih3"
+    "image_with_text_KwVih3",
+    "image_with_text_mRPrxG"
   ]
 }
