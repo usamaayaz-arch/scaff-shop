@@ -10,7 +10,7 @@
 {
   "sections": {
     "hero": {
-      "type": "hero-image-with-text",
+      "type": "hero-image-banner",
       "settings": {
         "image": "shopify://shop_images/DSC00296-Edit-2_450543d8-7234-400a-819c-f9bea712aedb.jpg",
         "image_height": 40,

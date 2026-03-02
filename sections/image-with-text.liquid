@@ -1,0 +1,79 @@
+<div class="main">
+  <div class="container">
+    <img
+      class="image--{{ section.id }}"
+      src="{{ section.settings.image | image_url }}"
+      alt="{{ section.settings.image.alt }}"
+      width="auto"
+      height="auto"
+    >
+    <div class="text-container">
+        <h1 class="heading--{{section.id}}">{{ section.settings.heading }}</h1>
+        <h3 class="sub-heading--{{section.id}}">{{ section.settings.sub_heading }}</h3>
+        <div class="description-{{ section.id }}" >{{ section.settings.description }}</div>
+        {%- if section.settings.button_url -%}
+            <a href="{{ section.settings.button_url }}" class="button">
+                {{ section.settings.button_label }}
+            </a>
+        {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<style>
+      .button {
+      margin-top: 2rem;
+      padding: 12px 58px;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s ease;
+  }
+
+  .button:hover {
+      opacity: 0.85;
+  }
+</style>
+{% schema %}
+{
+  "name": "Image with text",
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "Image",
+      "id": "image"
+    },
+    {
+      "type": "text",
+      "label": "Heading",
+      "id": "heading"
+    },
+    {
+      "type": "text",
+      "label": "Sub Heading",
+      "id": "sub_heading"
+    },
+    {
+      "type": "richtext",
+      "label": "Description",
+      "id": "description"
+    },
+    {
+      "type": "text",
+      "label": "Button Label",
+      "id": "button_label",
+      "default":"About Us"
+    },
+    {
+      "type": "url",
+      "label": "Button url",
+      "id": "button_url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with text",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

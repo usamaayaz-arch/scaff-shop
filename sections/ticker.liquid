@@ -4,7 +4,7 @@
   }
 
   .ticker--{{ section.id }} .ticker__container {
-    flex-wrap: {{section.settings.flex_wrapper}};
+    flex-wrap: {%  if section.settings.flex_wrapper%} wrap {%- else -%}nowrap {%  endif %};
     padding-top: {{ section.settings.padding_y }}rem;
     padding-bottom: {{ section.settings.padding_y }}rem;
     justify-content: {{ section.settings.justify_content }};
@@ -15,6 +15,10 @@
   .ticker--{{ section.id }} .ticker__item {
     gap: 0.5rem;
     font-size: {{ section.settings.font_size }}rem;
+  }
+
+  .ticker--{{ section.id }} .ticker__label {  
+    width: max-content;
   }
 
   {% for block in section.blocks %}
