@@ -29,6 +29,8 @@
         "container_width": 50,
         "button_label": "Shop Now",
         "button_url": "shopify://pages/contact-us",
+        "button_label_2": "",
+        "button_url_2": "",
         "button_bg": "#ffffff",
         "button_color": "#000000"
       }
@@ -196,6 +198,33 @@
         "button_text_color": "#ffffff",
         "button_url": "shopify://pages/contact-us"
       }
+    },
+    "hero_image_banner_gGKYeH": {
+      "type": "hero-image-banner",
+      "name": "Hero Banner",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_45.png",
+        "image_height": 40,
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 0.1,
+        "heading": "The Annual Workshop Sale Has Arrived.",
+        "sub_heading": "<p>Save up to 25% on handcrafted furniture, shelving, and bespoke pieces — each made from reclaimed scaffold boards, sustainably sourced and built to last.</p>",
+        "text_color": "#e8e7e7",
+        "heading_size": "36px",
+        "heading_letter_spacing": -1,
+        "heading_line_height": 40,
+        "heading_weight": "700",
+        "heading_case": "uppercase",
+        "sub_heading_weight": "400",
+        "is_in_container": true,
+        "container_width": 35,
+        "button_label": "Shop The Sale",
+        "button_url": "shopify://pages/contact-us",
+        "button_label_2": "Explore Our Bestsellers",
+        "button_url_2": "shopify://pages/contact-us",
+        "button_bg": "#ffffff",
+        "button_color": "#000000"
+      }
     }
   },
   "order": [
@@ -203,6 +232,7 @@
     "ticker_gc9UrR",
     "ticker_HPg4N3",
     "image_with_text_KwVih3",
-    "image_with_text_mRPrxG"
+    "image_with_text_mRPrxG",
+    "hero_image_banner_gGKYeH"
   ]
 }

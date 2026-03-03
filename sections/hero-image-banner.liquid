@@ -25,12 +25,18 @@
           {{ section.settings.sub_heading }}
         </div>
       {% endif %}
-
-      {% if section.settings.button_label != blank %}
-        <a href="{{ section.settings.button_url }}" class="hero-button">
-          {{ section.settings.button_label }}
-        </a>
-      {% endif %}
+      <div class="d-flex row gap-1">
+        {% if section.settings.button_label != blank %}
+          <a href="{{ section.settings.button_url }}" class="hero-button">
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+        {% if section.settings.button_label_2 != blank and section.settings.button_url_2 %}
+          <a href="{{ section.settings.button_url_2 }}" class="hero-button">
+            {{ section.settings.button_label_2 }}
+          </a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
@@ -225,6 +231,16 @@
     {
       "type": "url",
       "id": "button_url",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_url_2",
       "label": "Button Link"
     },
     {
