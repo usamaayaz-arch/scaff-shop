@@ -1,0 +1,244 @@
+<section class="accordion-section accordion-section-{{ section.id }}">
+  {% if section.settings.section_heading != blank %}
+    <div class="accordion-heading-wrapper">
+      <h2>{{ section.settings.section_heading }}</h2>
+      {% if section.settings.section_description != blank %}
+        <p class="section-description">
+          {{ section.settings.section_description }}
+        </p>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div
+    class="d-flex column nowrap accordion {% if section.settings.full_width == false %}page-width{% endif %}"
+  >
+    {% for block in section.blocks %}
+      <div class="accordion-item">
+        <input
+          type="{% if section.settings.allow_multiple %}checkbox{% else %}radio{% endif %}"
+          name="accordion-{{ section.id }}"
+          id="accordion-{{ section.id }}-{{ forloop.index }}"
+          {% if forloop.first and section.settings.first_open %}
+            checked
+          {% endif %}
+        >
+
+        <label
+          for="accordion-{{ section.id }}-{{ forloop.index }}"
+          class="accordion-header"
+          style="background: {{ section.settings.header_bg }}"
+        >
+          {{ block.settings.title }}
+
+          {% if section.settings.show_icon %}
+            <span class="accordion-arrow d-flex justify-center align-center ">
+              {{ 'arrow-down-icon.svg' | inline_asset_content }}
+            </span>
+          {% endif %}
+        </label>
+
+        <div class="accordion-content">
+          {{ block.settings.content }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+  .accordion-section-{{ section.id }}{
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  .accordion-heading-wrapper {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .accordion {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .page-width {
+    max-width: 1200px;
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid #eee;
+  }
+
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+    margin-bottom: 1.5rem;
+    text-transform:{{section.settings.text_transform}}
+  }
+
+  .accordion-header:hover {
+    opacity: 0.9;
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 20px;
+  }
+
+  .accordion-content p {
+    margin: 15px 0;
+  }
+
+  input {
+    display: none;
+  }
+
+  input:checked + .accordion-header + .accordion-content {
+    max-height: 400px;
+    padding-bottom: 20px;
+  }
+
+  .accordion-arrow {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+    background: white;
+  }
+  .accordion-arrow svg {
+    width:1.5rem;
+    height:1.5rem;
+    }
+
+  input:checked + .accordion-header .accordion-arrow {
+    transform: rotate(-180deg);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Advanced Accordion",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "textarea",
+      "id": "section_description",
+      "label": "Section Description"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Width container",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "text_transform",
+      "label": "Text Transform",
+      "options": [
+        { "value": "none", "label": "Default" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "header_bg",
+      "label": "Header Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "allow_multiple",
+      "label": "Allow Multiple Open",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "first_open",
+      "label": "Open First Item By Default",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon",
+      "label": "Show Icon",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion_item",
+      "name": "Accordion Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Accordion Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Accordion content goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advanced Accordion",
+      "blocks": [{ "type": "accordion_item" }]
+    }
+  ]
+}
+{% endschema %}
