@@ -99,9 +99,15 @@
       "settings": {
         "image": "shopify://shop_images/Rectangle_68.png",
         "heading": "Handmade and repurposed",
+        "text_transform": "none",
         "sub_heading": "",
         "description": "<p>Founded and run by life-long scaffolder and maker Jack Cornish, The Scaff Shop is a real passion project, turning new and used scaffold boards in to beautiful and functional items for your home or business and supplying them for you to do the same.  <br/><br/>From our premises in Frome, Somerset, we hold a large stock of scaffold boards and pallet wood, as well as scaffold tubes and clamps, and can offer these in any quantity - from individual boards courier delivered nationwide, to bulk orders ideal for cladding, shop fitting or a whole range of other uses.<br/><br/></p>",
+        "container_width_flag": false,
+        "padding_flag": false,
+        "container_width": 500,
         "row_direction": "0",
+        "bg_color": "#f8f8f8",
+        "email_flag": false,
         "button_label": "About Us",
         "button_bg_color": "#000000",
         "button_text_color": "#ffffff",
@@ -114,9 +120,15 @@
       "settings": {
         "image": "shopify://shop_images/Rectangle_69.png",
         "heading": "We are a team of scaff board stylists",
+        "text_transform": "none",
         "sub_heading": "",
         "description": "<p>How much can you do with a scaffold board? Well, actually, quite a lot. We can sand it and oil it or leave it raw, create a simple but beautifiul shelf or a whole dining table, or flame our boards to an amazing Japanese style Shou Sugi Ban finish.<br/><br/>We love boards and love creating awesome things from them.</p>",
+        "container_width_flag": false,
+        "padding_flag": false,
+        "container_width": 500,
         "row_direction": "1",
+        "bg_color": "#f8f8f8",
+        "email_flag": false,
         "button_label": "About Us",
         "button_bg_color": "#000000",
         "button_text_color": "#ffffff",
@@ -281,21 +293,25 @@
         "padding_bottom": 50
       }
     },
-    "newsletter_yi3Ry4": {
-      "type": "newsletter",
-      "name": "Static News Letter",
+    "image_with_text_zLQq3V": {
+      "type": "image-with-text",
+      "name": "Image with text",
       "settings": {
         "image": "shopify://shop_images/Rectangle_55.png",
-        "heading": "<h1>Stay Inspired by Sustainable Design</h1>",
+        "heading": "Stay Inspired by Sustainable Design",
         "text_transform": "uppercase",
-        "sub_heading": "<p>Be part of The Scaff Shop community — where reclaimed materials meet modern design.</p>",
+        "sub_heading": "Stay Inspired by Sustainable Design",
+        "description": "<p>Be part of The Scaff Shop community — where reclaimed materials meet modern design.</p>",
         "container_width_flag": true,
-        "container_width": 525,
+        "padding_flag": true,
+        "container_width": 500,
+        "row_direction": "1",
         "bg_color": "#f8f8f8",
-        "button_label": "Visit Our Store",
-        "button_color": "#000000",
+        "email_flag": true,
+        "button_label": "About Us",
+        "button_bg_color": "#000000",
         "button_text_color": "#ffffff",
-        "grid_direction": "reverse"
+        "button_url": ""
       }
     }
   },
@@ -307,6 +323,6 @@
     "hero_image_banner_gGKYeH",
     "ticker_HPg4N3",
     "accordian_gVny4h",
-    "newsletter_yi3Ry4"
+    "image_with_text_zLQq3V"
   ]
 }
