@@ -15,19 +15,19 @@
 
     <div class="content-wrapper">
       {% if section.settings.heading != blank %}
-        <h1 class="section-heading">
+        <h1 class="section-heading {% if section.settings.container_width_flag %}container_width{% endif %}">
           {{ section.settings.heading }}
         </h1>
       {% endif %}
 
       {% if section.settings.sub_heading != blank %}
-        <h3 class="section-subheading">
+        <h3 class="section-subheading {% if section.settings.container_width_flag %}container_width{% endif %}">
           {{ section.settings.sub_heading }}
         </h3>
       {% endif %}
 
       {% if section.settings.description != blank %}
-        <div class="section-description">
+        <div class="section-description {% if section.settings.container_width_flag %}container_width{% endif %}">
           {{ section.settings.description }}
         </div>
       {% endif %}
@@ -37,6 +37,34 @@
           {{ section.settings.button_label }}
         </a>
       {% endif %}
+      {%- if section.settings.email_flag -%}
+        {% form 'customer', class: 'newsletter-form' %}
+          <div class="newsletter-input-wrapper d-flex column">
+            <input
+              type="email"
+              name="contact[email]"
+              placeholder="Enter your email"
+              required
+              class="border-unset"
+            >
+
+            <button
+              type="submit"
+              style="background:black;color:white"
+            >
+              {{ 'visit our store' | upcase }}
+            </button>
+          </div>
+
+          {% if form.posted_successfully? %}
+            <p class="success-message">Thank you for subscribing!</p>
+          {% endif %}
+
+          {% if form.errors %}
+            <p class="error-message">{{ form.errors | default_errors }}</p>
+          {% endif %}
+        {% endform %}
+      {%- endif -%}
     </div>
   </div>
 </div>
@@ -46,8 +74,13 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  padding: 2rem 3rem;
+  {%- if section.settings.padding_flag -%}
+      padding: 0 0 0 3rem;
+  {%- else -%}
+    padding: 2rem 3rem;
+  {%- endif -%}
   align-items: center;
+  background: {{ section.settings.bg_color }};
   }
 
   .image-text-container-{{ section.id }} .image-wrapper {
@@ -59,6 +92,12 @@
   justify-content: center;
   align-items: flex-start;
   }
+  .image-text-container-{{ section.id }} .content-wrapper h1{
+  text-transform:{{ section.settings.text_transform }}
+  }
+  .container_width{
+  max-width:{{section.settings.container_width}}px
+  }
   @media (max-width: 768px) {
   .image-text-container-{{ section.id }} {
   grid-template-columns: 1fr;
@@ -69,6 +108,14 @@
   color:{{ section.settings.button_text_color }} !important;
   background-color:{{ section.settings.button_bg_color }}!important;
   }
+
+  form {
+  width: 100%;
+  margin-top:1rem;
+  }
+  form input ,form button{
+  padding:1rem;
+}
 </style>
 {% schema %}
 {
@@ -84,6 +131,19 @@
       "label": "Heading",
       "id": "heading"
     },
+
+    {
+      "type": "select",
+      "id": "text_transform",
+      "label": "Text Transform",
+      "options": [
+        { "value": "none", "label": "Default" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
     {
       "type": "text",
       "label": "Sub heading",
@@ -93,6 +153,29 @@
       "type": "richtext",
       "label": "Description",
       "id": "description"
+    },
+    {
+      "type": "checkbox",
+      "label": "container width",
+      "id": "container_width_flag",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "label": "full image",
+      "id": "padding_flag",
+      "default": false
+    },
+    {
+      "type": "range",
+      "label": "container width",
+      "id": "container_width",
+      "min": 200,
+      "max": 700,
+      "step": 5,
+      "unit": "px",
+      "info": "this is the range of container max width",
+      "default": 500
     },
     {
       "type": "select",
@@ -110,6 +193,13 @@
       ],
       "default": "0"
     },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f8f8f8"
+    },
+    { "type": "checkbox", "label": "allow email subscription form", "id": "email_flag", "default": false },
     {
       "type": "text",
       "label": "Button label",
