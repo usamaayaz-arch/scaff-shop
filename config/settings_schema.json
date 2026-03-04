@@ -120,5 +120,30 @@
         "default": 7
       }
     ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "footer_logo",
+        "label": "Logo"
+      },
+      {
+        "label": "Logo Width",
+        "id": "footer_logo_width",
+        "type": "range",
+        "min": 3,
+        "max": 20,
+        "step": 1,
+        "unit": "rem",
+        "default": 7
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "description"
+      }
+    ]
   }
 ]

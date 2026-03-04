@@ -1,19 +1,91 @@
-<div>
-    FOOTER
-</div>
+<div class="footer">
+  {% assign total_columns = 0 %}
+  <div>
+    {%- assign logo_width = settings.logo_width | times: 8 -%}
+      <img
+              src="{{ settings.footer_logo | image_url }}"
+              alt="{{ settings.footer_logo.alt | default: shop.name }}"
+              width="{{logo_width}}"
+              height="auto"
+              loading="lazy"
+            >  </div>
+  {%- for block in section.blocks -%}
+    {% if block.type == 'link_list' %}
+      <div class="footer-menu">
+        {% if block.settings.heading != blank %}
+          <h4>{{ block.settings.heading }}</h4>
+        {% endif %}
 
-{% schema %}
-  {
-    "name": "Footer",
-    "settings": [
-      
-    ],
-    "presets": [
-      {
-        "name": "Footer",
-        "settings": {
-        }
-      }
-    ]
+        {% assign footer_menu = linklists[block.settings.menu] %}
+        {% if footer_menu.links.size > 0 %}
+          <ul>
+            {% for link in footer_menu.links %}
+              <li>
+                <a href="{{ link.url }}">
+                  {{ link.title }}
+                </a>
+
+                {% if link.links != blank %}
+                  <ul>
+                    {% for child_link in link.links %}
+                      <li>
+                        <a href="{{ child_link.url }}">
+                          {{ child_link.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    {% endif %}
+  {%- endfor -%}
+</div>
+<style>
+  .footer {
+    display: grid;
+    {% assign total_columns = section.blocks.size | plus: 1 %}
+    grid-template-columns: repeat({{ total_columns }}, 1fr);
   }
+</style>
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": "menu",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Menu",
+          "label": "Menu Title"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "footer",
+          "label": "footer"
+        },
+        {
+          "type": "checkbox",
+          "id": "mobile_menu_flag",
+          "default": false,
+          "label": "Mobile View",
+          "info": "If checkbox is enabled then the menu will be visible in mobile view"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
 {% endschema %}

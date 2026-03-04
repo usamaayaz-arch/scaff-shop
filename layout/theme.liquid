@@ -7,7 +7,6 @@
     <title>{{ page_title }}</title>
 
     <style>
-      /* Reset & Base */
       * { box-sizing: border-box; margin: 0; padding: 0; }
       body {
         background-color: var(--color-background) !important;
@@ -22,7 +21,6 @@
       .border-unset{border:unset}
       .outline-unset{outline:unset}
 
-      /* Flex Utilities */
       .d-flex { display: flex; }
       .d-flex-imp { display: flex !important; }
       .row { flex-direction: row; }
@@ -37,20 +35,17 @@
       .align-left { align-items: flex-start; }
       .align-end { align-items: flex-end; }
 
-      /* Width & Height Utilities */
       .width-100 { width: 100%; }
       .h-auto { height: auto; }
       .min-width-unset { min-width: unset !important; }
       .text-align-left{text-align:left;}
 
-      /* Gap Utilities */
       .gap-1 { gap: 1rem; }
       .gap-2 { gap: 2rem; }
       .gap-3 { gap: 3rem; }
       .gap-4 { gap: 4rem; }
       .gap-5 { gap: 5rem; }
 
-      /* Margin & Padding Utilities */
       .m-0 { margin: 0 !important; }
       .m-1 { margin: 1rem !important; }
       .m-2 { margin: 2rem !important; }
@@ -77,12 +72,10 @@
         .page-pa { padding: 1rem 1rem; !important }
       }
 
-      /* Flex Growth */
       .flex-1 { flex: 1; }
       .flex-2 { flex: 2; }
       .flex-3 { flex: 3; }
 
-      /* Border & Radius */
       .border { border: 1px solid var(--color-border); }
       .border-0 { border: none; }
       .rounded-sm { border-radius: var(--radius-sm); }
@@ -90,7 +83,6 @@
       .rounded-lg { border-radius: var(--radius-lg); }
       .rounded-pill { border-radius: var(--radius-pill); }
 
-      /* Typography */
       .text-xs { font-size: var(--font-size-xs); }
       .text-sm { font-size: var(--font-size-sm); }
       .text-md { font-size: var(--font-size-md); }
@@ -110,16 +102,13 @@
       .order-2{order:2}
       .order-3{order:3}
 
-      /* Theme Variables */
       :root {
-        /* Colors */
         --color-primary: {{ settings.color_primary }};
         --color-secondary: {{ settings.color_secondary }};
         --color-background: {{ settings.color_background }};
         --color-text: {{ settings.color_text }};
         --color-border: {{ settings.color_border }};
 
-        /* Typography */
         --font-heading: {{ settings.font_heading.family | default: 'Helvetica' }};
         --font-body: {{ settings.font_body.family | default: 'Helvetica' }};
         --font-base-size: {{ settings.font_base_size | default: 17 }}px;
@@ -134,7 +123,6 @@
         --font-size-xl: calc(var(--font-base-size) * 1.5);
         --font-size-xxl: calc(var(--font-base-size) * 2);
 
-        /* Container & Spacing */
         --container-width: {{ settings.container_width }}px;
         --container-padding: 20px;
 
@@ -147,14 +135,12 @@
         --space-7: 48px;
         --space-8: 64px;
 
-        /* Radius */
         --radius-sm: 4px;
         --radius-md: {{ settings.button_radius }}px;
         --radius-lg: 16px;
         --radius-pill: 999px;
       }
 
-      /* Apply heading font globally */
       h1,h2,h3,h4,h5,h6 {
         font-family: var(--font-heading), var(--font-heading-fallback);
       }
@@ -168,5 +154,7 @@
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
+    {% section 'footer' %}
+
   </body>
 </html>
