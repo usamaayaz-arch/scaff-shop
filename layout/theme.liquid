@@ -19,6 +19,9 @@
       a { text-decoration: none; color: inherit; }
       h1,h2,h3,h4,h5,h6,p,label,div,span { color: var(--color-text); font-family: inherit; }
 
+      .border-unset{border:unset}
+      .outline-unset{outline:unset}
+
       /* Flex Utilities */
       .d-flex { display: flex; }
       .d-flex-imp { display: flex !important; }
@@ -38,6 +41,7 @@
       .width-100 { width: 100%; }
       .h-auto { height: auto; }
       .min-width-unset { min-width: unset !important; }
+      .text-align-left{text-align:left;}
 
       /* Gap Utilities */
       .gap-1 { gap: 1rem; }
@@ -59,11 +63,15 @@
       .p-0 { padding: 0 !important; }
       .p-1 { padding: 1rem !important; }
       .p-2 { padding: 2rem !important; }
+      .p-3 { padding: 3rem !important; }
+      .p-4 { padding: 4rem !important; }
+      .p-5 { padding: 5rem !important; }
       .px-1 { padding-left: 1rem; padding-right: 1rem; }
       .px-2 { padding-left: 2rem; padding-right: 2rem; }
       .py-1 { padding-top: 1rem; padding-bottom: 1rem; }
       .py-1d5 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
-
+      .pr-1-imp{padding-right:1rem !important}
+      .pr-0-imp{padding-right:0rem !important}
       .page-pa { padding: 1rem 3rem; }
       @media screen and (max-width: 425px){
         .page-pa { padding: 1rem 1rem; }
@@ -95,6 +103,12 @@
 
       li { list-style: none; }
       svg { width: 2rem; height: 2rem; }
+
+      .d-grid{display:grid;}
+      .grid-template-col-2{grid-template-columns:repeat(2,2fr);}
+      .order-1{order:1}
+      .order-2{order:2}
+      .order-3{order:3}
 
       /* Theme Variables */
       :root {

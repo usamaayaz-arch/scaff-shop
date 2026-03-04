@@ -1,0 +1,233 @@
+<div class="static-newsletter d-grid grid-template-col-2">
+  {% if section.settings.image %}
+    <div class="newsletter-image {% if section.settings.grid_direction == 'reverse' %}order-1{% endif %}">
+      <img src="{{ section.settings.image | image_url }}" alt="Newsletter" width="auto" height="auto">
+    </div>
+  {% endif %}
+  <div class="container d-flex column align-flex-start justify-center  text-align-left p-3 pr-0-imp">
+    {% if section.settings.heading != blank %}
+      <div class="newsletter-heading">
+        {{ section.settings.heading }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.sub_heading != blank %}
+      <div class="newsletter-subheading">
+        {{ section.settings.sub_heading }}
+      </div>
+    {% endif %}
+
+    {% form 'customer', class: 'newsletter-form' %}
+      <div class="newsletter-input-wrapper">
+        <input
+          type="email"
+          name="contact[email]"
+          placeholder="Enter your email"
+          required
+          class="border-unset"
+        >
+
+        <button
+          type="submit"
+          style="background-color: {{ section.settings.button_color }}; color: {{ section.settings.button_text_color }};"
+        >
+          {{ section.settings.button_label | default: 'Subscribe' }}
+        </button>
+      </div>
+
+      {% if form.posted_successfully? %}
+        <p class="success-message">Thank you for subscribing!</p>
+      {% endif %}
+
+      {% if form.errors %}
+        <p class="error-message">{{ form.errors | default_errors }}</p>
+      {% endif %}
+    {% endform %}
+  </div>
+</div>
+<style>
+  .static-newsletter {
+    background: {{ section.settings.bg_color }};
+  }
+
+  .static-newsletter.d-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .static-newsletter .order-1 {
+    order: 2;
+  }
+
+  .static-newsletter .newsletter-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .newsletter-heading h1,
+  .newsletter-heading h2,
+  .newsletter-heading h3,
+  .newsletter-heading h4,
+  .newsletter-heading h5,
+  .newsletter-heading h6,
+  .newsletter-heading p{
+  text-transform:{{ section.settings.text_transform }}
+  }
+  .newsletter-heading,.newsletter-subheading{
+    {% if section.settings.container_width_flag %}
+  max-width:{{ section.settings.container_width }}px;
+    {% endif %}
+  }
+  .newsletter-input-wrapper {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-direction: column;
+  }
+
+  .newsletter-input-wrapper input {
+    flex: 1;
+    padding: 12px;
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .newsletter-input-wrapper button {
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 4px;
+    transition: 0.3s ease;
+  }
+
+  .newsletter-input-wrapper button:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+
+    .static-newsletter.d-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .static-newsletter .order-1 {
+      order: unset;
+    }
+
+    .static-newsletter {
+      text-align: center;
+    }
+
+    .static-newsletter .container {
+      max-width: 100%;
+      padding:2rem !important;
+      padding-top: 0rem !important;
+    }
+
+    .newsletter-input-wrapper {
+      flex-direction: column;
+    }
+
+    .newsletter-input-wrapper button {
+      width: 100%;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Static News Letter",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "image"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "text_transform",
+      "label": "Text Transform",
+      "options": [
+        { "value": "none", "label": "Default" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "richtext",
+      "id": "sub_heading",
+      "label": "Sub Heading"
+    },
+    {
+    "type": "checkbox",
+    "label": "container width",
+    "id": "container_width_flag",
+    "default":false
+    },
+    {
+    "type": "range",
+    "label": "container width",
+    "id": "container_width",
+    "min":200,
+    "max": 700,
+    "step": 5,
+    "unit": "px",
+    "info": "this is the range of container max width",
+    "default":500
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Color"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color"
+    },
+    {
+      "id": "grid_direction",
+      "type": "select",
+      "label": "Direction",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "reverse",
+          "label": "Reverse"
+        }
+      ],
+      "default": "normal"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Static News Letter",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
