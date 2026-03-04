@@ -32,7 +32,9 @@
         "button_label_2": "",
         "button_url_2": "",
         "button_bg": "#ffffff",
-        "button_color": "#000000"
+        "button_color": "#000000",
+        "is_outline": false,
+        "second_button_color": "#ffffff"
       }
     },
     "ticker_gc9UrR": {
@@ -87,7 +89,70 @@
         "flex_wrapper": false,
         "image_size": 1.6,
         "font_size": 1.6,
-        "padding_y": 1.8
+        "padding_y": 1.8,
+        "speed": 20
+      }
+    },
+    "image_with_text_KwVih3": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_68.png",
+        "heading": "Handmade and repurposed",
+        "sub_heading": "",
+        "description": "<p>Founded and run by life-long scaffolder and maker Jack Cornish, The Scaff Shop is a real passion project, turning new and used scaffold boards in to beautiful and functional items for your home or business and supplying them for you to do the same.  <br/><br/>From our premises in Frome, Somerset, we hold a large stock of scaffold boards and pallet wood, as well as scaffold tubes and clamps, and can offer these in any quantity - from individual boards courier delivered nationwide, to bulk orders ideal for cladding, shop fitting or a whole range of other uses.<br/><br/></p>",
+        "row_direction": "0",
+        "button_label": "About Us",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_url": "shopify://products/coffee-in-hand-hoodie-copy-1"
+      }
+    },
+    "image_with_text_mRPrxG": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_69.png",
+        "heading": "We are a team of scaff board stylists",
+        "sub_heading": "",
+        "description": "<p>How much can you do with a scaffold board? Well, actually, quite a lot. We can sand it and oil it or leave it raw, create a simple but beautifiul shelf or a whole dining table, or flame our boards to an amazing Japanese style Shou Sugi Ban finish.<br/><br/>We love boards and love creating awesome things from them.</p>",
+        "row_direction": "1",
+        "button_label": "About Us",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_url": "shopify://pages/contact-us"
+      }
+    },
+    "hero_image_banner_gGKYeH": {
+      "type": "hero-image-banner",
+      "custom_css": [
+        ".hero-button:nth-child(2) {padding: 12px 24px;}"
+      ],
+      "name": "Hero Banner",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_45.png",
+        "image_height": 40,
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 0.1,
+        "heading": "The Annual Workshop Sale Has Arrived.",
+        "sub_heading": "<p>Save up to 25% on handcrafted furniture, shelving, and bespoke pieces — each made from reclaimed scaffold boards, sustainably sourced and built to last.</p>",
+        "text_color": "#e8e7e7",
+        "heading_size": "36px",
+        "heading_letter_spacing": -1,
+        "heading_line_height": 40,
+        "heading_weight": "700",
+        "heading_case": "uppercase",
+        "sub_heading_weight": "400",
+        "is_in_container": true,
+        "container_width": 35,
+        "button_label": "Shop The Sale",
+        "button_url": "shopify://pages/contact-us",
+        "button_label_2": "Explore Our Bestsellers",
+        "button_url_2": "shopify://pages/contact-us",
+        "button_bg": "#ffffff",
+        "button_color": "#000000",
+        "is_outline": true,
+        "second_button_color": "#ffffff"
       }
     },
     "ticker_HPg4N3": {
@@ -166,73 +231,82 @@
         "flex_wrapper": false,
         "image_size": 7,
         "font_size": 1,
-        "padding_y": 1
+        "padding_y": 1,
+        "speed": 20
       }
     },
-    "image_with_text_KwVih3": {
-      "type": "image-with-text",
-      "name": "Image with text",
+    "accordian_gVny4h": {
+      "type": "accordian",
+      "blocks": {
+        "accordion_item_U8rmgX": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Accordion Title",
+            "content": "<p>Accordion content goes here.</p>"
+          }
+        },
+        "accordion_item_NaLfGK": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Accordion Title",
+            "content": "<p>Accordion content goes here.</p>"
+          }
+        },
+        "accordion_item_ttXP3n": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Accordion Title",
+            "content": "<p>Accordion content goes here.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_item_U8rmgX",
+        "accordion_item_NaLfGK",
+        "accordion_item_ttXP3n"
+      ],
+      "name": "Advanced Accordion",
       "settings": {
-        "image": "shopify://shop_images/Rectangle_68.png",
-        "heading": "Handmade and repurposed",
-        "sub_heading": "",
-        "description": "<p>Founded and run by life-long scaffolder and maker Jack Cornish, The Scaff Shop is a real passion project, turning new and used scaffold boards in to beautiful and functional items for your home or business and supplying them for you to do the same.  <br/><br/>From our premises in Frome, Somerset, we hold a large stock of scaffold boards and pallet wood, as well as scaffold tubes and clamps, and can offer these in any quantity - from individual boards courier delivered nationwide, to bulk orders ideal for cladding, shop fitting or a whole range of other uses.<br/><br/></p>",
-        "row_direction": "0",
-        "button_label": "About Us",
-        "button_bg_color": "#000000",
+        "section_heading": "Frequently Asked Questions",
+        "section_description": "",
+        "full_width": true,
+        "text_transform": "uppercase",
+        "bg_color": "#ffffff",
+        "text_color": "#333333",
+        "header_bg": "#f8f8f8",
+        "allow_multiple": false,
+        "first_open": true,
+        "show_icon": true,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "newsletter_yi3Ry4": {
+      "type": "newsletter",
+      "name": "Static News Letter",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_55.png",
+        "heading": "<h1>Stay Inspired by Sustainable Design</h1>",
+        "text_transform": "uppercase",
+        "sub_heading": "<p>Be part of The Scaff Shop community — where reclaimed materials meet modern design.</p>",
+        "container_width_flag": true,
+        "container_width": 525,
+        "bg_color": "#f8f8f8",
+        "button_label": "Visit Our Store",
+        "button_color": "#000000",
         "button_text_color": "#ffffff",
-        "button_url": "shopify://products/coffee-in-hand-hoodie-copy-1"
-      }
-    },
-    "image_with_text_mRPrxG": {
-      "type": "image-with-text",
-      "name": "Image with text",
-      "settings": {
-        "image": "shopify://shop_images/Rectangle_69.png",
-        "heading": "We are a team of scaff board stylists",
-        "sub_heading": "",
-        "description": "<p>How much can you do with a scaffold board? Well, actually, quite a lot. We can sand it and oil it or leave it raw, create a simple but beautifiul shelf or a whole dining table, or flame our boards to an amazing Japanese style Shou Sugi Ban finish.<br/><br/>We love boards and love creating awesome things from them.</p>",
-        "row_direction": "1",
-        "button_label": "About Us",
-        "button_bg_color": "#000000",
-        "button_text_color": "#ffffff",
-        "button_url": "shopify://pages/contact-us"
-      }
-    },
-    "hero_image_banner_gGKYeH": {
-      "type": "hero-image-banner",
-      "name": "Hero Banner",
-      "settings": {
-        "image": "shopify://shop_images/Rectangle_45.png",
-        "image_height": 40,
-        "overlay_color": "#ffffff",
-        "overlay_opacity": 0.1,
-        "heading": "The Annual Workshop Sale Has Arrived.",
-        "sub_heading": "<p>Save up to 25% on handcrafted furniture, shelving, and bespoke pieces — each made from reclaimed scaffold boards, sustainably sourced and built to last.</p>",
-        "text_color": "#e8e7e7",
-        "heading_size": "36px",
-        "heading_letter_spacing": -1,
-        "heading_line_height": 40,
-        "heading_weight": "700",
-        "heading_case": "uppercase",
-        "sub_heading_weight": "400",
-        "is_in_container": true,
-        "container_width": 35,
-        "button_label": "Shop The Sale",
-        "button_url": "shopify://pages/contact-us",
-        "button_label_2": "Explore Our Bestsellers",
-        "button_url_2": "shopify://pages/contact-us",
-        "button_bg": "#ffffff",
-        "button_color": "#000000"
+        "grid_direction": "reverse"
       }
     }
   },
   "order": [
     "hero",
     "ticker_gc9UrR",
-    "ticker_HPg4N3",
     "image_with_text_KwVih3",
     "image_with_text_mRPrxG",
-    "hero_image_banner_gGKYeH"
+    "hero_image_banner_gGKYeH",
+    "ticker_HPg4N3",
+    "accordian_gVny4h",
+    "newsletter_yi3Ry4"
   ]
 }
