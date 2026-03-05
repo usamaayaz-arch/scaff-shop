@@ -2,60 +2,47 @@
   <style>
     .ticker--{{ section.id }} {
       overflow: hidden;
+      position: relative;
+    }
+
+    .ticker--{{ section.id }} .ticker__track {
+      display: flex;
+      width: max-content;
+      animation: ticker-scroll-{{ section.id }} {{ section.settings.speed }}s linear infinite;
     }
 
     .ticker--{{ section.id }} .ticker__container {
-      flex-wrap: {%  if section.settings.flex_wrapper%} wrap {%- else -%}nowrap {%  endif %};
+      display: flex;
+      align-items: center;
+      gap: 2rem;
       padding-top: {{ section.settings.padding_y }}rem;
       padding-bottom: {{ section.settings.padding_y }}rem;
-      justify-content: {{ section.settings.justify_content }};
-      gap: 1rem;
-      border: 1px solid #EDEDED;
     }
 
     .ticker--{{ section.id }} .ticker__item {
+      display: flex;
+      align-items: center;
       gap: 0.5rem;
       font-size: {{ section.settings.font_size }}rem;
+      white-space: nowrap;
     }
 
-    .ticker--{{ section.id }} .ticker__label {
-      width: max-content;
-    }
-
-    {% for block in section.blocks %}
-    .ticker--{{ section.id }} .ticker__image--{{ block.id }} {
+    .ticker--{{ section.id }} .ticker__image {
       width: {{ section.settings.image_size }}rem;
       height: auto;
-      display: block;
     }
-    {% endfor %}
+
+    @keyframes ticker-scroll-{{ section.id }} {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .ticker--{{ section.id }}:hover .ticker__track {
+      animation-play-state: paused;
+    }
   </style>
-
-  <div class="ticker ticker--{{ section.id }}">
-    <div class="ticker__container d-flex align-center page-pa ">
-      {% for block in section.blocks %}
-        <div class="ticker__item d-flex align-center no-wrap" {{ block.shopify_attributes }}>
-          {% if block.settings.image %}
-            <img
-              width="auto"
-              height="auto"
-              class="ticker__image ticker__image--{{ block.id }}"
-              src="{{ block.settings.image | image_url }}"
-              alt="{{ block.settings.image.alt | escape }}"
-              loading="lazy"
-            >
-          {% endif %}
-
-          {% if block.settings.text != blank %}
-            <div class="ticker__label">
-              {{ block.settings.text }}
-            </div>
-          {% endif %}
-        </div>
-      {% endfor %}
-    </div>
-  </div>
 {% endcomment %}
+
 <style>
   .ticker--{{ section.id }} {
     overflow: hidden;
@@ -74,6 +61,7 @@
     gap: 2rem;
     padding-top: {{ section.settings.padding_y }}rem;
     padding-bottom: {{ section.settings.padding_y }}rem;
+    flex-shrink: 0;
   }
 
   .ticker--{{ section.id }} .ticker__item {
@@ -90,8 +78,8 @@
   }
 
   @keyframes ticker-scroll-{{ section.id }} {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-45%); }
   }
 
   .ticker--{{ section.id }}:hover .ticker__track {
@@ -101,72 +89,80 @@
 
 <div class="ticker ticker--{{ section.id }}">
   <div class="ticker__track">
-    <div class="ticker__container">
-      {% for block in section.blocks %}
-        <div class="ticker__item" {{ block.shopify_attributes }}>
-          {% if block.settings.image %}
-            <img
-              width="auto"
-              height="auto"
-              class="ticker__image"
-              src="{{ block.settings.image | image_url }}"
-              alt="{{ block.settings.image.alt | escape }}"
-              loading="lazy"
-            >
-          {% endif %}
-          {% if block.settings.text != blank %}
-            <div>{{ block.settings.text }}</div>
-          {% endif %}
-        </div>
-      {% endfor %}
-    </div>
+    {% for i in (1..3) %}
+      <div class="ticker__container">
+        {% for block in section.blocks %}
+          <div class="ticker__item" {{ block.shopify_attributes }}>
+            {% if block.settings.image %}
+              <img
+                width="auto"
+                height="auto"
+                class="ticker__image"
+                src="{{ block.settings.image | image_url }}"
+                alt="{{ block.settings.image.alt | escape }}"
+                loading="lazy"
+              >
+            {% endif %}
 
-    <div class="ticker__container">
-      {% for block in section.blocks %}
-        <div class="ticker__item">
-          {% if block.settings.image %}
-            <img
-              width="auto"
-              height="auto"
-              class="ticker__image"
-              src="{{ block.settings.image | image_url }}"
-              alt=""
-              loading="lazy"
-            >
-          {% endif %}
-          {% if block.settings.text != blank %}
-            <div>{{ block.settings.text }}</div>
-          {% endif %}
-        </div>
-      {% endfor %}
-    </div>
+            {% if block.settings.text != blank %}
+              <div>{{ block.settings.text }}</div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
   </div>
 </div>
+{% comment %}
+  <div class="ticker ticker--{{ section.id }}">
+    <div class="ticker__track">
+      <div class="ticker__container">
+        {% for block in section.blocks %}
+          <div class="ticker__item" {{ block.shopify_attributes }}>
+            {% if block.settings.image %}
+              <img
+                width="auto"
+                height="auto"
+                class="ticker__image"
+                src="{{ block.settings.image | image_url }}"
+                alt="{{ block.settings.image.alt | escape }}"
+                loading="lazy"
+              >
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <div>{{ block.settings.text }}</div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="ticker__container">
+        {% for block in section.blocks %}
+          <div class="ticker__item">
+            {% if block.settings.image %}
+              <img
+                width="auto"
+                height="auto"
+                class="ticker__image"
+                src="{{ block.settings.image | image_url }}"
+                alt=""
+                loading="lazy"
+              >
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <div>{{ block.settings.text }}</div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endcomment %}
 
 {% schema %}
 {
   "name": "Ticker",
   "settings": [
-    {
-      "type": "select",
-      "id": "justify_content",
-      "label": "Justify Content",
-      "options": [
-        { "value": "space-around", "label": "Space Around" },
-        { "value": "space-evenly", "label": "Space Evenly" },
-        { "value": "space-between", "label": "Space Between" },
-        { "value": "flex-start", "label": "Start" },
-        { "value": "flex-end", "label": "End" },
-        { "value": "center", "label": "Center" }
-      ],
-      "default": "space-between"
-    },
-    {
-      "type": "checkbox",
-      "id": "flex_wrapper",
-      "label": "Allow the ticker list to be wrap",
-      "default": false
-    },
     {
       "type": "range",
       "id": "image_size",
@@ -190,7 +186,7 @@
     {
       "type": "range",
       "id": "padding_y",
-      "label": "Padding Y",
+      "label": "Space Top/Bottom",
       "min": 1,
       "max": 10,
       "step": 0.2,

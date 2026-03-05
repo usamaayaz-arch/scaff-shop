@@ -1,0 +1,128 @@
+<div class="main mb-2">
+  <div class="container">
+    <div class="blog-section-heading">
+      {{ section.settings.heading }}
+    </div>
+
+    <div class="articles articles-{{ section.id }}">
+      {% for article in blogs.news.articles %}
+        <div class="article article-{{ section.id }}">
+          {% if article.image %}
+            <img
+              width="auto"
+              height="auto"
+              src="{{ article.image | image_url: width: 600 }}"
+              alt="{{ article.image.alt | escape }}"
+              loading="lazy"
+            >
+          {% endif %}
+
+          <h2>{{ article.title }}</h2>
+
+          <p>{{ article.excerpt_or_content | strip_html | truncate: 120 }}</p>
+
+          <a href="{{ article.url }}">Read more</a>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.view_all %}
+      <a href="{{ blogs.news.url }}" class="view-all-btn">View All</a>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  .container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 15px;
+  }
+
+  .blog-section-heading{
+    text-align:left;
+    margin-bottom:30px;
+  }
+
+  .articles-{{ section.id }}{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:20px;
+  }
+
+  .article-{{ section.id }}{
+    background:#fff;
+    {% comment %} border-radius:8px; {% endcomment %}
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .article-{{ section.id }} img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+
+  .article-{{ section.id }} h2{
+    font-size:18px;
+    margin:8px 0px;
+  }
+
+  .article-{{ section.id }} p{
+    font-size:14px;
+    margin:0 0px 15px 0;
+  }
+
+  .article-{{ section.id }} a{
+    margin: 0 0px 20px 0px;
+    font-weight:600;
+    text-decoration: underline;
+    text-transform: capitalize;
+  }
+
+  @media (max-width: 991px){
+    .articles-{{ section.id }}{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px){
+    .articles-{{ section.id }}{
+      grid-template-columns: 1fr;
+    }
+
+    .article-{{ section.id }} h2{
+      font-size:16px;
+    }
+  }
+
+  .view-all-btn{
+    display:block;
+    text-align:center;
+    margin-top:30px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Blog Collection",
+  "settings": [
+    {
+      "type": "richtext",
+      "label": "Heading",
+      "id": "heading"
+    },
+    {
+      "type": "checkbox",
+      "label": "Show View All Button",
+      "id": "view_all"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Collection"
+    }
+  ]
+}
+{% endschema %}
