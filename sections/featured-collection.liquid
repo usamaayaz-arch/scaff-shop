@@ -94,12 +94,14 @@
             width:1rem;
             height:1rem;
           }
+          {%- if section.settings.slider_view -%}
           .featured-collection-container-{{section.id}} .products{
       display:flex;
       overflow-x:auto;
       scroll-behavior:smooth;
       gap:16px;
     }
+          {%- endif -%}
       .featured-collection-{{ section.id }} img{
           display: block;
       width: 100%;
