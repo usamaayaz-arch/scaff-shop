@@ -417,6 +417,28 @@
       "settings": {
         "heading": "<h1>shop by look</h1>",
         "heading_alignment": "justify-self-center",
+        "slider_view": false,
+        "heading_case": "uppercase"
+      }
+    },
+    "featured_collection_NT8h6j": {
+      "type": "featured-collection",
+      "blocks": {
+        "collection_NkdzqD": {
+          "type": "collection",
+          "settings": {
+            "collection": "shop-by-look"
+          }
+        }
+      },
+      "block_order": [
+        "collection_NkdzqD"
+      ],
+      "name": "Featured Collection",
+      "settings": {
+        "heading": "<h1>shop by look</h1>",
+        "heading_alignment": "justify-self-center",
+        "slider_view": true,
         "heading_case": "uppercase"
       }
     }
@@ -431,6 +453,7 @@
     "accordian_gVny4h",
     "image_with_text_zLQq3V",
     "collection_list_B6G7CK",
-    "featured_collection_W8nYnz"
+    "featured_collection_W8nYnz",
+    "featured_collection_NT8h6j"
   ]
 }
