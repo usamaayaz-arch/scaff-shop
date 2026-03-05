@@ -1,52 +1,105 @@
+{{ 'featured-collection.css' | asset_url | stylesheet_tag }}
+<script src="{{'product-slider.js' |asset_url }}" defer="defer"></script>
 <div class="main">
   <div class="container page-pa featured-collection-{{ section.id }}">
-    <div class="section-heading-{{section.id}} {{section.settings.heading_alignment}} {{section.settings.heading_case}}">
+    <div class="section-heading-{{section.id}} {{section.settings.heading_alignment}} {{section.settings.heading_case}} mb-2">
       {{ section.settings.heading }}
     </div>
+    {%- if section.settings.slider_view -%}
+      <div class="featured-collection-container-{{section.id}}">
+        {% for block in section.blocks %}
+          {% assign collection = block.settings.collection %}
 
-    <div class="">
-      {% for block in section.blocks %}
-        {% assign collection = block.settings.collection %}
+          <product-slider class="products-wrapper">
+            <span class="back_button d-flex">
+              {{- 'back_arrow_icon.svg' | inline_asset_content -}}
+            </span>
 
-        {% if collection != blank %}
-          <div class="featured-collection-card d-grid grid-template-col-2 gap-1">
-            <img
-              width="auto"
-              height="auto"
-              src="{{ collection.featured_image | image_url: width: 600 }}"
-              alt="{{ collection.title }}"
-            >
-
-            <div class="products d-grid grid-template-col-2 gap-1">
-              {% for product in collection.products limit: 4 %}
+            <div class="products">
+              {% for product in collection.products %}
                 <div class="product-card">
                   <a href="{{ product.url }}">
-                    <span class="p-relative">
+                    <div class="p-relative">
                       <img
                         width="auto"
                         height="auto"
                         src="{{ product.featured_image | image_url: width: 400 }}"
                         alt="{{ product.title }}"
                       >
-                      <div class="p-absolute z-index-1 text-center bottom-0 bg-black white w-100 p-1 add_to_cart_btn">
+                      <div class="add_to_cart_btn p-absolute bottom-0 text-align-center p-1 bg-black white w-100">
                         Add To Cart
                       </div>
-                    </span>
+                    </div>
+
                     <p>{{ product.title }}</p>
-                    <span
-                      ><strong>{{ product.price | money }}</strong></span
-                    >
+                    <strong>{{ product.price | money }}</strong>
                   </a>
                 </div>
               {% endfor %}
             </div>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
+
+            <span class="forward_button d-flex">
+              {{- 'forward_arrow_icon.svg' | inline_asset_content -}}
+            </span>
+          </product-slider>
+        {% endfor %}
+      </div>
+    {%- else -%}
+      <div class="featured-collection-container-{{section.id}}">
+        {% for block in section.blocks %}
+          {% assign collection = block.settings.collection %}
+
+          {% if collection != blank %}
+            <div class="featured-collection-card d-grid grid-template-col-2 gap-1">
+              <img
+                width="auto"
+                height="auto"
+                src="{{ collection.featured_image | image_url: width: 600 }}"
+                alt="{{ collection.title }}"
+              >
+
+              <div class="products d-grid grid-template-col-2 gap-1">
+                {% for product in collection.products limit: 4 %}
+                  <div class="product-card">
+                    <a href="{{ product.url }}">
+                      <span class="p-relative">
+                        <img
+                          width="auto"
+                          height="auto"
+                          src="{{ product.featured_image | image_url: width: 400 }}"
+                          alt="{{ product.title }}"
+                        >
+                        <div class="p-absolute z-index-1 text-center bottom-0 bg-black white w-100 p-1 add_to_cart_btn">
+                          Add To Cart
+                        </div>
+                      </span>
+                      <p>{{ product.title }}</p>
+                      <span
+                        ><strong>{{ product.price | money }}</strong></span
+                      >
+                    </a>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {%- endif -%}
   </div>
 </div>
+
 <style>
+            .featured-collection-container-{{section.id}} svg {
+            width:1rem;
+            height:1rem;
+          }
+          .featured-collection-container-{{section.id}} .products{
+      display:flex;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      gap:16px;
+    }
       .featured-collection-{{ section.id }} img{
           display: block;
       width: 100%;
@@ -86,7 +139,7 @@
       ],
       "default": "justify-self-center"
     },
-
+    { "type": "checkbox", "label": "Slider view", "id": "slider_view", "default": false },
     {
       "type": "select",
       "id": "heading_case",
