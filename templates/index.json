@@ -399,6 +399,26 @@
         "heading_alignment": "justify-self-center",
         "heading_case": "uppercase"
       }
+    },
+    "featured_collection_W8nYnz": {
+      "type": "featured-collection",
+      "blocks": {
+        "collection_QfAxKR": {
+          "type": "collection",
+          "settings": {
+            "collection": "shop-by-look"
+          }
+        }
+      },
+      "block_order": [
+        "collection_QfAxKR"
+      ],
+      "name": "Featured Collection",
+      "settings": {
+        "heading": "<h1>shop by look</h1>",
+        "heading_alignment": "justify-self-center",
+        "heading_case": "uppercase"
+      }
     }
   },
   "order": [
@@ -410,6 +430,7 @@
     "ticker_HPg4N3",
     "accordian_gVny4h",
     "image_with_text_zLQq3V",
-    "collection_list_B6G7CK"
+    "collection_list_B6G7CK",
+    "featured_collection_W8nYnz"
   ]
 }
