@@ -1,6 +1,6 @@
 <div class="main mb-2">
   <div class="container">
-    <div class="blog-section-heading">
+    <div class="section-heading-{{ section.id }} {{ section.settings.heading_alignment }} {{ section.settings.heading_case }} mb-2">
       {{ section.settings.heading }}
     </div>
 
@@ -65,6 +65,7 @@
   }
 
   .article-{{ section.id }} h2{
+    text-transform:uppercase;
     font-size:18px;
     margin:8px 0px;
   }
@@ -98,9 +99,14 @@
   }
 
   .view-all-btn{
-    display:block;
-    text-align:center;
-    margin-top:30px;
+     display: block;
+    text-align: center;
+    padding: 15px;
+    background: black;
+    color: white;
+    width: 220px;
+    margin: auto;
+    margin-top: 1rem;
   }
 </style>
 
@@ -117,6 +123,28 @@
       "type": "checkbox",
       "label": "Show View All Button",
       "id": "view_all"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "justify-self-left", "label": "Left" },
+        { "value": "justify-self-center", "label": "Center" },
+        { "value": "justify-self-right", "label": "Right" }
+      ],
+      "default": "justify-self-center"
+    },
+    {
+      "type": "select",
+      "id": "heading_case",
+      "label": "Heading Case",
+      "options": [
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "uppercase"
     }
   ],
   "presets": [
