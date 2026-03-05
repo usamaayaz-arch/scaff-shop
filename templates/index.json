@@ -85,8 +85,6 @@
       ],
       "name": "Ticker",
       "settings": {
-        "justify_content": "space-between",
-        "flex_wrapper": false,
         "image_size": 1.6,
         "font_size": 1.6,
         "padding_y": 1.8,
@@ -295,73 +293,6 @@
         "heading_case": "uppercase"
       }
     },
-    "accordian_gVny4h": {
-      "type": "accordian",
-      "blocks": {
-        "accordion_item_U8rmgX": {
-          "type": "accordion_item",
-          "settings": {
-            "title": "Accordion Title",
-            "content": "<p>Accordion content goes here.</p>"
-          }
-        },
-        "accordion_item_NaLfGK": {
-          "type": "accordion_item",
-          "settings": {
-            "title": "Accordion Title",
-            "content": "<p>Accordion content goes here.</p>"
-          }
-        },
-        "accordion_item_ttXP3n": {
-          "type": "accordion_item",
-          "settings": {
-            "title": "Accordion Title",
-            "content": "<p>Accordion content goes here.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "accordion_item_U8rmgX",
-        "accordion_item_NaLfGK",
-        "accordion_item_ttXP3n"
-      ],
-      "name": "Advanced Accordion",
-      "settings": {
-        "section_heading": "Frequently Asked Questions",
-        "section_description": "",
-        "full_width": true,
-        "text_transform": "uppercase",
-        "bg_color": "#ffffff",
-        "text_color": "#333333",
-        "header_bg": "#f8f8f8",
-        "allow_multiple": false,
-        "first_open": true,
-        "show_icon": true,
-        "padding_top": 50,
-        "padding_bottom": 50
-      }
-    },
-    "image_with_text_zLQq3V": {
-      "type": "image-with-text",
-      "name": "Image with text",
-      "settings": {
-        "image": "shopify://shop_images/Rectangle_55.png",
-        "heading": "Stay Inspired by Sustainable Design",
-        "text_transform": "uppercase",
-        "sub_heading": "",
-        "description": "<p>Be part of The Scaff Shop community — where reclaimed materials meet modern design.</p>",
-        "container_width_flag": true,
-        "padding_flag": true,
-        "container_width": 500,
-        "row_direction": "1",
-        "bg_color": "#f8f8f8",
-        "email_flag": true,
-        "button_label": "About Us",
-        "button_bg_color": "#000000",
-        "button_text_color": "#ffffff",
-        "button_url": ""
-      }
-    },
     "ticker_HPg4N3": {
       "type": "ticker",
       "blocks": {
@@ -434,12 +365,85 @@
       ],
       "name": "Ticker",
       "settings": {
-        "justify_content": "space-between",
-        "flex_wrapper": false,
         "image_size": 7,
         "font_size": 1,
-        "padding_y": 1,
-        "speed": 20
+        "padding_y": 2.4,
+        "speed": 9
+      }
+    },
+    "accordian_gVny4h": {
+      "type": "accordian",
+      "blocks": {
+        "accordion_item_U8rmgX": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Accordion Title",
+            "content": "<p>Accordion content goes here.</p>"
+          }
+        },
+        "accordion_item_NaLfGK": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Accordion Title",
+            "content": "<p>Accordion content goes here.</p>"
+          }
+        },
+        "accordion_item_ttXP3n": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Accordion Title",
+            "content": "<p>Accordion content goes here.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_item_U8rmgX",
+        "accordion_item_NaLfGK",
+        "accordion_item_ttXP3n"
+      ],
+      "name": "Advanced Accordion",
+      "settings": {
+        "section_heading": "Frequently Asked Questions",
+        "section_description": "",
+        "full_width": true,
+        "text_transform": "uppercase",
+        "bg_color": "#ffffff",
+        "text_color": "#333333",
+        "header_bg": "#f8f8f8",
+        "allow_multiple": false,
+        "first_open": true,
+        "show_icon": true,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "image_with_text_zLQq3V": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_55.png",
+        "heading": "Stay Inspired by Sustainable Design",
+        "text_transform": "uppercase",
+        "sub_heading": "",
+        "description": "<p>Be part of The Scaff Shop community — where reclaimed materials meet modern design.</p>",
+        "container_width_flag": true,
+        "padding_flag": true,
+        "container_width": 500,
+        "row_direction": "1",
+        "bg_color": "#f8f8f8",
+        "email_flag": true,
+        "button_label": "About Us",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_url": ""
+      }
+    },
+    "blog_collection_9ijTCf": {
+      "type": "blog-collection",
+      "name": "Blog Collection",
+      "settings": {
+        "heading": "",
+        "view_all": false
       }
     }
   },
@@ -454,6 +458,7 @@
     "featured_collection_NT8h6j",
     "ticker_HPg4N3",
     "accordian_gVny4h",
-    "image_with_text_zLQq3V"
+    "image_with_text_zLQq3V",
+    "blog_collection_9ijTCf"
   ]
 }
