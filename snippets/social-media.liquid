@@ -1,16 +1,24 @@
 <div class="social-media">
-  <a class="social-media-link" href="#">
-    {{ 'facebook-icon.svg' | inline_asset_content }}
-  </a>
-  <a class="social-media-link" href="#">
-    {{ 'yahoo-icon.svg' | inline_asset_content }}
-  </a>
-  <a class="social-media-link" href="#">
-    {{ 'pinterest-icon.svg' | inline_asset_content }}
-  </a>
-  <a class="social-media-link" href="#">
-    {{ 'instagram-icon.svg' | inline_asset_content }}
-  </a>
+  {%- if settings.facebook_icons_flag and settings.facebook -%}
+    <a class="social-media-link" href="{{settings.facebook}}">
+      {{ 'facebook-icon.svg' | inline_asset_content }}
+    </a>
+  {%- endif -%}
+  {%- if settings.yahoo_icons_flag and settings.yahoo -%}
+    <a class="social-media-link" href="{{settings.yahoo}}">
+      {{ 'yahoo-icon.svg' | inline_asset_content }}
+    </a>
+  {%- endif -%}
+  {%- if settings.pinterest_icons_flag and settings.pinterest -%}
+    <a class="social-media-link" href="{{settings.pinterest}}">
+      {{ 'pinterest-icon.svg' | inline_asset_content }}
+    </a>
+  {%- endif -%}
+  {%- if settings.instagram_icons_flag and settings.instagram -%}
+    <a class="social-media-link" href="{{settings.instagram}}">
+      {{ 'instagram-icon.svg' | inline_asset_content }}
+    </a>
+  {%- endif -%}
 </div>
 
 <style>

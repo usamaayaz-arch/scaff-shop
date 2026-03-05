@@ -1,18 +1,20 @@
 {{ 'featured-collection.css' | asset_url | stylesheet_tag }}
-<script src="{{'product-slider.js' |asset_url }}" defer="defer"></script>
+<script src="{{ 'product-slider.js' | asset_url }}" defer="defer"></script>
+
 <div class="main">
   <div class="container page-pa featured-collection-{{ section.id }}">
-    <div class="section-heading-{{section.id}} {{section.settings.heading_alignment}} {{section.settings.heading_case}} mb-2">
+    <div class="section-heading-{{ section.id }} {{ section.settings.heading_alignment }} {{ section.settings.heading_case }} mb-2">
       {{ section.settings.heading }}
     </div>
+
     {%- if section.settings.slider_view -%}
-      <div class="featured-collection-container-{{section.id}}">
+      <div class="featured-collection-container-{{ section.id }}">
         {% for block in section.blocks %}
           {% assign collection = block.settings.collection %}
 
           <product-slider class="products-wrapper">
             <span class="back_button d-flex">
-              {{- 'back_arrow_icon.svg' | inline_asset_content -}}
+              {{ 'back_arrow_icon.svg' | inline_asset_content }}
             </span>
 
             <div class="products">
@@ -26,6 +28,7 @@
                         src="{{ product.featured_image | image_url: width: 400 }}"
                         alt="{{ product.title }}"
                       >
+
                       <div class="add_to_cart_btn p-absolute bottom-0 text-align-center p-1 bg-black white w-100">
                         Add To Cart
                       </div>
@@ -39,13 +42,14 @@
             </div>
 
             <span class="forward_button d-flex">
-              {{- 'forward_arrow_icon.svg' | inline_asset_content -}}
+              {{ 'forward_arrow_icon.svg' | inline_asset_content }}
             </span>
           </product-slider>
         {% endfor %}
       </div>
+
     {%- else -%}
-      <div class="featured-collection-container-{{section.id}}">
+      <div class="featured-collection-container-{{ section.id }}">
         {% for block in section.blocks %}
           {% assign collection = block.settings.collection %}
 
@@ -69,14 +73,16 @@
                           src="{{ product.featured_image | image_url: width: 400 }}"
                           alt="{{ product.title }}"
                         >
+
                         <div class="p-absolute z-index-1 text-center bottom-0 bg-black white w-100 p-1 add_to_cart_btn">
                           Add To Cart
                         </div>
                       </span>
+
                       <p>{{ product.title }}</p>
-                      <span
-                        ><strong>{{ product.price | money }}</strong></span
-                      >
+                      <span>
+                        <strong>{{ product.price | money }}</strong>
+                      </span>
                     </a>
                   </div>
                 {% endfor %}
@@ -90,58 +96,64 @@
 </div>
 
 <style>
-            .featured-collection-container-{{section.id}} svg {
-            width:1rem;
-            height:1rem;
-          }
-          {%- if section.settings.slider_view -%}
-          .featured-collection-container-{{section.id}} .products{
-      display:flex;
-      overflow-x:auto;
-      scroll-behavior:smooth;
-      gap:16px;
-    }
-          {%- endif -%}
-      .featured-collection-{{ section.id }} img{
-          display: block;
-      width: 100%;
-    }
-    .product-card .add_to_cart_btn {
-      display:none;
-    }
-    .product-card:hover .add_to_cart_btn {
-    display:block;
-    }
-    @media (max-width:768px){
-      .featured-collection-card{grid-template-columns: repeat(1, 2fr);}
+  .featured-collection-container-{{ section.id }} svg {
+  width: 1rem;
+  height: 1rem;
+  }
+
+  {%- if section.settings.slider_view == true -%}
+
+  .featured-collection-container-{{ section.id }} .products {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 16px;
+  }
+
+  @media screen and (max-width: 768px) {
+
+  .featured-collection-container-{{ section.id }} .products {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  }
+
+  }
+
+  {%- endif -%}
+
+  .featured-collection-{{ section.id }} img {
+  display: block;
+  width: 100%;
   }
 </style>
+
 {% schema %}
 {
   "name": "Featured Collection",
   "settings": [
-    { "type": "richtext", "label": "Heading", "id": "heading", "default": "<h1>shop by categories</h1>" },
+    {
+      "type": "richtext",
+      "label": "Heading",
+      "id": "heading",
+      "default": "<h1>shop by categories</h1>"
+    },
     {
       "type": "select",
       "id": "heading_alignment",
       "label": "Heading alignment",
       "options": [
-        {
-          "value": "justify-self-left",
-          "label": "Left"
-        },
-        {
-          "value": "justify-self-center",
-          "label": "Center"
-        },
-        {
-          "value": "justify-self-right",
-          "label": "Right"
-        }
+        { "value": "justify-self-left", "label": "Left" },
+        { "value": "justify-self-center", "label": "Center" },
+        { "value": "justify-self-right", "label": "Right" }
       ],
       "default": "justify-self-center"
     },
-    { "type": "checkbox", "label": "Slider view", "id": "slider_view", "default": false },
+    {
+      "type": "checkbox",
+      "label": "Slider view",
+      "id": "slider_view",
+      "default": false
+    },
     {
       "type": "select",
       "id": "heading_case",

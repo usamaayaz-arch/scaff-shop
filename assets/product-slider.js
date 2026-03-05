@@ -1,4 +1,5 @@
-class ProductSlider extends HTMLElement {
+if (!customElements.get('product-slider')) {
+  class ProductSlider extends HTMLElement {
   connectedCallback() {
     this.container = this.querySelector('.products');
     this.backBtn = this.querySelector('.back_button');
@@ -27,3 +28,4 @@ class ProductSlider extends HTMLElement {
 }
 
 customElements.define('product-slider', ProductSlider);
+}

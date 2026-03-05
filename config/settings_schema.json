@@ -142,7 +142,57 @@
       {
         "type": "richtext",
         "id": "description",
-        "label": "description"
+        "label": "Description"
+      },
+      {
+        "type": "checkbox",
+        "label": "Social media icons",
+        "id": "social_media_icons_flag"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "url",
+        "id": "facebook",
+        "label": "Facebook Url"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Facebook icons",
+        "id": "facebook_icons_flag"
+      },
+      {
+        "type": "url",
+        "id": "instagram",
+        "label": "Instagram Url"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Instagram icons",
+        "id": "instagram_icons_flag"
+      },
+      {
+        "type": "url",
+        "id": "pinterest",
+        "label": "Pinterest Url"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Pinterest icons",
+        "id": "pinterest_icons_flag"
+      },
+      {
+        "type": "url",
+        "id": "yahoo",
+        "label": "Yahoo Url"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Yahoo icons",
+        "id": "yahoo_icons_flag"
       }
     ]
   }

@@ -1,62 +1,76 @@
-          .back_button,
-          .forward_button {
-              position: absolute;
-              z-index: 1;
-              align-self: center;
-              padding: 1rem;
-              background: white;
-              cursor: pointer;
-          }
+.back_button,
+.forward_button {
+    position: absolute;
+    z-index: 1;
+    align-self: center;
+    padding: 1rem;
+    background: white;
+    cursor: pointer;
+}
 
-          .back_button {
-              left: 2px;
-          }
+.back_button {
+    left: 2px;
+}
 
-          .forward_button {
-              right: 2px;
-          }
+.forward_button {
+    right: 2px;
+}
 
-          .products-wrapper {
-              position: relative;
-              display: block;
-          }
+.products-wrapper {
+    position: relative;
+    display: block;
+}
 
-          .products {
-              display: flex;
-              overflow-x: auto;
-              scroll-behavior: smooth;
-              gap: 16px;
-          }
 
-          .product-card {
-              min-width: 25%;
-              flex: 0 0 25%;
-          }
 
-          .products::-webkit-scrollbar {
-              display: none;
-          }
+.product-card {
+    min-width: 25%;
+    flex: 0 0 25%;
+}
 
-          .back_button,
-          .forward_button {
-              position: absolute;
-              top: 50%;
-              transform: translateY(-50%);
-              background: white;
-              padding: 14px;
-              cursor: pointer;
-              z-index: 2;
-          }
+.products::-webkit-scrollbar {
+    display: none;
+}
 
-          .back_button {
-              left: 0;
-          }
+.back_button,
+.forward_button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    padding: 14px;
+    cursor: pointer;
+    z-index: 2;
+}
 
-          .forward_button {
-              right: 0;
-          }
+.back_button {
+    left: 0;
+}
 
-          .add_to_cart_btn {
-              z-index: 2;
+.forward_button {
+    right: 0;
+}
 
-          }
+.add_to_cart_btn {
+    z-index: 2;
+
+}
+
+.product-card .add_to_cart_btn {
+    display: none;
+}
+
+.product-card:hover .add_to_cart_btn {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .featured-collection-card {
+        grid-template-columns: repeat(1, 2fr);
+    }
+
+    .back_button,
+    .forward_button {
+        display: none;
+    }
+}

@@ -1,3 +1,5 @@
+if (!customElements.get("localization-form")) {
+
 class LocalizationForm extends HTMLElement {
   constructor() {
     super();
@@ -63,3 +65,4 @@ class LocalizationForm extends HTMLElement {
 }
 
 customElements.define("localization-form", LocalizationForm);
+}
