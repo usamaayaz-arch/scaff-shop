@@ -442,8 +442,8 @@
       "type": "blog-collection",
       "name": "Blog Collection",
       "settings": {
-        "heading": "",
-        "view_all": false
+        "heading": "<h1>The Scaff Shop Blog</h1>",
+        "view_all": true
       }
     }
   },
