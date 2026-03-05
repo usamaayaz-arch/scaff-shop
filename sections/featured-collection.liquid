@@ -1,11 +1,66 @@
 <div class="main">
-  <div class="container page-pa">
+  <div class="container page-pa featured-collection-{{ section.id }}">
     <div class="section-heading-{{section.id}} {{section.settings.heading_alignment}} {{section.settings.heading_case}}">
       {{ section.settings.heading }}
     </div>
+
+    <div class="">
+      {% for block in section.blocks %}
+        {% assign collection = block.settings.collection %}
+
+        {% if collection != blank %}
+          <div class="featured-collection-card d-grid grid-template-col-2 gap-1">
+            <img
+              width="auto"
+              height="auto"
+              src="{{ collection.featured_image | image_url: width: 600 }}"
+              alt="{{ collection.title }}"
+            >
+
+            <div class="products d-grid grid-template-col-2 gap-1">
+              {% for product in collection.products limit: 4 %}
+                <div class="product-card">
+                  <a href="{{ product.url }}">
+                    <span class="p-relative">
+                      <img
+                        width="auto"
+                        height="auto"
+                        src="{{ product.featured_image | image_url: width: 400 }}"
+                        alt="{{ product.title }}"
+                      >
+                      <div class="p-absolute z-index-1 text-center bottom-0 bg-black white w-100 p-1 add_to_cart_btn">
+                        Add To Cart
+                      </div>
+                    </span>
+                    <p>{{ product.title }}</p>
+                    <span
+                      ><strong>{{ product.price | money }}</strong></span
+                    >
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 </div>
-
+<style>
+      .featured-collection-{{ section.id }} img{
+          display: block;
+      width: 100%;
+    }
+    .product-card .add_to_cart_btn {
+      display:none;
+    }
+    .product-card:hover .add_to_cart_btn {
+    display:block;
+    }
+    @media (max-width:768px){
+      .featured-collection-card{grid-template-columns: repeat(1, 2fr);}
+  }
+</style>
 {% schema %}
 {
   "name": "Featured Collection",
@@ -46,13 +101,13 @@
   ],
   "blocks": [
     {
-      "name": "collection",
+      "name": "Collection",
       "type": "collection",
       "settings": [
         {
-          "type": "url",
-          "label": "Url",
-          "id": "url"
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
         }
       ]
     }
