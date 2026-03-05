@@ -1,0 +1,120 @@
+<div class="main">
+  <div class="container page-pa">
+    <div class="section-heading-{{section.id}} {{section.settings.heading_alignment}} {{section.settings.heading_case}}">
+      {{ section.settings.heading }}
+    </div>
+    <div class="d-grid grid-container grid-{{ section.id }} gap-1">
+      {%- for block in section.blocks -%}
+        {%- assign total_block = section.blocks.size -%}
+        <div class="column col-{{section.id}}">
+          <a href="{{ block.settings.page_url }}" class="grid-col d-flex column align-left p-relative">
+            <img
+              class="responsive-image"
+              src="{{ block.settings.image | image_url }}"
+              alt="{{ block.settings.image.alt }}"
+              width="auto"
+              height="auto"
+            >
+            <label class="bold uppercase p-absolute z-index-1 bottom-8 left-12" for="{{ block.settings.page_label }}">
+              {{- block.settings.page_label -}}
+            </label>
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+<style>
+  .grid-{{ section.id }}{
+  grid-template-columns:repeat({% if section.settings.grid_columns < total_block %}{{ section.settings.grid_columns }}{%- else -%}{{total_block}}{% endif %},1fr);
+  }
+    .responsive-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 1200px) {
+    .grid-{{ section.id }} {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 992px) {
+    .grid-{{ section.id }} {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .grid-{{ section.id }} {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Category Grid",
+  "settings": [
+    {
+      "type": "range",
+      "id": "grid_columns",
+      "label": "No. of Columns",
+      "max": 5,
+      "min": 1,
+      "step": 1,
+      "unit": "col",
+      "default": 1
+    },
+    { "type": "richtext", "label": "Heading", "id": "heading", "default": "<h1>shop by categories</h1>" },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "justify-self-left",
+          "label": "Left"
+        },
+        {
+          "value": "justify-self-center",
+          "label": "Center"
+        },
+        {
+          "value": "justify-self-right",
+          "label": "Right"
+        }
+      ],
+      "default": "justify-self-center"
+    },
+
+    {
+      "type": "select",
+      "id": "heading_case",
+      "label": "Heading Case",
+      "options": [
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "uppercase"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Grid",
+      "type": "grid",
+      "settings": [
+        { "type": "text", "label": "Label", "id": "page_label" },
+        { "type": "image_picker", "label": "Image", "id": "image" },
+        { "type": "url", "label": "Page Url", "id": "page_url" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category Grid",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

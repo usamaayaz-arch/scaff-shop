@@ -1,0 +1,67 @@
+<div class="main">
+  <div class="container page-pa">
+    <div class="section-heading-{{section.id}} {{section.settings.heading_alignment}} {{section.settings.heading_case}}">
+      {{ section.settings.heading }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "settings": [
+    { "type": "richtext", "label": "Heading", "id": "heading", "default": "<h1>shop by categories</h1>" },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "justify-self-left",
+          "label": "Left"
+        },
+        {
+          "value": "justify-self-center",
+          "label": "Center"
+        },
+        {
+          "value": "justify-self-right",
+          "label": "Right"
+        }
+      ],
+      "default": "justify-self-center"
+    },
+
+    {
+      "type": "select",
+      "id": "heading_case",
+      "label": "Heading Case",
+      "options": [
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "uppercase"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "collection",
+      "type": "collection",
+      "settings": [
+        {
+          "type": "url",
+          "label": "Url",
+          "id": "url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

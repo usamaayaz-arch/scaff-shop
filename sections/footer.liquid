@@ -1,17 +1,21 @@
-<div class="footer">
+<div class="footer page-pa gap-1">
   {% assign total_columns = 0 %}
   <div>
-    {%- assign logo_width = settings.logo_width | times: 8 -%}
-      <img
-              src="{{ settings.footer_logo | image_url }}"
-              alt="{{ settings.footer_logo.alt | default: shop.name }}"
-              width="{{logo_width}}"
-              height="auto"
-              loading="lazy"
-            >  </div>
+    {%- assign logo_width = settings.footer_logo_width | times: 8 -%}
+    <img
+      src="{{ settings.footer_logo | image_url }}"
+      alt="{{ settings.footer_logo.alt | default: shop.name }}"
+      width="{{ logo_width }}"
+      height="auto"
+      loading="lazy"
+    >
+    <span class="logo_description">
+      {{ settings.description }}
+    </span>
+  </div>
   {%- for block in section.blocks -%}
     {% if block.type == 'link_list' %}
-      <div class="footer-menu">
+      <div class="footer-menu justify-self-center {% unless block.settings.mobile_menu_flag %}hide-mobile{% endunless %}">
         {% if block.settings.heading != blank %}
           <h4>{{ block.settings.heading }}</h4>
         {% endif %}
@@ -50,7 +54,22 @@
     {% assign total_columns = section.blocks.size | plus: 1 %}
     grid-template-columns: repeat({{ total_columns }}, 1fr);
   }
+
+  @media (max-width:768px){
+    .footer {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .footer-menu {
+      justify-self: unset;
+    }
+
+    .hide-mobile {
+      display: none;
+    }
+  }
 </style>
+
 {% schema %}
 {
   "name": "Footer",
