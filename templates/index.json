@@ -135,185 +135,6 @@
         "button_url": "shopify://pages/contact-us"
       }
     },
-    "hero_image_banner_gGKYeH": {
-      "type": "hero-image-banner",
-      "custom_css": [
-        ".hero-button:nth-child(2) {padding: 12px 24px;}"
-      ],
-      "name": "Hero Banner",
-      "settings": {
-        "image": "shopify://shop_images/Rectangle_45.png",
-        "image_height": 40,
-        "overlay_color": "#ffffff",
-        "overlay_opacity": 0.1,
-        "heading": "The Annual Workshop Sale Has Arrived.",
-        "sub_heading": "<p>Save up to 25% on handcrafted furniture, shelving, and bespoke pieces — each made from reclaimed scaffold boards, sustainably sourced and built to last.</p>",
-        "text_color": "#e8e7e7",
-        "heading_size": "36px",
-        "heading_letter_spacing": -1,
-        "heading_line_height": 40,
-        "heading_weight": "700",
-        "heading_case": "uppercase",
-        "sub_heading_weight": "400",
-        "is_in_container": true,
-        "container_width": 35,
-        "button_label": "Shop The Sale",
-        "button_url": "shopify://pages/contact-us",
-        "button_label_2": "Explore Our Bestsellers",
-        "button_url_2": "shopify://pages/contact-us",
-        "button_bg": "#ffffff",
-        "button_color": "#000000",
-        "is_outline": true,
-        "second_button_color": "#ffffff"
-      }
-    },
-    "ticker_HPg4N3": {
-      "type": "ticker",
-      "blocks": {
-        "ticker_N3Yir9": {
-          "type": "ticker",
-          "settings": {
-            "image": "shopify://shop_images/image_52.png",
-            "text": ""
-          }
-        },
-        "ticker_QEcDQB": {
-          "type": "ticker",
-          "settings": {
-            "image": "shopify://shop_images/image_53.png",
-            "text": ""
-          }
-        },
-        "ticker_TEwhqj": {
-          "type": "ticker",
-          "settings": {
-            "image": "shopify://shop_images/image_54.png",
-            "text": ""
-          }
-        },
-        "ticker_hfYFyh": {
-          "type": "ticker",
-          "settings": {
-            "image": "shopify://shop_images/image_55.png",
-            "text": ""
-          }
-        },
-        "ticker_XqP9q6": {
-          "type": "ticker",
-          "settings": {
-            "image": "shopify://shop_images/image_56.png",
-            "text": ""
-          }
-        },
-        "ticker_JKpyU9": {
-          "type": "ticker",
-          "settings": {
-            "image": "shopify://shop_images/image_57.png",
-            "text": ""
-          }
-        },
-        "ticker_kFLAbG": {
-          "type": "ticker",
-          "settings": {
-            "image": "shopify://shop_images/image_58.png",
-            "text": ""
-          }
-        },
-        "ticker_gKby93": {
-          "type": "ticker",
-          "settings": {
-            "image": "shopify://shop_images/image_59.png",
-            "text": ""
-          }
-        }
-      },
-      "block_order": [
-        "ticker_N3Yir9",
-        "ticker_QEcDQB",
-        "ticker_TEwhqj",
-        "ticker_hfYFyh",
-        "ticker_XqP9q6",
-        "ticker_JKpyU9",
-        "ticker_kFLAbG",
-        "ticker_gKby93"
-      ],
-      "name": "Ticker",
-      "settings": {
-        "justify_content": "space-between",
-        "flex_wrapper": false,
-        "image_size": 7,
-        "font_size": 1,
-        "padding_y": 1,
-        "speed": 20
-      }
-    },
-    "accordian_gVny4h": {
-      "type": "accordian",
-      "blocks": {
-        "accordion_item_U8rmgX": {
-          "type": "accordion_item",
-          "settings": {
-            "title": "Accordion Title",
-            "content": "<p>Accordion content goes here.</p>"
-          }
-        },
-        "accordion_item_NaLfGK": {
-          "type": "accordion_item",
-          "settings": {
-            "title": "Accordion Title",
-            "content": "<p>Accordion content goes here.</p>"
-          }
-        },
-        "accordion_item_ttXP3n": {
-          "type": "accordion_item",
-          "settings": {
-            "title": "Accordion Title",
-            "content": "<p>Accordion content goes here.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "accordion_item_U8rmgX",
-        "accordion_item_NaLfGK",
-        "accordion_item_ttXP3n"
-      ],
-      "name": "Advanced Accordion",
-      "settings": {
-        "section_heading": "Frequently Asked Questions",
-        "section_description": "",
-        "full_width": true,
-        "text_transform": "uppercase",
-        "bg_color": "#ffffff",
-        "text_color": "#333333",
-        "header_bg": "#f8f8f8",
-        "allow_multiple": false,
-        "first_open": true,
-        "show_icon": true,
-        "padding_top": 50,
-        "padding_bottom": 50
-      }
-    },
-    "image_with_text_zLQq3V": {
-      "type": "image-with-text",
-      "name": "Image with text",
-      "settings": {
-        "image": "shopify://shop_images/Rectangle_55.png",
-        "heading": "Stay Inspired by Sustainable Design",
-        "text_transform": "uppercase",
-        "sub_heading": "",
-        "description": "<p>Be part of The Scaff Shop community — where reclaimed materials meet modern design.</p>",
-        "container_width_flag": true,
-        "padding_flag": true,
-        "container_width": 500,
-        "row_direction": "1",
-        "bg_color": "#f8f8f8",
-        "email_flag": true,
-        "button_label": "About Us",
-        "button_bg_color": "#000000",
-        "button_text_color": "#ffffff",
-        "button_url": ""
-      }
-    },
     "collection_list_B6G7CK": {
       "type": "collection-list",
       "blocks": {
@@ -421,6 +242,38 @@
         "heading_case": "uppercase"
       }
     },
+    "hero_image_banner_gGKYeH": {
+      "type": "hero-image-banner",
+      "custom_css": [
+        ".hero-button:nth-child(2) {padding: 12px 24px;}"
+      ],
+      "name": "Hero Banner",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_45.png",
+        "image_height": 40,
+        "overlay_color": "#ffffff",
+        "overlay_opacity": 0.1,
+        "heading": "The Annual Workshop Sale Has Arrived.",
+        "sub_heading": "<p>Save up to 25% on handcrafted furniture, shelving, and bespoke pieces — each made from reclaimed scaffold boards, sustainably sourced and built to last.</p>",
+        "text_color": "#e8e7e7",
+        "heading_size": "36px",
+        "heading_letter_spacing": -1,
+        "heading_line_height": 40,
+        "heading_weight": "700",
+        "heading_case": "uppercase",
+        "sub_heading_weight": "400",
+        "is_in_container": true,
+        "container_width": 35,
+        "button_label": "Shop The Sale",
+        "button_url": "shopify://pages/contact-us",
+        "button_label_2": "Explore Our Bestsellers",
+        "button_url_2": "shopify://pages/contact-us",
+        "button_bg": "#ffffff",
+        "button_color": "#000000",
+        "is_outline": true,
+        "second_button_color": "#ffffff"
+      }
+    },
     "featured_collection_NT8h6j": {
       "type": "featured-collection",
       "blocks": {
@@ -436,10 +289,157 @@
       ],
       "name": "Featured Collection",
       "settings": {
-        "heading": "<h1>shop by look</h1>",
+        "heading": "<h1>Best Seller</h1>",
         "heading_alignment": "justify-self-center",
         "slider_view": true,
         "heading_case": "uppercase"
+      }
+    },
+    "accordian_gVny4h": {
+      "type": "accordian",
+      "blocks": {
+        "accordion_item_U8rmgX": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Accordion Title",
+            "content": "<p>Accordion content goes here.</p>"
+          }
+        },
+        "accordion_item_NaLfGK": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Accordion Title",
+            "content": "<p>Accordion content goes here.</p>"
+          }
+        },
+        "accordion_item_ttXP3n": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Accordion Title",
+            "content": "<p>Accordion content goes here.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_item_U8rmgX",
+        "accordion_item_NaLfGK",
+        "accordion_item_ttXP3n"
+      ],
+      "name": "Advanced Accordion",
+      "settings": {
+        "section_heading": "Frequently Asked Questions",
+        "section_description": "",
+        "full_width": true,
+        "text_transform": "uppercase",
+        "bg_color": "#ffffff",
+        "text_color": "#333333",
+        "header_bg": "#f8f8f8",
+        "allow_multiple": false,
+        "first_open": true,
+        "show_icon": true,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "image_with_text_zLQq3V": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_55.png",
+        "heading": "Stay Inspired by Sustainable Design",
+        "text_transform": "uppercase",
+        "sub_heading": "",
+        "description": "<p>Be part of The Scaff Shop community — where reclaimed materials meet modern design.</p>",
+        "container_width_flag": true,
+        "padding_flag": true,
+        "container_width": 500,
+        "row_direction": "1",
+        "bg_color": "#f8f8f8",
+        "email_flag": true,
+        "button_label": "About Us",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_url": ""
+      }
+    },
+    "ticker_HPg4N3": {
+      "type": "ticker",
+      "blocks": {
+        "ticker_N3Yir9": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_52.png",
+            "text": ""
+          }
+        },
+        "ticker_QEcDQB": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_53.png",
+            "text": ""
+          }
+        },
+        "ticker_TEwhqj": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_54.png",
+            "text": ""
+          }
+        },
+        "ticker_hfYFyh": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_55.png",
+            "text": ""
+          }
+        },
+        "ticker_XqP9q6": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_56.png",
+            "text": ""
+          }
+        },
+        "ticker_JKpyU9": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_57.png",
+            "text": ""
+          }
+        },
+        "ticker_kFLAbG": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_58.png",
+            "text": ""
+          }
+        },
+        "ticker_gKby93": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_59.png",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "ticker_N3Yir9",
+        "ticker_QEcDQB",
+        "ticker_TEwhqj",
+        "ticker_hfYFyh",
+        "ticker_XqP9q6",
+        "ticker_JKpyU9",
+        "ticker_kFLAbG",
+        "ticker_gKby93"
+      ],
+      "name": "Ticker",
+      "settings": {
+        "justify_content": "space-between",
+        "flex_wrapper": false,
+        "image_size": 7,
+        "font_size": 1,
+        "padding_y": 1,
+        "speed": 20
       }
     }
   },
@@ -448,12 +448,12 @@
     "ticker_gc9UrR",
     "image_with_text_KwVih3",
     "image_with_text_mRPrxG",
-    "hero_image_banner_gGKYeH",
-    "ticker_HPg4N3",
-    "accordian_gVny4h",
-    "image_with_text_zLQq3V",
     "collection_list_B6G7CK",
     "featured_collection_W8nYnz",
-    "featured_collection_NT8h6j"
+    "hero_image_banner_gGKYeH",
+    "featured_collection_NT8h6j",
+    "ticker_HPg4N3",
+    "accordian_gVny4h",
+    "image_with_text_zLQq3V"
   ]
 }
