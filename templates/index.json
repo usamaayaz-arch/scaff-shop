@@ -1,4 +1,197 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "sections": {},
-  "order": []
+  "sections": {
+    "hero_image_banner_QTX9fk": {
+      "type": "hero-image-banner",
+      "name": "Hero Banner",
+      "settings": {
+        "image": "shopify://shop_images/DSC00296-Edit-2_450543d8-7234-400a-819c-f9bea712aedb.jpg",
+        "image_height": 40,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.2,
+        "heading": "From Scaffold Boards to Sustainable Masterpieces",
+        "sub_heading": "<p>Handcrafted furniture, shelving, and interiors—designed<br/>from reclaimed wood in the UK.<br/><br/>⭐⭐⭐⭐⭐ Chosen by over 20k+ builders and scaffolders</p>",
+        "text_color": "#ffffff",
+        "heading_size": "36px",
+        "heading_letter_spacing": -2,
+        "heading_line_height": 40,
+        "heading_weight": "600",
+        "heading_case": "uppercase",
+        "sub_heading_weight": "400",
+        "is_in_container": true,
+        "container_width": 34,
+        "button_label": "Shop Now",
+        "button_url": "",
+        "button_label_2": "",
+        "button_url_2": "",
+        "button_bg": "#ffffff",
+        "button_color": "#000000",
+        "is_outline": false,
+        "second_button_color": "#ffffff"
+      }
+    },
+    "ticker_WHTCAX": {
+      "type": "ticker",
+      "blocks": {
+        "ticker_4Jdz7L": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/Group_495.svg",
+            "text": "<p>Handcrafted in the UK</p>"
+          }
+        },
+        "ticker_dKPGUT": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/Group_494.svg",
+            "text": "<p>Nationwide shipping</p>"
+          }
+        },
+        "ticker_XT7Wba": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/Group_493.svg",
+            "text": "<p>Satisfaction Guarantee</p>"
+          }
+        },
+        "ticker_8EgJbp": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/Group_491.svg",
+            "text": "<p>Sustainably Crafted</p>"
+          }
+        },
+        "ticker_NEVRWd": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/Group_492.svg",
+            "text": "<p>Reclaimed & Reused</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ticker_4Jdz7L",
+        "ticker_dKPGUT",
+        "ticker_XT7Wba",
+        "ticker_8EgJbp",
+        "ticker_NEVRWd"
+      ],
+      "name": "Ticker",
+      "settings": {
+        "image_size": 1,
+        "font_size": 1,
+        "padding_y": 1,
+        "speed": 60
+      }
+    },
+    "image_with_text_NcmaBf": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_68.png",
+        "heading": "Handmade and repurposed",
+        "text_transform": "uppercase",
+        "sub_heading": "",
+        "description": "<p>Founded and run by life-long scaffolder and maker Jack Cornish, The Scaff Shop is a real passion project, turning new and used scaffold boards in to beautiful and functional items for your home or business and supplying them for you to do the same.</p><p><br/>From our premises in Frome, Somerset, we hold a large stock of scaffold boards and pallet wood, as well as scaffold tubes and clamps, and can offer these in any quantity - from individual boards courier delivered nationwide, to bulk orders ideal for cladding, shop fitting or a whole range of other uses.<br/><br/></p>",
+        "container_width_flag": false,
+        "padding_flag": false,
+        "container_width": 460,
+        "row_direction": "0",
+        "margin_flag": false,
+        "bg_color": "#f8f8f8",
+        "email_flag": false,
+        "button_label": "About Us",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_url": "shopify://pages/contact-us"
+      }
+    },
+    "image_with_text_aPd7jh": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_69.png",
+        "heading": "We are a team of scaff board stylists",
+        "text_transform": "uppercase",
+        "sub_heading": "",
+        "description": "<p>How much can you do with a scaffold board? Well, actually, quite a lot. We can sand it and oil it or leave it raw, create a simple but beautifiul shelf or a whole dining table, or flame our boards to an amazing Japanese style Shou Sugi Ban finish.<br/><br/>We love boards and love creating awesome things from them.<br/><br/></p>",
+        "container_width_flag": false,
+        "padding_flag": false,
+        "container_width": 460,
+        "row_direction": "1",
+        "margin_flag": false,
+        "bg_color": "#f8f8f8",
+        "email_flag": false,
+        "button_label": "About Us",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_url": "shopify://pages/contact-us"
+      }
+    },
+    "collection_list_7R6LPH": {
+      "type": "collection-list",
+      "blocks": {
+        "grid_HzdQrt": {
+          "type": "grid",
+          "settings": {
+            "page_label": "accessories",
+            "image": "shopify://shop_images/Rectangle_34_1.png",
+            "page_url": ""
+          }
+        },
+        "grid_PwPN4G": {
+          "type": "grid",
+          "settings": {
+            "page_label": "scaffold shelf kit",
+            "image": "shopify://shop_images/Rectangle_34.png",
+            "page_url": ""
+          }
+        },
+        "grid_BEHnpF": {
+          "type": "grid",
+          "settings": {
+            "page_label": "scaffold board",
+            "image": "shopify://shop_images/Rectangle_32.png",
+            "page_url": ""
+          }
+        },
+        "grid_mEt87L": {
+          "type": "grid",
+          "settings": {
+            "page_label": "pallet wood",
+            "image": "shopify://shop_images/Rectangle_33.png",
+            "page_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "grid_HzdQrt",
+        "grid_PwPN4G",
+        "grid_BEHnpF",
+        "grid_mEt87L"
+      ],
+      "name": "Category Grid",
+      "settings": {
+        "grid_columns": 4,
+        "heading": "<h1>shop by categories</h1>",
+        "heading_alignment": "justify-self-center",
+        "heading_case": "uppercase"
+      }
+    }
+  },
+  "order": [
+    "hero_image_banner_QTX9fk",
+    "ticker_WHTCAX",
+    "image_with_text_NcmaBf",
+    "image_with_text_aPd7jh",
+    "collection_list_7R6LPH"
+  ]
 }

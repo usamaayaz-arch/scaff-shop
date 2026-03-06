@@ -15,7 +15,7 @@
     "brand_logo_width": 11,
     "footer_logo": "shopify://shop_images/brand_name.png",
     "footer_logo_width": 9,
-    "description": "<p>At The Scaff Shop, we transform reclaimed scaffold boards into timeless furniture and interiors — crafted by hand in our UK workshop. Every piece celebrates sustainability, individuality, and honest design.</p><p></p><p></p>",
+    "description": "<p>At The Scaff Shop, we transform reclaimed scaffold boards into timeless furniture and interiors — crafted by hand in our UK workshop. Every piece celebrates sustainability, individuality, and honest design.</p>",
     "social_media_icons_flag": true,
     "facebook": "https://www.facebook.com",
     "facebook_icons_flag": true,
@@ -30,25 +30,16 @@
       "announcement": {
         "type": "announcement",
         "blocks": {
-          "advertisment_nDTEhw": {
-            "type": "advertisment",
-            "disabled": true,
-            "settings": {
-              "advertisment_link": "shopify://pages/contact",
-              "advertisment_title": "1 .py-1d5 .py-1d5.py-1d5.py-1d5 .py-1d5 .py-1d5 .py-1d5"
-            }
-          },
-          "advertisment_44Ffkg": {
+          "advertisment_ecGc6t": {
             "type": "advertisment",
             "settings": {
-              "advertisment_link": "shopify://pages/contact",
-              "advertisment_title": "2  .py-1d5 .py-1d5.py-1d5.py-1d5 .py-1d5 .py-1d5 .py-1d5"
+              "advertisment_link": "",
+              "advertisment_title": "“Handcrafted in the UK from 100% Reclaimed Scaffold Boards ♻️ | Sustainable. Honest. Built to Last."
             }
           }
         },
         "block_order": [
-          "advertisment_nDTEhw",
-          "advertisment_44Ffkg"
+          "advertisment_ecGc6t"
         ],
         "settings": {
           "social_media_flag": true
@@ -62,7 +53,7 @@
           "sticky": true,
           "header_height": 80,
           "padding_vertical": 10,
-          "logo_alignment": "left",
+          "logo_alignment": "center",
           "background_color": "#ffffff",
           "text_color": "#000000",
           "show_border": false,
