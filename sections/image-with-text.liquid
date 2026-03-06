@@ -1,4 +1,4 @@
-<div class="image-text-section mb-2">
+<div class="image-text-section {% if section.settings.margin_flag %} mb-2 {% endif %}">
   <div class="image-text-container-{{ section.id }}">
     {% if section.settings.image %}
       <div style="order:{{ section.settings.row_direction }}" class="image-wrapper">
@@ -70,52 +70,52 @@
 </div>
 {{ 'image-with-text.css' | asset_url | stylesheet_tag }}
 <style>
-  .image-text-container-{{ section.id }} {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  {%- if section.settings.padding_flag -%}
-      padding: 0 0 0 3rem;
-  {%- else -%}
-    padding: 2rem 3rem;
-  {%- endif -%}
-  align-items: center;
-  background: {{ section.settings.bg_color }};
-  }
+    .image-text-container-{{ section.id }} {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    {%- if section.settings.padding_flag -%}
+        padding: 0 0 0 3rem;
+    {%- else -%}
+      padding: 2rem 3rem;
+    {%- endif -%}
+    align-items: center;
+    background: {{ section.settings.bg_color }};
+    }
 
-  .image-text-container-{{ section.id }} .image-wrapper {
-  width: 100%;
-  }
-  .image-text-container-{{ section.id }} .content-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  }
-  .image-text-container-{{ section.id }} .content-wrapper h1{
-  text-transform:{{ section.settings.text_transform }}
-  }
-  .container_width{
-  max-width:{{section.settings.container_width}}px
-  }
-  @media (max-width: 768px) {
-  .image-text-container-{{ section.id }} {
-  grid-template-columns: 1fr;
-  padding: 1.5rem;
-  }
-  }
-  .button {
-  color:{{ section.settings.button_text_color }} !important;
-  background-color:{{ section.settings.button_bg_color }}!important;
-  }
+    .image-text-container-{{ section.id }} .image-wrapper {
+    width: 100%;
+    }
+    .image-text-container-{{ section.id }} .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    }
+    .image-text-container-{{ section.id }} .content-wrapper h1{
+    text-transform:{{ section.settings.text_transform }}
+    }
+    .container_width{
+    max-width:{{section.settings.container_width}}px
+    }
+    @media (max-width: 768px) {
+    .image-text-container-{{ section.id }} {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    }
+    }
+    .button {
+    color:{{ section.settings.button_text_color }} !important;
+    background-color:{{ section.settings.button_bg_color }}!important;
+    }
 
-  form {
-  width: 100%;
-  margin-top:1rem;
+    form {
+    width: 100%;
+    margin-top:1rem;
+    }
+    form input ,form button{
+    padding:1rem;
   }
-  form input ,form button{
-  padding:1rem;
-}
 </style>
 {% schema %}
 {
@@ -192,6 +192,12 @@
         }
       ],
       "default": "0"
+    },
+    {
+      "type": "checkbox",
+      "label": "Add Margin",
+      "id": "margin_flag",
+      "default": false
     },
     {
       "type": "color",
