@@ -1,5 +1,5 @@
 <div class="main mb-2">
-  <div class="container">
+  <div class="container page-pa">
     <div class="section-heading-{{ section.id }} {{ section.settings.heading_alignment }} {{ section.settings.heading_case }} mb-2">
       {{ section.settings.heading }}
     </div>
@@ -34,9 +34,9 @@
 
 <style>
   .container{
-    max-width:1200px;
+    {% comment %} max-width:1200px;
     margin:auto;
-    padding:0 15px;
+    padding:0 15px; {% endcomment %}
   }
 
   .blog-section-heading{

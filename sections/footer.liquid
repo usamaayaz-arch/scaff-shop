@@ -1,6 +1,6 @@
 <div class="footer page-pa gap-1">
   {% assign total_columns = 0 %}
-  <div class="logo-description">
+  <div class="logo-description d-flex column align-left justify-left gap-2">
     {%- assign logo_width = settings.footer_logo_width | times: 8 -%}
     <img
       src="{{ settings.footer_logo | image_url }}"
@@ -54,6 +54,13 @@
   {%- endfor -%}
 </div>
 <style>
+  .footer .footer-menu ul{
+  margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 0.75rem;}
   .footer {
     display: grid;
     {% assign total_columns = section.blocks.size | plus: 1 %}

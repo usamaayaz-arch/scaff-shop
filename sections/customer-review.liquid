@@ -1,0 +1,192 @@
+<div class="main-{{section.id}}">
+  <div class="container page-pa">
+    <div class="review-heading mb-1 {{section.settings.heading_case}} {{ section.settings.heading_alignment }}">
+      {{ section.settings.heading }}
+    </div>
+    <div class="reviews d-grid grid-template-col-2">
+      {%- for block in section.blocks -%}
+        <div class="review-{{ section.id }} d-flex row gap-1 p-3">
+          <img
+            src="{{ block.settings.image | image_url }}"
+            alt="{{block.settings.image.alt}}"
+            width="auto"
+            height="auto"
+          >
+          <div class="detail_section-{{ section.id }}">
+            <h3 class="title">{{ block.settings.title }}</h3>
+            <p class="description">{{ block.settings.description }}</p>
+            {%- if block.settings.is_verified -%}
+              <span class="user_verified d-flex align-center">
+                <h2 class="user_name">{{ block.settings.user_name }}</h2>
+                <span class="d-flex row align-center">
+                  {{- 'verified-icon.svg' | inline_asset_content -}}
+                  {{- block.settings.icon_str -}}
+                </span>
+              </span>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+<style>
+      .main-{{ section.id }} .container{
+      background:{{ section.settings.bg_color }}
+      }
+    .detail_section-{{ section.id }} .user_verified {gap: 0.5rem;}
+    .detail_section-{{ section.id }} .user_verified span {font-size: 12px;color: #049B48;gap: 0.1rem;}
+    .detail_section-{{ section.id }} .user_verified span svg {width:1rem;height:1rem;}
+
+    .main-{{ section.id }} .container{
+    background: {{ section.settings.bg_color }};
+    padding: 40px 20px;
+  }
+
+  .main-{{ section.id }} .reviews{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .review-{{ section.id }}{
+    display: flex;
+    align-items: flex-start;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .review-{{ section.id }}:nth-child(1),
+  .review-{{ section.id }}:nth-child(2){
+    border-bottom: 1px solid #C2C2C2;
+  }
+
+  .review-{{ section.id }} img{
+    width: 100%;
+    max-width: 14rem;
+    min-width: 10rem;
+    height: auto;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .detail_section-{{ section.id }} .title{
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .detail_section-{{ section.id }} .description{
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .detail_section-{{ section.id }} .user_verified{
+    gap: 0.5rem;
+    margin-top: 8px;
+  }
+
+  .detail_section-{{ section.id }} .user_verified span{
+    font-size: 12px;
+    color: #049B48;
+    gap: 0.1rem;
+  }
+
+  .detail_section-{{ section.id }} .user_verified span svg{
+    width: 1rem;
+    height: 1rem;
+  }
+
+  @media (max-width: 990px){
+    .main-{{ section.id }} .reviews{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 768px){
+
+    .main-{{ section.id }} .reviews{
+      grid-template-columns: 1fr;
+    }
+
+    .review-{{ section.id }}{
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    .detail_section-{{ section.id }}{
+      text-align: left;
+    }
+  .review-{{ section.id }}:nth-child(1){
+    border-top: 1px solid #C2C2C2;
+  }
+  .review-{{ section.id }}{
+    border-bottom: 1px solid #C2C2C2;
+  }
+    .review-{{ section.id }}{
+    padding: 1rem !important;
+    align-items: flex-start;
+  }
+
+  }
+</style>
+{% schema %}
+{
+  "name": "Manual Reivew Section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f8f8f8"
+    },
+    { "type": "richtext", "id": "heading", "label": "Heading", "default": "<h1>What Our Customers Say</h1>" },
+    {
+      "type": "select",
+      "id": "heading_case",
+      "label": "Heading Case",
+      "options": [
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "capitalize", "label": "Capitalize" }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "justify-self-left", "label": "Left" },
+        { "value": "justify-self-center", "label": "Center" },
+        { "value": "justify-self-right", "label": "Right" }
+      ],
+      "default": "justify-self-center"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "description", "label": "Comment" },
+        { "type": "text", "id": "user_name", "label": "User Name" },
+        {
+          "type": "checkbox",
+          "id": "is_verified",
+          "label": "Verified Buyer",
+          "info": "Does the user is verified one ?"
+        },
+        { "type": "text", "id": "icon_str", "label": "Icon Label", "default": "Verified Buyer" }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Manual Reivew Section",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
