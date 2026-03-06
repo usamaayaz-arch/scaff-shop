@@ -1,0 +1,30 @@
+
+
+{% schema %}
+  {
+    "name": "Image with overlay",
+    "settings": [
+        {"type": "image_picker","label": "Image","id": "image"},
+        {"type": "richtext","label": "Heading","id": "heading","default":"<h1>Sustainably Crafted. Consciously Designed.</h1>"},
+        {"type": "text","label": "Description","id": "description","default":"<p>Every piece we create begins with something that already exists. By reclaiming scaffold boards, we give new life to old materials — reducing waste and celebrating natural character.</p>"},
+        {"type": "text","label": "Button Label","id": "button_label","default":"Learn About Our Process"},
+        {"type": "url","label": "Url","id": "link"}
+    ],
+    "blocks": [
+      {
+        "name": "Overlay Text",
+        "type": "text",
+        "settings": [
+        {"type": "text","label": "Text","id": "text"}
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with overlay",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
