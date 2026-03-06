@@ -242,9 +242,41 @@
     },
     "image_with_text_overlay_U4gAxt": {
       "type": "image-with-text-overlay",
+      "blocks": {
+        "text_NVkYcX": {
+          "type": "text",
+          "settings": {
+            "text": "100% Reclaimed Wood",
+            "top": 55,
+            "left": 5
+          }
+        },
+        "text_br4hQw": {
+          "type": "text",
+          "settings": {
+            "text": "Handmade in the UK",
+            "top": 10,
+            "left": 79
+          }
+        },
+        "text_TLR4nE": {
+          "type": "text",
+          "settings": {
+            "text": "Low Carbon Process",
+            "top": 55,
+            "left": 95
+          }
+        }
+      },
+      "block_order": [
+        "text_NVkYcX",
+        "text_br4hQw",
+        "text_TLR4nE"
+      ],
       "name": "Image with overlay",
       "settings": {
         "image": "shopify://shop_images/Rectangle_70.png",
+        "image_2": "shopify://shop_images/Workshop_to_home_Blend.jpg",
         "heading": "<h1>SUSTAINABLY CRAFTED. CONSCIOUSLY DESIGNED.</h1>",
         "description": "Every piece we create begins with something that already exists. By reclaiming scaffold boards, we give new life to old materials — reducing waste and celebrating natural character.",
         "button_label": "Learn About Our Process",
