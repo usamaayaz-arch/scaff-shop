@@ -88,7 +88,7 @@
         "image_size": 1.6,
         "font_size": 1.6,
         "padding_y": 1.8,
-        "speed": 20
+        "speed": 60
       }
     },
     "image_with_text_KwVih3": {
@@ -240,6 +240,17 @@
         "heading_case": "uppercase"
       }
     },
+    "image_with_text_overlay_U4gAxt": {
+      "type": "image-with-text-overlay",
+      "name": "Image with overlay",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_70.png",
+        "heading": "<h1>Sustainably Crafted. Consciously Designed.</h1>",
+        "description": "Every piece we create begins with something that already exists. By reclaiming scaffold boards, we give new life to old materials — reducing waste and celebrating natural character.",
+        "button_label": "Learn About Our Process",
+        "link": ""
+      }
+    },
     "hero_image_banner_gGKYeH": {
       "type": "hero-image-banner",
       "custom_css": [
@@ -368,7 +379,7 @@
         "image_size": 7,
         "font_size": 1,
         "padding_y": 2.4,
-        "speed": 9
+        "speed": 60
       }
     },
     "accordian_gVny4h": {
@@ -503,7 +514,12 @@
         "review_LHzMKw"
       ],
       "name": "Manual Reivew Section",
-      "settings": {}
+      "settings": {
+        "bg_color": "#f8f8f8",
+        "heading": "<h1>What Our Customers Say</h1>",
+        "heading_case": "uppercase",
+        "heading_alignment": "justify-self-center"
+      }
     }
   },
   "order": [
@@ -513,6 +529,7 @@
     "image_with_text_mRPrxG",
     "collection_list_B6G7CK",
     "featured_collection_W8nYnz",
+    "image_with_text_overlay_U4gAxt",
     "hero_image_banner_gGKYeH",
     "featured_collection_NT8h6j",
     "ticker_HPg4N3",
