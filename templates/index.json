@@ -443,8 +443,67 @@
       "name": "Blog Collection",
       "settings": {
         "heading": "<h1>The Scaff Shop Blog</h1>",
-        "view_all": true
+        "view_all": true,
+        "heading_alignment": "justify-self-center",
+        "heading_case": "uppercase"
       }
+    },
+    "customer_review_kJARwQ": {
+      "type": "customer-review",
+      "blocks": {
+        "review_hm9kpT": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_50.png",
+            "title": "Sample to assess overall look",
+            "description": "“Ordered some samples which arrived promptly. A cheap and useful way to help decide which is best/preferred product for our needs.”",
+            "user_name": "jozaf p.",
+            "is_verified": true,
+            "icon_str": "Verified Buyer"
+          }
+        },
+        "review_G3FTJi": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_53.png",
+            "title": "Scaff Shop samples",
+            "description": "“Ordered some samples which arrived promptly. A cheap and useful way to help decide which is best/preferred product for our needs.”",
+            "user_name": "jozaf p.",
+            "is_verified": true,
+            "icon_str": "Verified Buyer"
+          }
+        },
+        "review_8Rrm3r": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_50.png",
+            "title": "Sample to assess overall look",
+            "description": "“Ordered some samples which arrived promptly. A cheap and useful way to help decide which is best/preferred product for our needs.”",
+            "user_name": "jozaf p.",
+            "is_verified": true,
+            "icon_str": "Verified Buyer"
+          }
+        },
+        "review_LHzMKw": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_53.png",
+            "title": "Scaff Shop samples",
+            "description": "“Ordered some samples which arrived promptly. A cheap and useful way to help decide which is best/preferred product for our needs.”",
+            "user_name": "jozaf p.",
+            "is_verified": true,
+            "icon_str": "Verified Buyer"
+          }
+        }
+      },
+      "block_order": [
+        "review_hm9kpT",
+        "review_G3FTJi",
+        "review_8Rrm3r",
+        "review_LHzMKw"
+      ],
+      "name": "Manual Reivew Section",
+      "settings": {}
     }
   },
   "order": [
@@ -459,6 +518,7 @@
     "ticker_HPg4N3",
     "accordian_gVny4h",
     "image_with_text_zLQq3V",
-    "blog_collection_9ijTCf"
+    "blog_collection_9ijTCf",
+    "customer_review_kJARwQ"
   ]
 }

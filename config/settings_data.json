@@ -15,7 +15,7 @@
     "brand_logo_width": 11,
     "footer_logo": "shopify://shop_images/brand_name.png",
     "footer_logo_width": 9,
-    "description": "<p>At The Scaff Shop, we transform reclaimed scaffold boards into timeless furniture and interiors — crafted by hand in our UK workshop. Every piece celebrates sustainability, individuality, and honest design.<br/><br/></p>",
+    "description": "<p>At The Scaff Shop, we transform reclaimed scaffold boards into timeless furniture and interiors — crafted by hand in our UK workshop. Every piece celebrates sustainability, individuality, and honest design.</p><p></p><p></p>",
     "social_media_icons_flag": true,
     "facebook": "https://www.facebook.com",
     "facebook_icons_flag": true,
@@ -77,19 +77,19 @@
       "footer": {
         "type": "footer",
         "blocks": {
-          "link_list_nMDCVx": {
-            "type": "link_list",
-            "settings": {
-              "heading": "Shop",
-              "menu": "shop-1",
-              "mobile_menu_flag": false
-            }
-          },
           "link_list_BjRVwn": {
             "type": "link_list",
             "settings": {
               "heading": "Links",
               "menu": "links",
+              "mobile_menu_flag": false
+            }
+          },
+          "link_list_nMDCVx": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Shop",
+              "menu": "shop-1",
               "mobile_menu_flag": false
             }
           },
@@ -103,8 +103,8 @@
           }
         },
         "block_order": [
-          "link_list_nMDCVx",
           "link_list_BjRVwn",
+          "link_list_nMDCVx",
           "link_list_YgTRif"
         ],
         "settings": {}
