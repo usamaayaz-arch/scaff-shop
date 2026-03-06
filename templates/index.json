@@ -245,7 +245,7 @@
       "name": "Image with overlay",
       "settings": {
         "image": "shopify://shop_images/Rectangle_70.png",
-        "heading": "<h1>Sustainably Crafted. Consciously Designed.</h1>",
+        "heading": "<h1>SUSTAINABLY CRAFTED. CONSCIOUSLY DESIGNED.</h1>",
         "description": "Every piece we create begins with something that already exists. By reclaiming scaffold boards, we give new life to old materials — reducing waste and celebrating natural character.",
         "button_label": "Learn About Our Process",
         "link": ""
