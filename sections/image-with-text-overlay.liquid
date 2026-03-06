@@ -1,30 +1,102 @@
-
-
-{% schema %}
-  {
-    "name": "Image with overlay",
-    "settings": [
-        {"type": "image_picker","label": "Image","id": "image"},
-        {"type": "richtext","label": "Heading","id": "heading","default":"<h1>Sustainably Crafted. Consciously Designed.</h1>"},
-        {"type": "text","label": "Description","id": "description","default":"<p>Every piece we create begins with something that already exists. By reclaiming scaffold boards, we give new life to old materials — reducing waste and celebrating natural character.</p>"},
-        {"type": "text","label": "Button Label","id": "button_label","default":"Learn About Our Process"},
-        {"type": "url","label": "Url","id": "link"}
-    ],
-    "blocks": [
-      {
-        "name": "Overlay Text",
-        "type": "text",
-        "settings": [
-        {"type": "text","label": "Text","id": "text"}
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Image with overlay",
-        "settings": {
-        }
-      }
-    ]
+<div class="main">
+  <div class="container image-with-text-overlay p-relative d-flex align-center justify-center">
+    <img
+      class="image-with-text"
+      src="{{ section.settings.image | image_url }}"
+      alt="{{ section.settings.image.alt }}"
+      width="auto"
+      height="auto"
+    >
+    <div class="overlay-1 p-absolute z-index-1">
+        <span class="option_1"></span>
+        <span class="option_2"></span>
+        <span class="option_3"></span>
+      <div class="overlay-2">
+          <div class="overlay-3">
+          <div class="d-flex column gap-1 justify-center align-center">
+            <div class="text-container d-flex column nowrap align-center gap-1 w-100">
+              <div class="heading">{{ section.settings.heading }}</div>
+              <div class="description"><p>{{ section.settings.description }}</p></div>
+            </div>
+            <a class="image-with-text-button" href="{{section.settings.link}}"><strong>{{ section.settings.button_label }}</strong></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .image-with-text-overlay .image-with-text {
+    width: 100%;
   }
+  .overlay-1 .overlay-2 .overlay-3 .text-container {
+    width: 100%;
+    max-width: 31rem;
+    min-width: auto;
+    text-align: center;
+  }
+  .overlay-1 .overlay-2 .overlay-3 .text-container .heading h1,
+  .overlay-1 .overlay-2 .overlay-3 .text-container .description p {
+    color: white;
+  }
+  .overlay-1 .overlay-2 .overlay-3 .text-container .heading h1 {
+    line-height: 28px;
+  }
+  .overlay-1 {
+    background: #0000003d;
+    padding: 1rem;
+  }
+  .overlay-2 {
+    background: #00000030;
+    padding: 1rem;
+  }
+  .overlay-3 {
+    background: #00000042;
+    padding: 3.5rem 3rem;
+  }
+  .overlay-1,
+  .overlay-2,
+  .overlay-3 {
+    border-radius: 500px;
+  }
+  .image-with-text-button {
+    background: white;
+    padding: 14px 20px;
+    width: fit-content;
+  }
+</style>
+{% schema %}
+{
+  "name": "Image with overlay",
+  "settings": [
+    { "type": "image_picker", "label": "Image", "id": "image" },
+    {
+      "type": "richtext",
+      "label": "Heading",
+      "id": "heading",
+      "default": "<h1>Sustainably Crafted. Consciously Designed.</h1>"
+    },
+    {
+      "type": "text",
+      "label": "Description",
+      "id": "description",
+      "default": "Every piece we create begins with something that already exists. By reclaiming scaffold boards, we give new life to old materials — reducing waste and celebrating natural character."
+    },
+    { "type": "text", "label": "Button Label", "id": "button_label", "default": "Learn About Our Process" },
+    { "type": "url", "label": "Url", "id": "link" }
+  ],
+  "blocks": [
+    {
+      "name": "Overlay Text",
+      "type": "text",
+      "settings": [{ "type": "text", "label": "Text", "id": "text" }]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with overlay",
+      "settings": {}
+    }
+  ]
+}
 {% endschema %}
