@@ -1,24 +1,46 @@
 <div class="main">
   <div class="container image-with-text-overlay p-relative d-flex align-center justify-center">
     <img
-      class="image-with-text"
+      class="image-with-text desktop"
       src="{{ section.settings.image | image_url }}"
       alt="{{ section.settings.image.alt }}"
       width="auto"
       height="auto"
     >
+    <img
+      class="image-with-text mobile"
+      src="{{ section.settings.image_2 | image_url }}"
+      alt="{{ section.settings.image_2.alt }}"
+      width="auto"
+      height="auto"
+    >
     <div class="overlay-1 p-absolute z-index-1">
-        <span class="option_1"></span>
-        <span class="option_2"></span>
-        <span class="option_3"></span>
+      {%- for block in section.blocks -%}
+        <span
+          class="d-flex {% if block.settings.left > 50 %} row {% else %} row-reverse {% endif %} align-center gap-1 p-absolute hotspot"
+          style="top: {{ block.settings.top }}%;left: {{ block.settings.left }}%;transform:translateY(-50%) {% if block.settings.left < 50 %}translateX(-100%) {% else %}translateX(0%){% endif %}; "
+        >
+          <span class="dot option_{{ forloop.index }}"></span>
+          <span class="text-capsule">{{ block.settings.text }}</span>
+        </span>
+      {%- endfor -%}
       <div class="overlay-2">
-          <div class="overlay-3">
+        <div class="overlay-3">
           <div class="d-flex column gap-1 justify-center align-center">
             <div class="text-container d-flex column nowrap align-center gap-1 w-100">
               <div class="heading">{{ section.settings.heading }}</div>
-              <div class="description"><p>{{ section.settings.description }}</p></div>
+              <div class="description">
+                <div class="d-flex wrap gap-1h2 mb-1h2 mobile-view">
+                  {%- for block in section.blocks -%}
+                    <span class="text-capsule">{{ block.settings.text }}</span>
+                  {%- endfor -%}
+                </div>
+                <p>{{ section.settings.description }}</p>
+              </div>
             </div>
-            <a class="image-with-text-button" href="{{section.settings.link}}"><strong>{{ section.settings.button_label }}</strong></a>
+            <a class="image-with-text-button" href="{{section.settings.link}}"
+              ><strong>{{ section.settings.button_label }}</strong></a
+            >
           </div>
         </div>
       </div>
@@ -26,6 +48,12 @@
   </div>
 </div>
 <style>
+  .mobile-view {
+    display: none;
+  }
+  .image-with-text.mobile {
+    display: none;
+  }
   .image-with-text-overlay .image-with-text {
     width: 100%;
   }
@@ -52,7 +80,7 @@
   }
   .overlay-3 {
     background: #00000042;
-    padding: 3.5rem 3rem;
+    padding: 5.5rem 4rem;
   }
   .overlay-1,
   .overlay-2,
@@ -64,12 +92,48 @@
     padding: 14px 20px;
     width: fit-content;
   }
+
+  @media (max-width: 768px) {
+    mobile-view {
+      display: unset!important;
+    }
+    .hotspot {
+      display: none;
+    }
+    .overlay-3 {
+      padding: 4.5rem 2rem;
+    }
+    .image-with-text.desktop {
+      display: none;
+    }
+    .image-with-text.mobile {
+      display: block;
+    }
+  }
+  .hotspot .dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    background: white;
+    border-radius: 50%;
+  }
+
+  .text-capsule {
+    display: flex;
+    color: white;
+    background: #00000063;
+    padding: 0.5rem 0.8rem;
+    border-radius: 26px;
+    border: 1px solid #ffffff99;
+    font-size: 14px;
+    white-space: nowrap;
+  }
 </style>
 {% schema %}
 {
   "name": "Image with overlay",
   "settings": [
     { "type": "image_picker", "label": "Image", "id": "image" },
+    { "type": "image_picker", "label": "Image 2", "id": "image_2" },
     {
       "type": "richtext",
       "label": "Heading",
@@ -89,7 +153,33 @@
     {
       "name": "Overlay Text",
       "type": "text",
-      "settings": [{ "type": "text", "label": "Text", "id": "text" }]
+      "settings": [
+        {
+          "type": "text",
+          "label": "Text",
+          "id": "text"
+        },
+        {
+          "type": "range",
+          "id": "top",
+          "label": "Vertical position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "left",
+          "label": "Horizontal position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 50
+        }
+      ]
     }
   ],
   "presets": [
