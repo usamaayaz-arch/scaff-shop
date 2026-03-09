@@ -9,6 +9,7 @@
  */
 {
   "general": {
-    "welcome": "Welcome"
+    "welcome": "Welcome",
+    "info":"© The Scaff Shop Ltd. 2025. Developed by Sanomads"
   }
 }

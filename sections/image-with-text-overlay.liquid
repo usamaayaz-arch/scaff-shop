@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main-{{ section.id }}">
   <div class="container image-with-text-overlay p-relative d-flex align-center justify-center">
     <img
       class="image-with-text desktop"
@@ -16,13 +16,15 @@
     >
     <div class="overlay-1 p-absolute z-index-1">
       {%- for block in section.blocks -%}
-        <span
-          class="d-flex {% if block.settings.left > 50 %} row {% else %} row-reverse {% endif %} align-center gap-1 p-absolute hotspot"
-          style="top: {{ block.settings.top }}%;left: {{ block.settings.left }}%;transform:translateY(-50%) {% if block.settings.left < 50 %}translateX(-100%) {% else %}translateX(0%){% endif %}; "
-        >
-          <span class="dot option_{{ forloop.index }}"></span>
-          <span class="text-capsule">{{ block.settings.text }}</span>
-        </span>
+        {%- if block.settings.text != nil -%}
+          <span
+            class="d-flex {% if block.settings.left > 50 %} row {% else %} row-reverse {% endif %} align-center gap-1 p-absolute hotspot"
+            style="top: {{ block.settings.top }}%;left: {{ block.settings.left }}%;transform:translateY(-50%) {% if block.settings.left < 50 %}translateX(-100%) {% else %}translateX(0%){% endif %}; "
+          >
+            <span class="dot option_{{ forloop.index }}"></span>
+            <span class="text-capsule">{{ block.settings.text }}</span>
+          </span>
+        {%- endif -%}
       {%- endfor -%}
       <div class="overlay-2">
         <div class="overlay-3">
@@ -48,7 +50,7 @@
   </div>
 </div>
 <style>
-  .main {
+  .main-{{ section.id }} {
     margin: 5rem auto;
   }
   .mobile-view {

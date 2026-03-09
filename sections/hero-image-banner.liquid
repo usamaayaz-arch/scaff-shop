@@ -15,7 +15,7 @@
 
     <div class="hero-content hero-content-{{ section.id }} {% if section.settings.is_in_container %}container{% endif %}">
       {% if section.settings.heading != blank %}
-        <h2 class="hero-heading">
+        <h2 class="hero-heading hero-heading-{{ section.id }}">
           {{ section.settings.heading }}
         </h2>
       {% endif %}
@@ -60,7 +60,7 @@
   margin: 0 auto;
   }
 
-  .hero-heading {
+  .hero-heading-{{ section.id }} {
   font-size: {{ section.settings.heading_size }};
   font-weight: {{ section.settings.heading_weight }};
   text-transform: {{ section.settings.heading_case }};
@@ -100,7 +100,7 @@
   }
   @media (max-width: 768px) {
   {%- if section.settings.heading_size == '48px' -%}
-  .hero-heading {
+  .hero-heading-{{ section.id }} {
   font-size: clamp(2rem, 5vw, {{ section.settings.heading_size }});
   }
   {%- endif -%}

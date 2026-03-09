@@ -44,10 +44,10 @@
     height: {{ section.settings.icon_size }}px;
   }
 
-  .site-header--{{ section.id }} .site-header__icon svg {
+  {% comment %} .site-header--{{ section.id }} .site-header__icon svg {
     width: 100%;
     height: 100%;
-  }
+  } {% endcomment %}
 </style>
 <header-menu>
   <header class="site-header site-header--{{ section.id }} {% if section.settings.sticky %}is-sticky{% endif %} ">

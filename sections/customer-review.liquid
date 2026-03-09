@@ -15,15 +15,15 @@
           <div class="detail_section-{{ section.id }}">
             <h3 class="title">{{ block.settings.title }}</h3>
             <p class="description">{{ block.settings.description }}</p>
-            {%- if block.settings.is_verified -%}
-              <span class="user_verified d-flex align-center">
-                <h2 class="user_name">{{ block.settings.user_name }}</h2>
+            <span class="user_verified d-flex align-center">
+              <h2 class="user_name">{{ block.settings.user_name }}</h2>
+              {%- if block.settings.is_verified -%}
                 <span class="d-flex row align-center">
                   {{- 'verified-icon.svg' | inline_asset_content -}}
                   {{- block.settings.icon_str -}}
                 </span>
-              </span>
-            {%- endif -%}
+              {%- endif -%}
+            </span>
           </div>
         </div>
       {%- endfor -%}
