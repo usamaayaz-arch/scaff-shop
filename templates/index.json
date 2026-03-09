@@ -27,7 +27,7 @@
         "heading_case": "uppercase",
         "sub_heading_weight": "400",
         "is_in_container": true,
-        "container_width": 34,
+        "container_width": 35,
         "button_label": "Shop Now",
         "button_url": "",
         "button_label_2": "",
@@ -139,22 +139,6 @@
     "collection_list_7R6LPH": {
       "type": "collection-list",
       "blocks": {
-        "grid_HzdQrt": {
-          "type": "grid",
-          "settings": {
-            "page_label": "accessories",
-            "image": "shopify://shop_images/Rectangle_34_1.png",
-            "page_url": ""
-          }
-        },
-        "grid_PwPN4G": {
-          "type": "grid",
-          "settings": {
-            "page_label": "scaffold shelf kit",
-            "image": "shopify://shop_images/Rectangle_34.png",
-            "page_url": ""
-          }
-        },
         "grid_BEHnpF": {
           "type": "grid",
           "settings": {
@@ -170,13 +154,65 @@
             "image": "shopify://shop_images/Rectangle_33.png",
             "page_url": ""
           }
+        },
+        "grid_PwPN4G": {
+          "type": "grid",
+          "settings": {
+            "page_label": "scaffold shelf kit",
+            "image": "shopify://shop_images/Rectangle_34.png",
+            "page_url": ""
+          }
+        },
+        "grid_HzdQrt": {
+          "type": "grid",
+          "settings": {
+            "page_label": "accessories",
+            "image": "shopify://shop_images/Rectangle_34_1.png",
+            "page_url": ""
+          }
+        },
+        "grid_4FKnDF": {
+          "type": "grid",
+          "settings": {
+            "page_label": "Furniture",
+            "image": "shopify://shop_images/Rectangle_34_2.png",
+            "page_url": ""
+          }
+        },
+        "grid_HTJ6Bx": {
+          "type": "grid",
+          "settings": {
+            "page_label": "cladding",
+            "image": "shopify://shop_images/Rectangle_34_3.png",
+            "page_url": ""
+          }
+        },
+        "grid_BWQnQG": {
+          "type": "grid",
+          "settings": {
+            "page_label": "scaffold tubes clamps",
+            "image": "shopify://shop_images/Rectangle_63.png",
+            "page_url": ""
+          }
+        },
+        "grid_P8nwPt": {
+          "type": "grid",
+          "settings": {
+            "page_label": "samples",
+            "image": "shopify://shop_images/Rectangle_64.png",
+            "page_url": ""
+          }
         }
       },
       "block_order": [
-        "grid_HzdQrt",
-        "grid_PwPN4G",
         "grid_BEHnpF",
-        "grid_mEt87L"
+        "grid_mEt87L",
+        "grid_PwPN4G",
+        "grid_HzdQrt",
+        "grid_4FKnDF",
+        "grid_HTJ6Bx",
+        "grid_BWQnQG",
+        "grid_P8nwPt"
       ],
       "name": "Category Grid",
       "settings": {
@@ -185,6 +221,356 @@
         "heading_alignment": "justify-self-center",
         "heading_case": "uppercase"
       }
+    },
+    "featured_collection_bnjNtJ": {
+      "type": "featured-collection",
+      "blocks": {
+        "collection_bhcV4n": {
+          "type": "collection",
+          "settings": {
+            "collection": "shop-by-look"
+          }
+        }
+      },
+      "block_order": [
+        "collection_bhcV4n"
+      ],
+      "name": "Featured Collection",
+      "settings": {
+        "heading": "<h1>shop by look</h1>",
+        "heading_alignment": "justify-self-center",
+        "slider_view": false,
+        "heading_case": "uppercase"
+      }
+    },
+    "image_with_text_overlay_MKpR3X": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "text_9nwi4G": {
+          "type": "text",
+          "settings": {
+            "text": "Handmade in the UK",
+            "top": 10,
+            "left": 79
+          }
+        },
+        "text_AAVGtH": {
+          "type": "text",
+          "settings": {
+            "text": "Low Carbon Process",
+            "top": 52,
+            "left": 95
+          }
+        },
+        "text_JtVwjN": {
+          "type": "text",
+          "settings": {
+            "text": "100% Reclaimed Wood",
+            "top": 52,
+            "left": 5
+          }
+        }
+      },
+      "block_order": [
+        "text_9nwi4G",
+        "text_AAVGtH",
+        "text_JtVwjN"
+      ],
+      "name": "Image with overlay",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_70.png",
+        "image_2": "shopify://shop_images/Rectangle_70.png",
+        "heading": "<h1>Sustainably Crafted. Consciously Designed.</h1>",
+        "description": "Every piece we create begins with something that already exists. By reclaiming scaffold boards, we give new life to old materials — reducing waste and celebrating natural character.",
+        "button_label": "Learn About Our Process",
+        "link": ""
+      }
+    },
+    "hero_image_banner_LiDBqE": {
+      "type": "hero-image-banner",
+      "custom_css": [
+        ".hero-section {margin-bottom: 3rem;}"
+      ],
+      "name": "Hero Banner",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_45.png",
+        "image_height": 40,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.2,
+        "heading": "The Annual Workshop Sale Has Arrived.",
+        "sub_heading": "<p>Save up to 25% on handcrafted furniture, shelving, and bespoke pieces — each made from reclaimed scaffold boards, sustainably sourced and built to last.</p>",
+        "text_color": "#ffffff",
+        "heading_size": "48px",
+        "heading_letter_spacing": -2,
+        "heading_line_height": 40,
+        "heading_weight": "600",
+        "heading_case": "uppercase",
+        "sub_heading_weight": "400",
+        "is_in_container": true,
+        "container_width": 39,
+        "button_label": "Shop The Sale",
+        "button_url": "shopify://pages/contact-us",
+        "button_label_2": "Explore Our Best Seller",
+        "button_url_2": "shopify://pages/contact-us",
+        "button_bg": "#ffffff",
+        "button_color": "#000000",
+        "is_outline": true,
+        "second_button_color": "#ffffff"
+      }
+    },
+    "featured_collection_nc4NPW": {
+      "type": "featured-collection",
+      "blocks": {
+        "collection_C6CJTr": {
+          "type": "collection",
+          "settings": {
+            "collection": "shop-by-look"
+          }
+        }
+      },
+      "block_order": [
+        "collection_C6CJTr"
+      ],
+      "name": "Featured Collection",
+      "settings": {
+        "heading": "<h1>Best Seller</h1>",
+        "heading_alignment": "justify-self-center",
+        "slider_view": true,
+        "heading_case": "uppercase"
+      }
+    },
+    "customer_review_FHkBVw": {
+      "type": "customer-review",
+      "blocks": {
+        "review_edjjg7": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_50.png",
+            "title": "Sample to assess overall look",
+            "description": "“Ordered some samples which arrived promptly. A cheap and useful way to help decide which is best/preferred product for our needs.”",
+            "user_name": "jozaf p.",
+            "is_verified": true,
+            "icon_str": "Verified Buyer"
+          }
+        },
+        "review_DUyMJj": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_53.png",
+            "title": "Scaff Shop samples",
+            "description": "“Ordered some samples which arrived promptly. A cheap and useful way to help decide which is best/preferred product for our needs.”",
+            "user_name": "jozaf p.",
+            "is_verified": true,
+            "icon_str": "Verified Buyer"
+          }
+        },
+        "review_FtC3dr": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_50.png",
+            "title": "Sample to assess overall look",
+            "description": "“Ordered some samples which arrived promptly. A cheap and useful way to help decide which is best/preferred product for our needs.”",
+            "user_name": "jozaf p.",
+            "is_verified": true,
+            "icon_str": "Verified Buyer"
+          }
+        },
+        "review_9DihW7": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_53.png",
+            "title": "Scaff Shop samples",
+            "description": "“Ordered some samples which arrived promptly. A cheap and useful way to help decide which is best/preferred product for our needs.”",
+            "user_name": "jozaf p.",
+            "is_verified": true,
+            "icon_str": "Verified Buyer"
+          }
+        }
+      },
+      "block_order": [
+        "review_edjjg7",
+        "review_DUyMJj",
+        "review_FtC3dr",
+        "review_9DihW7"
+      ],
+      "name": "Manual Reivew Section",
+      "settings": {
+        "bg_color": "#f8f8f8",
+        "heading": "<h1>What Our Customers Say</h1>",
+        "heading_case": "uppercase",
+        "heading_alignment": "justify-self-center"
+      }
+    },
+    "ticker_ULKawX": {
+      "type": "ticker",
+      "blocks": {
+        "ticker_LyfjY4": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_52.png",
+            "text": ""
+          }
+        },
+        "ticker_CPkHcr": {
+          "type": "ticker",
+          "settings": {
+            "text": ""
+          }
+        },
+        "ticker_MdRWmn": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_53.png",
+            "text": ""
+          }
+        },
+        "ticker_qDL68C": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_54.png",
+            "text": ""
+          }
+        },
+        "ticker_RXH4rP": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_55.png",
+            "text": ""
+          }
+        },
+        "ticker_QKQHwR": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_56.png",
+            "text": ""
+          }
+        },
+        "ticker_WbHkzz": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_57.png",
+            "text": ""
+          }
+        },
+        "ticker_b4YTcw": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_58.png",
+            "text": ""
+          }
+        },
+        "ticker_GrxVnn": {
+          "type": "ticker",
+          "settings": {
+            "image": "shopify://shop_images/image_59.png",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "ticker_LyfjY4",
+        "ticker_CPkHcr",
+        "ticker_MdRWmn",
+        "ticker_qDL68C",
+        "ticker_RXH4rP",
+        "ticker_QKQHwR",
+        "ticker_WbHkzz",
+        "ticker_b4YTcw",
+        "ticker_GrxVnn"
+      ],
+      "name": "Ticker",
+      "settings": {
+        "image_size": 5,
+        "font_size": 1,
+        "padding_y": 1,
+        "speed": 60
+      }
+    },
+    "blog_collection_m9czh9": {
+      "type": "blog-collection",
+      "name": "Blog Collection",
+      "settings": {
+        "heading": "<p>The Scaff Shop Blog</p>",
+        "view_all": true,
+        "heading_alignment": "justify-self-center",
+        "heading_case": "uppercase"
+      }
+    },
+    "accordian_eBxaMY": {
+      "type": "accordian",
+      "blocks": {
+        "accordion_item_KUCPJD": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "What materials do you use?",
+            "content": "<p>All of our pieces are made from reclaimed scaffold boards sourced from trusted local suppliers across the UK. Each board is individually restored, sanded, and finished by hand, ensuring that no two products are ever exactly alike.</p>"
+          }
+        },
+        "accordion_item_cCti9C": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Are all your products handmade?",
+            "content": "<p>All of our pieces are made from reclaimed scaffold boards sourced from trusted local suppliers across the UK. Each board is individually restored, sanded, and finished by hand, ensuring that no two products are ever exactly alike.</p>"
+          }
+        },
+        "accordion_item_XzUMwK": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "What kind of finishes do you offer?",
+            "content": "<p>All of our pieces are made from reclaimed scaffold boards sourced from trusted local suppliers across the UK. Each board is individually restored, sanded, and finished by hand, ensuring that no two products are ever exactly alike.</p>"
+          }
+        },
+        "accordion_item_PAkqiY": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "How sustainable is your production process?",
+            "content": "<p>All of our pieces are made from reclaimed scaffold boards sourced from trusted local suppliers across the UK. Each board is individually restored, sanded, and finished by hand, ensuring that no two products are ever exactly alike.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_item_KUCPJD",
+        "accordion_item_cCti9C",
+        "accordion_item_XzUMwK",
+        "accordion_item_PAkqiY"
+      ],
+      "name": "Advanced Accordion",
+      "settings": {
+        "section_heading": "FAQ — The Scaff Shop",
+        "section_description": "",
+        "full_width": true,
+        "text_transform": "none",
+        "bg_color": "#ffffff",
+        "text_color": "#333333",
+        "header_bg": "#f8f8f8",
+        "allow_multiple": false,
+        "first_open": true,
+        "show_icon": true,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "image_with_text_JMJC7y": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_55.png",
+        "heading": "Stay Inspired by Sustainable Design",
+        "text_transform": "uppercase",
+        "sub_heading": "",
+        "description": "<p>Be part of The Scaff Shop community — where reclaimed materials meet modern design.</p>",
+        "container_width_flag": true,
+        "padding_flag": true,
+        "container_width": 520,
+        "row_direction": "1",
+        "margin_flag": false,
+        "bg_color": "#f8f8f8",
+        "email_flag": true,
+        "button_label": "About Us",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_url": ""
+      }
     }
   },
   "order": [
@@ -192,6 +578,15 @@
     "ticker_WHTCAX",
     "image_with_text_NcmaBf",
     "image_with_text_aPd7jh",
-    "collection_list_7R6LPH"
+    "collection_list_7R6LPH",
+    "featured_collection_bnjNtJ",
+    "image_with_text_overlay_MKpR3X",
+    "hero_image_banner_LiDBqE",
+    "featured_collection_nc4NPW",
+    "customer_review_FHkBVw",
+    "ticker_ULKawX",
+    "blog_collection_m9czh9",
+    "accordian_eBxaMY",
+    "image_with_text_JMJC7y"
   ]
 }
