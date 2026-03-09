@@ -52,46 +52,24 @@
       </div>
     {% endif %}
   {%- endfor -%}
-  <ul class="privacies-section d-flex row gap-2">
-    {%- for policy in shop.policies -%}
-      <li>
-        {{ policy.title }}
-      </li>
-    {% endfor %}
-  </ul>
+  {%- if section.settings.policies_flag -%}
+    <ul class="privacies-section d-flex row gap-2">
+      {%- for policy in shop.policies -%}
+        <li>
+          {{ policy.title }}
+        </li>
+      {% endfor %}
+    </ul>
+  {%- endif -%}
 </div>
 <div class="company-info p-1">{{ 'general.info' | t }}</div>
+{{ 'footer.css' | asset_url | stylesheet_tag }}
 <style>
-    .company-info{
-    justify-self: center;
+  .footer {
+    background:{{ section.settings.bg_color }};
+    {% assign total_columns = section.blocks.size | plus: 1 %}
+    grid-template-columns: repeat({{ total_columns }}, 1fr);
   }
-    .footer .footer-menu ul{
-      margin-top: 1rem;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      align-items: flex-start;
-      gap: 0.75rem;}
-    .footer {
-      background:{{ section.settings.bg_color }};
-      display: grid;
-      {% assign total_columns = section.blocks.size | plus: 1 %}
-      grid-template-columns: repeat({{ total_columns }}, 1fr);
-    }
-
-    @media (max-width:768px){
-      .footer {
-        grid-template-columns: repeat(1, 1fr);
-      }
-
-      .footer-menu {
-        justify-self: unset;
-      }
-
-      .hide-mobile {
-        display: none;
-      }
-    }
 </style>
 
 {% schema %}
@@ -103,6 +81,12 @@
       "id": "bg_color",
       "label": "Background Color",
       "default": "#f8f8f8"
+    },
+    {
+      "type": "checkbox",
+      "id": "policies_flag",
+      "label": "Allow Policies",
+      "default": false
     }
   ],
   "blocks": [

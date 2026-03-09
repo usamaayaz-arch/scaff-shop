@@ -1,0 +1,109 @@
+.mobile-view {
+    display: none;
+}
+
+.image-with-text.mobile {
+    display: none;
+}
+
+.image-with-text-overlay .image-with-text {
+    width: 100%;
+}
+
+.overlay-1 .overlay-2 .overlay-3 .text-container {
+    width: 100%;
+    max-width: 31rem;
+    min-width: auto;
+    text-align: center;
+}
+
+.overlay-1 .overlay-2 .overlay-3 .text-container .heading h1,
+.overlay-1 .overlay-2 .overlay-3 .text-container .description p {
+    color: white;
+}
+
+.overlay-1 .overlay-2 .overlay-3 .text-container .heading h1 {
+    line-height: 28px;
+}
+
+.overlay-1 {
+    background: #0000003d;
+    padding: 1rem;
+}
+
+.overlay-2 {
+    background: #00000030;
+    padding: 1rem;
+}
+
+.overlay-3 {
+    background: #00000042;
+    padding: 5.5rem 4rem;
+}
+
+.overlay-1,
+.overlay-2,
+.overlay-3 {
+    border-radius: 500px;
+}
+
+.image-with-text-button {
+    background: white;
+    padding: 14px 20px;
+    width: fit-content;
+}
+
+@media (max-width: 768px) {
+    .mobile-view {
+        display: flex !important;
+    }
+
+    .hotspot {
+        display: none;
+    }
+
+    .overlay-3 {
+        padding: 1rem 2rem;
+    }
+
+    .image-with-text.desktop {
+        display: none;
+    }
+
+    .image-with-text.mobile {
+        display: block;
+    }
+
+    .image-with-text-button strong,
+    .description .text-capsule,
+    .description p {
+        font-size: 12px
+    }
+
+    .heading h1 {
+        font-size: 14px;
+        padding: 0.5rem;
+    }
+
+    .image-with-text-button {
+        padding: 8px;
+    }
+}
+
+.hotspot .dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    background: white;
+    border-radius: 50%;
+}
+
+.text-capsule {
+    display: flex;
+    color: white;
+    background: #00000063;
+    padding: 0.5rem 0.8rem;
+    border-radius: 26px;
+    border: 1px solid #ffffff99;
+    font-size: 14px;
+    white-space: nowrap;
+}
