@@ -1,0 +1,100 @@
+<div class="main">
+  <div class="container d-grid grid-template-col-2 gap-1">
+    <div class="left">
+      {%- if product.featured_image -%}
+        <div class="featured-image mb-1">
+          <img
+            height="auto"
+            width="auto"
+            src="{{ product.featured_image | image_url}}"
+            alt="{{ product.featured_image.alt }}"
+          >
+        </div>
+      {%- endif -%}
+      {%- if product.images -%}
+        <div class="product-media d-grid grid-template-col-2 gap-1">
+          {%- for image in product.images offset: 1 -%}
+            <img width="auto" height="auto" src="{{ image | image_url }}" alt="{{ image.alt }}">
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+    <div class="right">
+      <div class="product-vendor"><strong>Brand:</strong> {{ product.vendor }}</div>
+
+      <h1 style="letter-spacing: -2px;" class="product-title mb-1">{{ product.title | upcase }}</h1>
+
+      {% if product.options_with_values.size > 0 %}
+        <div class="product-options">
+          <ul>
+            {% for option in product.options_with_values %}
+              {%- if option.name == 'color' or option.name == 'Color' -%}
+                <li class="option-label d-flex column gap-1  mb-2">
+                  <strong>{{ option.name }} </strong>
+                  <ol class="d-flex row align-center gap-1h2">
+                    {%- for value in option.values -%}
+                      <li
+                        data="{{ value }}"
+                        data-parent="{{ option.name }}"
+                        class="option-value d-flex justify-center align-center p-relative {% if value.selected %}active{% endif %} "
+                        style="{% if value.selected %}border:1px solid #000000;{% endif %}border-radius:32px;width:2.2rem;height:2.2rem;cursor:pointer;"
+                      >
+                        <span
+                          style="display:block;{% if value.selected %}width: 1.7rem;height:1.7rem; {%else%} width: 2rem;height:2rem;{%endif%}background: {{value.swatch.color}};border-radius: 32px;position: absolute;"
+                        ></span>
+                      </li>
+                    {%- endfor -%}
+                  </ol>
+                </li>
+              {%- else -%}
+                <li class="option-label d-flex column gap-1 mb-2">
+                  <strong>{{ option.name }} </strong>
+                  <ol class="d-flex row align-center gap-1h2">
+                    {%- for value in option.values -%}
+                      <li
+                        style="border: 2px solid #9F9F9F;width: 100%;max-width: 198px;text-align: center;padding: 1.063rem 0rem;cursor:pointer;{% if value.selected %}border:2px solid #000000;{% endif %}"
+                        class="option-value {% if value.selected %}active{% endif %} "
+                      >
+                        {{ value }}
+                      </li>
+                    {%- endfor -%}
+                  </ol>
+                </li>
+              {%- endif -%}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      <div class="qunatity-price-container">
+        <div class="quantity-selector">
+            {%- render 'quantity-selector', product: product.selected_or_first_available_variant -%}
+        </div>
+        <div class="product-pricing">
+          {% if product.compare_at_price > product.price %}
+            <span class="compare-price">
+              {{ product.compare_at_price | money }}
+            </span>
+          {% endif %}
+
+          <span class="product-price">
+            {{ product.price | money }}
+          </span>
+        </div>
+      </div>
+
+      <div class="product-description">
+        {{ product.description }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .product-media img,
+  .featured-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>
+<script></script>

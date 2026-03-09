@@ -1,7 +1,7 @@
 <div class="ticker ticker--{{ section.id }}">
   <div class="ticker__track">
-    {% for i in (1..20) %}
-      <div class="ticker__container">
+    {%- if section.settings.loopthrough_flag == false -%}
+      <div class="ticker__container px-1">
         {% for block in section.blocks %}
           <div class="ticker__item" {{ block.shopify_attributes }}>
             {% if block.settings.image %}
@@ -21,10 +21,81 @@
           </div>
         {% endfor %}
       </div>
-    {% endfor %}
+    {%- else -%}
+      {% for i in (1..20) %}
+        <div class="ticker__container">
+          {% for block in section.blocks %}
+            <div class="ticker__item" {{ block.shopify_attributes }}>
+              {% if block.settings.image %}
+                <img
+                  width="auto"
+                  height="auto"
+                  class="ticker__image"
+                  src="{{ block.settings.image | image_url }}"
+                  alt="{{ block.settings.image.alt | escape }}"
+                  loading="lazy"
+                >
+              {% endif %}
+
+              {% if block.settings.text != blank %}
+                <div>{{ block.settings.text }}</div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    {%- endif -%}
   </div>
 </div>
 
+{% comment %}
+  <style>
+      .ticker--{{ section.id }} {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .ticker--{{ section.id }} .ticker__track {
+        display: flex;
+        width: max-content;
+        animation: ticker-scroll-{{ section.id }} {{ section.settings.speed }}s linear infinite;
+      }
+
+      .ticker--{{ section.id }} .ticker__container {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        padding-top: {{ section.settings.padding_y }}rem;
+        padding-bottom: {{ section.settings.padding_y }}rem;
+        flex-shrink: 0;
+      }
+
+      .ticker--{{ section.id }} .ticker__item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: {{ section.settings.font_size }}rem;
+        white-space: nowrap;
+      }
+      .ticker--{{ section.id }} .ticker__item:nth-child(1) {
+      padding-left: 2rem;
+    }
+
+      .ticker--{{ section.id }} .ticker__image {
+        width: {{ section.settings.image_size }}rem;
+        height: auto;
+      }
+
+      @keyframes ticker-scroll-{{ section.id }} {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-45%); }
+      }
+
+      .ticker--{{ section.id }}:hover .ticker__track {
+        animation-play-state: paused;
+      }
+  </style>
+{% endcomment %}
 <style>
   .ticker--{{ section.id }} {
     overflow: hidden;
@@ -33,8 +104,11 @@
 
   .ticker--{{ section.id }} .ticker__track {
     display: flex;
-    width: max-content;
-    animation: ticker-scroll-{{ section.id }} {{ section.settings.speed }}s linear infinite;
+    width: 100%;
+    {% if section.settings.loopthrough_flag %}
+      width: max-content;
+      animation: ticker-scroll-{{ section.id }} {{ section.settings.speed }}s linear infinite;
+    {% endif %}
   }
 
   .ticker--{{ section.id }} .ticker__container {
@@ -43,7 +117,11 @@
     gap: 2rem;
     padding-top: {{ section.settings.padding_y }}rem;
     padding-bottom: {{ section.settings.padding_y }}rem;
-    flex-shrink: 0;
+
+    {% unless section.settings.loopthrough_flag %}
+      justify-content: space-between;
+      width: 100%;
+    {% endunless %}
   }
 
   .ticker--{{ section.id }} .ticker__item {
@@ -53,15 +131,18 @@
     font-size: {{ section.settings.font_size }}rem;
     white-space: nowrap;
   }
+    {% if section.settings.loopthrough_flag %}
   .ticker--{{ section.id }} .ticker__item:nth-child(1) {
-  padding-left: 2rem;
-}
+    padding-left: 2rem;
+  }
+  {% endif %}
 
   .ticker--{{ section.id }} .ticker__image {
     width: {{ section.settings.image_size }}rem;
     height: auto;
   }
 
+  {% if section.settings.loopthrough_flag %}
   @keyframes ticker-scroll-{{ section.id }} {
     0% { transform: translateX(0); }
     100% { transform: translateX(-45%); }
@@ -70,13 +151,13 @@
   .ticker--{{ section.id }}:hover .ticker__track {
     animation-play-state: paused;
   }
+  {% endif %}
 </style>
-
-
 {% schema %}
 {
   "name": "Ticker",
   "settings": [
+    { "type": "checkbox", "id": "loopthrough_flag", "label": "loop through", "default": false },
     {
       "type": "range",
       "id": "image_size",
@@ -112,7 +193,7 @@
       "id": "speed",
       "label": "Scroll Speed (seconds)",
       "min": 5,
-      "max": 60,
+      "max": 100,
       "step": 1,
       "default": 20
     }
