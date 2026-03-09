@@ -10,6 +10,7 @@
 {
   "general": {
     "welcome": "Welcome",
-    "info":"© The Scaff Shop Ltd. 2025. Developed by Sanomads"
+    "info":"© The Scaff Shop Ltd. 2025. Developed by Sanomads",
+    "cart_button_label":"Add to Cart"
   }
 }

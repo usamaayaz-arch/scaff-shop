@@ -1,5 +1,5 @@
 <div class="main">
-  <div class="container d-grid grid-template-col-2 gap-1">
+  <div class="container d-grid grid-template-col-2 gap-1 page-pa">
     <div class="left">
       {%- if product.featured_image -%}
         <div class="featured-image mb-1">
@@ -20,7 +20,9 @@
       {%- endif -%}
     </div>
     <div class="right">
-      <div class="product-vendor"><strong>Brand:</strong> {{ product.vendor }}</div>
+      {%- if section.settings.vendor -%}
+        <div class="product-vendor"><strong>Brand:</strong> {{ product.vendor }}</div>
+      {%- endif -%}
 
       <h1 style="letter-spacing: -2px;" class="product-title mb-1">{{ product.title | upcase }}</h1>
 
@@ -36,7 +38,7 @@
                       <li
                         data="{{ value }}"
                         data-parent="{{ option.name }}"
-                        class="option-value d-flex justify-center align-center p-relative {% if value.selected %}active{% endif %} "
+                        class="option-value d-flex wrap justify-center align-center p-relative {% if value.selected %}active{% endif %} "
                         style="{% if value.selected %}border:1px solid #000000;{% endif %}border-radius:32px;width:2.2rem;height:2.2rem;cursor:pointer;"
                       >
                         <span
@@ -49,7 +51,7 @@
               {%- else -%}
                 <li class="option-label d-flex column gap-1 mb-2">
                   <strong>{{ option.name }} </strong>
-                  <ol class="d-flex row align-center gap-1h2">
+                  <ol class="d-flex row wrap align-center gap-1h2">
                     {%- for value in option.values -%}
                       <li
                         style="border: 2px solid #9F9F9F;width: 100%;max-width: 198px;text-align: center;padding: 1.063rem 0rem;cursor:pointer;{% if value.selected %}border:2px solid #000000;{% endif %}"
@@ -65,11 +67,11 @@
           </ul>
         </div>
       {% endif %}
-      <div class="qunatity-price-container">
+      <div class="qunatity-price-container d-flex justify-space-between align-end">
         <div class="quantity-selector">
-            {%- render 'quantity-selector', product: product.selected_or_first_available_variant -%}
+          {%- render 'quantity-selector', product: product.selected_or_first_available_variant ,section -%}
         </div>
-        <div class="product-pricing">
+        <div class="product-pricing pb-1 d-flex align-center gap-1">
           {% if product.compare_at_price > product.price %}
             <span class="compare-price">
               {{ product.compare_at_price | money }}
@@ -80,6 +82,11 @@
             {{ product.price | money }}
           </span>
         </div>
+      </div>
+      <div class="add-to-cart-{{ section.id }}">
+        {%- form 'activate_customer_password', attribute: '' -%}
+          <button id="add_to_cart_button" class="button cart-button" type="button">{{ 'general.cart_button_label' | t }}</button>
+        {%- endform -%}
       </div>
 
       <div class="product-description">
@@ -96,5 +103,28 @@
     width: 100%;
     height: auto;
   }
+  .compare-price {
+    color: darkgrey;
+    text-decoration: line-through;
+  }
+  .add-to-cart-{{ section.id }} .cart-button{
+    padding: 0.85rem;
+    width: 100%;
+    background: black;
+    color: white;
+    border: unset;
+    cursor: pointer;}
 </style>
-<script></script>
+
+{% schema %}
+{
+  "name": "main-product",
+  "settings": [{ "type": "checkbox", "label": "show vendor", "id": "vendor", "default": false }],
+  "presets": [
+    {
+      "name": "main-product",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
