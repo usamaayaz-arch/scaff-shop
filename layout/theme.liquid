@@ -5,11 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page_title }}</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/css2?family=Phudu:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    <style>
+          :root {
+      --color-primary: {{ settings.color_primary }};
+      --color-secondary: {{ settings.color_secondary }};
+      --color-background: {{ settings.color_background }};
+      --color-text: {{ settings.color_text }};
+      --color-border: {{ settings.color_border }};
+      --font-heading: {{ settings.font_heading.family | default: 'Helvetica' }};
+      --font-body: {{ settings.font_body.family | default: 'Helvetica' }};
+      --font-base-size: {{ settings.font_base_size | default: 17 }}px;
+      --font-heading-fallback: {{ settings.font_heading.fallback_families | default: 'sans-serif' }};
+      --font-body-fallback: {{ settings.font_body.fallback_families | default: 'sans-serif' }};
+      --container-width: {{ settings.container_width }}px;
+      --radius-md: {{ settings.button_radius }}px;
 
-    <link rel="stylesheet" href="{{ 'base.css' | asset_url | stylesheet_tag }}">
+          }
+    </style>
   </head>
 
   <body>
@@ -19,6 +36,5 @@
       {{ content_for_layout }}
     </main>
     {% section 'footer' %}
-
   </body>
 </html>
