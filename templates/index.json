@@ -20,14 +20,14 @@
         "heading": "From Scaffold Boards to Sustainable Masterpieces",
         "sub_heading": "<p>Handcrafted furniture, shelving, and interiors—designed<br/>from reclaimed wood in the UK.<br/><br/>⭐⭐⭐⭐⭐ Chosen by over 20k+ builders and scaffolders</p>",
         "text_color": "#ffffff",
-        "heading_size": "36px",
-        "heading_letter_spacing": -2,
+        "heading_size": "48px",
+        "heading_letter_spacing": 0,
         "heading_line_height": 40,
         "heading_weight": "600",
         "heading_case": "uppercase",
         "sub_heading_weight": "400",
         "is_in_container": true,
-        "container_width": 35,
+        "container_width": 46,
         "button_label": "Shop Now",
         "button_url": "",
         "button_label_2": "",
@@ -107,7 +107,7 @@
         "container_width": 460,
         "row_direction": "0",
         "margin_flag": false,
-        "bg_color": "#f8f8f8",
+        "bg_color": "#ffffff",
         "email_flag": false,
         "button_label": "About Us",
         "button_bg_color": "#000000",
@@ -129,7 +129,7 @@
         "container_width": 460,
         "row_direction": "1",
         "margin_flag": false,
-        "bg_color": "#f8f8f8",
+        "bg_color": "#ffffff",
         "email_flag": false,
         "button_label": "About Us",
         "button_bg_color": "#000000",
@@ -289,8 +289,20 @@
     },
     "hero_image_banner_LiDBqE": {
       "type": "hero-image-banner",
+      "blocks": {
+        "text_dN4MMn": {
+          "type": "text",
+          "settings": {
+            "text": "Free UK shipping on orders over £250."
+          }
+        }
+      },
+      "block_order": [
+        "text_dN4MMn"
+      ],
       "custom_css": [
-        ".hero-section {margin-bottom: 3rem;}"
+        ".hero-section {margin-bottom: 3rem;}",
+        ".hero-button:nth-child(2) {padding-left: 1.5rem; padding-right: 1.5rem;}"
       ],
       "name": "Hero Banner",
       "settings": {
@@ -412,12 +424,6 @@
             "text": ""
           }
         },
-        "ticker_CPkHcr": {
-          "type": "ticker",
-          "settings": {
-            "text": ""
-          }
-        },
         "ticker_MdRWmn": {
           "type": "ticker",
           "settings": {
@@ -470,7 +476,6 @@
       },
       "block_order": [
         "ticker_LyfjY4",
-        "ticker_CPkHcr",
         "ticker_MdRWmn",
         "ticker_qDL68C",
         "ticker_RXH4rP",
