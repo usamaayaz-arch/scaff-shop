@@ -15,26 +15,10 @@
     background: {{ section.settings.header_bg }};
   }
 
-  .accordion-item summary {
-    list-style: none;
-  }
-
-  .accordion-item summary::-webkit-details-marker {
-    display: none;
-  }
-
   .accordion-content {
     background: {{ section.settings.header_bg }};
-    padding: 0px 20px 18px 20px;
   }
 
-  .accordion-arrow {
-    transition: transform 0.3s ease;
-  }
-
-  .accordion-item[open] .accordion-arrow svg {
-    transform: rotate(180deg);
-  }
 </style>
 
 <section class="accordion-section accordion-section-{{ section.id }}">

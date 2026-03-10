@@ -11,6 +11,7 @@
   "general": {
     "welcome": "Welcome",
     "info":"© The Scaff Shop Ltd. 2025. Developed by Sanomads",
-    "cart_button_label":"Add to Cart"
+    "cart_button_label":"Add to Cart",
+    "description_label":"Detail"
   }
 }

@@ -1,16 +1,22 @@
 <div class="quantity-selector title mb-1"><strong>Quantity</strong></div>
 <div class="quantity-selector-{{ section.id }} d-flex row nowrap align-center gap-1">
-  <button id="decrease_quantity_btn" role="button" class="button d-flex decrease-quantity-button">{{ 'minus.svg' | inline_asset_content }}</button>
-  <input id="product_quantity" type="hidden" readonly value="88" class="w-100">
-  <span class="product_quantity_view">88</span>
-  <button id="increase_quantity_btn" role="button" class="button d-flex increase-quantity-button">{{ 'plus.svg' | inline_asset_content }}</button>
+  <button id="decrease_quantity_btn" role="button" class="button d-flex decrease-quantity-button">
+    {{ 'minus.svg' | inline_asset_content }}
+  </button>
+  <input id="product_quantity" type="hidden" readonly value="1" class="w-100">
+  <span class="product_quantity_view">1</span>
+  <button id="increase_quantity_btn" role="button" class="button d-flex increase-quantity-button">
+    {{ 'plus.svg' | inline_asset_content }}
+  </button>
 </div>
 
 <style>
   .quantity-selector-{{ section.id }} {
-  border: 1px solid black;
-  width: fit-content;
-  padding:12px;
+    width: 8rem;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid darkgrey;
   }
   .quantity-selector-{{ section.id }} svg{
   width:1rem;

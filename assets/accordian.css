@@ -71,3 +71,23 @@
   .accordion-item input:checked ~ .accordion-header .accordion-arrow svg {
     transform: rotate(180deg);
   }
+
+  .accordion-item summary {
+    list-style: none;
+  }
+
+  .accordion-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .accordion-content {
+    padding: 0px 20px 18px 20px;
+  }
+
+  .accordion-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .accordion-item[open] .accordion-arrow svg {
+    transform: rotate(180deg);
+  }

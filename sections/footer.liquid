@@ -14,7 +14,8 @@
     </span>
     {%- if settings.social_media_icons_flag -%}
       <div class="footer__social d-flex-imp">
-        {% render 'social-media' %}
+        {% comment %} {% render 'social-media' %} {% endcomment %}
+        {% render 'social-media', footer_only: true %}
       </div>
     {%- endif -%}
   </div>
