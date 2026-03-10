@@ -1,9 +1,9 @@
-<div class="ticker ticker--{{ section.id }}">
-  <div class="ticker__track">
+<div class="ticker ticker--{{ section.id }} p-relative overflow-hidden">
+  <div class="ticker__track" style="{%if section.settings.border%}border-bottom: 1.5px solid lightgrey;{%endif%}">
     {%- if section.settings.loopthrough_flag == false -%}
-      <div class="ticker__container px-1">
+      <div class="ticker__container d-flex align-center gap-2 px-1">
         {% for block in section.blocks %}
-          <div class="ticker__item" {{ block.shopify_attributes }}>
+          <div class="ticker__item d-flex align-center gap-1h2" {{ block.shopify_attributes }}>
             {% if block.settings.image %}
               <img
                 width="auto"
@@ -23,9 +23,9 @@
       </div>
     {%- else -%}
       {% for i in (1..20) %}
-        <div class="ticker__container">
+        <div class="ticker__container d-flex align-center gap-2">
           {% for block in section.blocks %}
-            <div class="ticker__item" {{ block.shopify_attributes }}>
+            <div class="ticker__item d-flex align-center gap-1h2" {{ block.shopify_attributes }}>
               {% if block.settings.image %}
                 <img
                   width="auto"
@@ -47,61 +47,7 @@
     {%- endif -%}
   </div>
 </div>
-
-{% comment %}
-  <style>
-      .ticker--{{ section.id }} {
-        overflow: hidden;
-        position: relative;
-      }
-
-      .ticker--{{ section.id }} .ticker__track {
-        display: flex;
-        width: max-content;
-        animation: ticker-scroll-{{ section.id }} {{ section.settings.speed }}s linear infinite;
-      }
-
-      .ticker--{{ section.id }} .ticker__container {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        padding-top: {{ section.settings.padding_y }}rem;
-        padding-bottom: {{ section.settings.padding_y }}rem;
-        flex-shrink: 0;
-      }
-
-      .ticker--{{ section.id }} .ticker__item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: {{ section.settings.font_size }}rem;
-        white-space: nowrap;
-      }
-      .ticker--{{ section.id }} .ticker__item:nth-child(1) {
-      padding-left: 2rem;
-    }
-
-      .ticker--{{ section.id }} .ticker__image {
-        width: {{ section.settings.image_size }}rem;
-        height: auto;
-      }
-
-      @keyframes ticker-scroll-{{ section.id }} {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-45%); }
-      }
-
-      .ticker--{{ section.id }}:hover .ticker__track {
-        animation-play-state: paused;
-      }
-  </style>
-{% endcomment %}
 <style>
-  .ticker--{{ section.id }} {
-    overflow: hidden;
-    position: relative;
-  }
-
   .ticker--{{ section.id }} .ticker__track {
     display: flex;
     width: 100%;
@@ -112,9 +58,6 @@
   }
 
   .ticker--{{ section.id }} .ticker__container {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
     padding-top: {{ section.settings.padding_y }}rem;
     padding-bottom: {{ section.settings.padding_y }}rem;
 
@@ -125,9 +68,6 @@
   }
 
   .ticker--{{ section.id }} .ticker__item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
     font-size: {{ section.settings.font_size }}rem;
     white-space: nowrap;
   }
@@ -196,7 +136,8 @@
       "max": 100,
       "step": 1,
       "default": 20
-    }
+    },
+    { "type": "checkbox", "label": "border", "id": "border", "info": "border in the bottom will be added","default":false }
   ],
   "blocks": [
     {

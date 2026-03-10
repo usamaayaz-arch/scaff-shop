@@ -1,21 +1,21 @@
-<div class="social-media">
+<div class="social-media     d-flex align-center justify-center row">
   {%- if settings.facebook_icons_flag and settings.facebook -%}
-    <a class="social-media-link" href="{{settings.facebook}}">
+    <a class="social-media-link rounded-sm d-flex align-center justify-center" href="{{settings.facebook}}">
       {{ 'facebook-icon.svg' | inline_asset_content }}
     </a>
   {%- endif -%}
   {%- if settings.yahoo_icons_flag and settings.yahoo -%}
-    <a class="social-media-link" href="{{settings.yahoo}}">
+    <a class="social-media-link rounded-sm d-flex align-center justify-center" href="{{settings.yahoo}}">
       {{ 'yahoo-icon.svg' | inline_asset_content }}
     </a>
   {%- endif -%}
   {%- if settings.pinterest_icons_flag and settings.pinterest -%}
-    <a class="social-media-link" href="{{settings.pinterest}}">
+    <a class="social-media-link rounded-sm d-flex align-center justify-center" href="{{settings.pinterest}}">
       {{ 'pinterest-icon.svg' | inline_asset_content }}
     </a>
   {%- endif -%}
   {%- if settings.instagram_icons_flag and settings.instagram -%}
-    <a class="social-media-link" href="{{settings.instagram}}">
+    <a class="social-media-link rounded-sm d-flex align-center justify-center" href="{{settings.instagram}}">
       {{ 'instagram-icon.svg' | inline_asset_content }}
     </a>
   {%- endif -%}
@@ -23,10 +23,6 @@
 
 <style>
   .social-media {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
     gap: 12px;
   }
   .social-media-link svg {
@@ -38,9 +34,5 @@
     height: 2rem;
     background: #ffffff;
     text-align: center;
-    border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 </style>

@@ -5,7 +5,7 @@
     </div>
 
     <div class="articles articles-{{ section.id }}">
-      {% for article in blogs.news.articles %}
+      {% for article in blogs.news.articles offset: 3 %}
         <div class="article article-{{ section.id }}">
           {% if article.image %}
             <img
@@ -33,18 +33,12 @@
 </div>
 
 <style>
-  .container{
-    {% comment %} max-width:1200px;
-    margin:auto;
-    padding:0 15px; {% endcomment %}
-  }
-
-  .blog-section-heading{
+  .blog-section-heading {
     text-align:left;
     margin-bottom:30px;
   }
 
-  .articles-{{ section.id }}{
+  .articles-{{ section.id }} {
     display:grid;
     grid-template-columns: repeat(3, 1fr);
     gap:20px;
@@ -52,7 +46,6 @@
 
   .article-{{ section.id }}{
     background:#fff;
-    {% comment %} border-radius:8px; {% endcomment %}
     overflow:hidden;
     display:flex;
     flex-direction:column;
