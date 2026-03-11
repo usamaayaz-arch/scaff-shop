@@ -1,3 +1,21 @@
+if (!customElements.get("header-icon")) {
+  class HeaderIcon extends HTMLElement {
+    constructor() {
+      super();
+    }
+
+    connectedCallback(){
+       const temp = document.getElementById('header-search-icon');
+        const searchProductForm = document.getElementById('searchProductForm');
+        temp.addEventListener('click', () => {
+          searchProductForm.style.display = 'flex';
+        });
+    }
+  }
+    if (!customElements.get("header-icon")) {
+    customElements.define("header-icon", HeaderIcon);
+  }
+}
 if (!customElements.get("header-menu")) {
   class Header extends HTMLElement {
     constructor() {

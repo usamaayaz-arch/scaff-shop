@@ -74,39 +74,36 @@
           {% endfor %}
         </ul>
       </nav>
-      <div class="site-header__actions d-flex wrap justify-center align-center gap-1">
-        {% assign icons = 'search,empty-cart,profile' | split: ',' %}
-        {% for icon in icons %}
-          {% assign icon_file = icon | append: '-icon.svg' %}
-          {%- unless icon == 'profile' -%}
-            <button
-              {% if icon == 'empty-cart' %}
-                style="position:relative"
-              {% endif %}
-              class="site-header__icon"
-              aria-label="{{ icon }}"
-              {% if icon == 'search' %}
-                id="header-search-icon"
-              {% endif %}
-            >
-              {{ icon_file | inline_asset_content }}
-              {%- if icon == 'empty-cart' -%}
-                <span style="position: absolute;top: -5px;font-size: smaller;right: -5px;">{{ cart.items.size }}</span>
-              {%- endif -%}
-            </button>
-          {%- endunless -%}
-        {% endfor %}
-        <button class="site-header__icon" aria-label="profile">
-          <a href="/account/login"> {{ icon_file | inline_asset_content }}</a>
-        </button>
-      </div>
-      <script>
-        const temp = document.getElementById('header-search-icon');
-        const searchProductForm = document.getElementById('searchProductForm');
-        temp.addEventListener('click', () => {
-          searchProductForm.style.display = 'flex';
-        });
-      </script>
+      <header-icon>
+        <div class="site-header__actions d-flex wrap justify-center align-center gap-1">
+          {% assign icons = 'search,empty-cart,profile' | split: ',' %}
+          {% for icon in icons %}
+            {% assign icon_file = icon | append: '-icon.svg' %}
+            {%- unless icon == 'profile' -%}
+              <button
+                {% if icon == 'empty-cart' %}
+                  style="position:relative"
+                {% endif %}
+                class="site-header__icon"
+                aria-label="{{ icon }}"
+                {% if icon == 'search' %}
+                  id="header-search-icon"
+                {% endif %}
+              >
+                {{ icon_file | inline_asset_content }}
+                {%- if icon == 'empty-cart' -%}
+                  <span style="position: absolute;top: -5px;font-size: smaller;right: -5px;">
+                    {{- cart.items.size -}}
+                  </span>
+                {%- endif -%}
+              </button>
+            {%- endunless -%}
+          {% endfor %}
+          <button class="site-header__icon" aria-label="profile">
+            <a href="/account/login"> {{ icon_file | inline_asset_content }}</a>
+          </button>
+        </div>
+      </header-icon>
     </div>
     <nav class="mini-drawer-menu d-flex column flex-2" role="navigation">
       <div class="site-header__actions d-flex align-center justify-{% if settings.brand_logo%}space-between{%else%}right{%endif%}">
