@@ -395,6 +395,14 @@
         position: relative;
       }
 
+      .p-sticky {
+        position: sticky;
+      }
+
+      .top-0{
+        top: 0px;
+      }
+
       .p-absolute {
         position: absolute;
       }

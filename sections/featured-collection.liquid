@@ -54,8 +54,9 @@
           {% assign collection = block.settings.collection %}
 
           {% if collection != blank %}
-            <div class="featured-collection-card d-grid grid-template-col-2 gap-1">
+            <div class="featured-collection-card d-grid grid-template-col-2 gap-1 p-relative">
               <img
+                class="p-sticky top-0 "
                 width="auto"
                 height="auto"
                 src="{{ collection.featured_image | image_url: width: 600 }}"

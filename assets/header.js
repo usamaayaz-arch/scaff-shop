@@ -14,6 +14,18 @@ if (!customElements.get("header-icon")) {
         overlay.style.display = "unset";
         searchProductForm.classList.add("search-form-header-active");
       });
+
+      document.addEventListener("cart:updated", function (event) {
+        fetch("/cart.js")
+          .then((response) => response.json())
+          .then((cart) => {
+            const cartCount = document.getElementById("cart-count");
+
+            if (cartCount) {
+              cartCount.textContent = cart.item_count;
+            }
+          });
+      });
     }
   }
   if (!customElements.get("header-icon")) {

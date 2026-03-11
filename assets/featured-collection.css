@@ -76,6 +76,9 @@
     .featured-collection-card {
         grid-template-columns: repeat(1, 2fr);
     }
+    .featured-collection-card img{
+        position: unset;
+    }
 
     .back_button,
     .forward_button {

@@ -7,13 +7,3 @@ if (!customElements.get("featured-collection-selector")) {
   }
 }
 
-if (!customElements.get("cart-handler")) {
-  class CartHandler extends HTMLElement {
-    constructor() {
-      super();
-    }
-    connectedCallback() {}
-  }
-
-  customElements.define("cart-handler", CartHandler);
-}

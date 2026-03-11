@@ -62,7 +62,7 @@
           </a>
         </div>
       {% endif %}
-      {%- render 'search',section:section -%}
+      {%- render 'search', section: section -%}
       <nav class="site-header__nav" role="navigation">
         <ul class="site-header__menu d-flex wrap justify-center align-center py-1">
           {% for link in section.settings.menu.links %}
@@ -92,8 +92,8 @@
               >
                 {{ icon_file | inline_asset_content }}
                 {%- if icon == 'empty-cart' -%}
-                  <span style="position: absolute;top: -5px;font-size: smaller;right: -5px;">
-                    {{- cart.items.size -}}
+                  <span id="cart-count" style="position: absolute;top: -5px;font-size: smaller;right: -5px;">
+                    {{- cart.item_count -}}
                   </span>
                 {%- endif -%}
               </button>
