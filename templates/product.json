@@ -163,7 +163,7 @@
         "sub_heading": "",
         "description": "<p>Be part of The Scaff Shop community — where reclaimed materials meet modern design.<br/><br/></p>",
         "container_width_flag": true,
-        "padding_flag": false,
+        "padding_flag": true,
         "container_width": 525,
         "row_direction": "1",
         "margin_flag": false,
