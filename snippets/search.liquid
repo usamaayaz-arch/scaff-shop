@@ -1,24 +1,31 @@
 <form
-  class="form-{{section.id }}  d-flex justify-center align-center"
+  id="searchProductForm"
+  class="search-form-{{ section.id }} d-flex justify-center align-center"
   action="{{ routes.search_url }}"
   method="get"
   role="search"
 >
-  <input
-    type="search"
-    id="search-input"
-    name="q"
-    placeholder="Search products..."
-    autocomplete="off"
-    class="search-input-{{ section.id }}"
-  >
-  <div id="search-suggestions"></div>
-  {% comment %} <input type="submit" value="Search"> {% endcomment %}
+  <div class="search-input-wrapper-{{ section.id }}">
+    <input
+      type="search"
+      id="search-input"
+      name="q"
+      placeholder="Search products..."
+      autocomplete="off"
+      class="search-field-{{ section.id }} p-1"
+    >
+    <span class="close-icon-wrapper">
+      {{ 'close-icon.svg' | inline_asset_content }}
+    </span>
+  </div>
+
+  <div id="search-results-dropdown"></div>
 </form>
 
 <script>
+  const closeIcon = document.querySelector('.close-icon-wrapper');
   const input = document.getElementById('search-input');
-  const suggestions = document.getElementById('search-suggestions');
+  const suggestions = document.getElementById('search-results-dropdown');
 
   input.addEventListener('input', function () {
     const query = input.value;
@@ -37,64 +44,103 @@
           suggestions.innerHTML = '<p>No results found</p>';
           return;
         }
-
         let html = '<ul>';
-
         results.forEach((product) => {
           html += `
-          <li>
-            <a href="${product.url}">
-              <img src="${product.image}" width="40">
-              ${product.title}
-            </a>
-          </li>
-        `;
+            <li>
+              <a href="${product.url}">
+                <img src="${product.image}" width="40">
+                ${product.title}
+              </a>
+            </li>
+          `;
         });
 
         html += '</ul>';
-
         suggestions.innerHTML = html;
       });
   });
+
+  // Close icon functionality
+  closeIcon.addEventListener('click', function () {
+    const temp = document.getElementById('searchProductForm');
+    temp.style.display = 'none';
+  });
 </script>
+
 <style>
-  .form-{{section.id }} {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-  .search-input-{{ section.id }} {
-    max-width: 35rem;
-    width: 100%;
-  }
-  #search-suggestions {
-    position: absolute;
-    background: white;
-    max-width: 35rem;
-    width: 100%;
-    border: 1px solid #ddd;
-    z-index: 1000;
-    top: 61px;
+    .search-form-{{ section.id }} svg{cursor:pointer}
+    .search-form-{{ section.id }} {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      margin: auto 1rem !important;
+      background: #ffffffd6;
+      display:none;
+    }
+    
+    #search-results-dropdown:empty {
+      display: none;
+    }
+
+    .search-input-wrapper-{{ section.id }} {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      transform: translateX(16px);
+    }
+
+    .search-field-{{ section.id }} {
+      max-width: 35rem;
+      width: calc(100% - 6rem);
+    }
+    @media (max-width:426px){
+    #search-results-dropdown ,
+    .search-field-{{ section.id }} {
+       width: calc(100% - 4rem) !important;
+     }
+    .search-input-wrapper-{{ section.id }} {
+          justify-content: flex-start;
+          transform: translateX(0px);
+        }
+    .search-form-{{ section.id }} {
+            justify-content: flex-start;}
   }
 
-  #search-suggestions ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+    .search-field-{{ section.id }}:focus-visible {
+      outline: none;
+    }
 
-  #search-suggestions li {
-    padding: 8px;
-    border-bottom: 1px solid #eee;
-  }
+    #search-results-dropdown {
+      position: absolute;
+      background: white;
+      max-width: 35rem;
+      width: calc(100% - 6rem);
+      border: 1px solid #ddd;
+      z-index: 1000;
+      top: 69px;
+    }
 
-  #search-suggestions li a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+    #search-results-dropdown ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #search-results-dropdown li {
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+    }
+
+    #search-results-dropdown li a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 </style>
