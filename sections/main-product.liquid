@@ -27,7 +27,7 @@
     </div>
     <div class="right">
       {%- if section.settings.vendor -%}
-        <div class="product-vendor"><strong>Brand:</strong> {{ product.vendor }}</div>
+        <div class="product-vendor"><strong>{{ 'general.brand_label' | t }}:</strong> {{ product.vendor }}</div>
       {%- endif -%}
       <h1 style="letter-spacing: -2px;" class="product-title mb-1">{{ product.title | upcase }}</h1>
       {% if product.options_with_values.size > 0 %}
