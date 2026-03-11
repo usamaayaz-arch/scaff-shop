@@ -1,0 +1,45 @@
+  .accordion-content {
+      display: block;
+      border-bottom: 1px solid lightgrey;
+      padding: 1rem 0rem;
+  }
+
+  .product-description.toggle .accordion-content {
+      display: none;
+  }
+
+  .active {
+      border: 1px solid #000000 !important;
+  }
+
+  .product-media img,
+  .featured-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+  }
+
+  .compare-price {
+      color: darkgrey;
+      text-decoration: line-through;
+  }
+
+  .product-description .accordion-header {
+      padding: 1rem 0rem;
+      border-bottom: unset;
+      cursor: pointer
+  }
+
+  .product-description.toggle .accordion-header {
+      border-bottom: 1px solid lightgrey;
+  }
+
+  .product-media img:nth-child(1) {
+      display: none;
+  }
+
+  @media (max-width:768px) {
+      .product-media img:nth-child(1) {
+          display: unset;
+      }
+  }

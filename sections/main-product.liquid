@@ -38,7 +38,7 @@
           <div class="product-options">
             <ul class="options-list">
               {% for option in product.options_with_values %}
-                {%- if option.name != 'Default Title' -%}
+                {%- if option.name != 'Title' -%}
                   {%- if option.name == 'color' or option.name == 'Color' -%}
                     <li data-parent="{{ option.name }}" class="option-label d-flex column gap-1  mb-2">
                       <strong>{{ option.name }} </strong>
@@ -128,25 +128,16 @@
 </script>
 <script src="{{ 'main-product.js' | asset_url }}" defer="defer"></script>
 <style>
-  .accordion-content { display: block;    border-bottom: 1px solid lightgrey;padding:1rem 0rem; }
-  .product-description.toggle .accordion-content { display: none; }
-  .active{border:1px solid #000000!important;}
-  .product-media img, .featured-image img {display: block;width: 100%; height: auto;}
-  .compare-price { color: darkgrey; text-decoration:line-through; }
   .add-to-cart-{{ section.id }} { margin:2rem auto; }
   .add-to-cart-{{ section.id }} .cart-button{padding: 0.85rem; width: 100%; background: black; color: white; border: unset; cursor: pointer; }
-  .product-description .accordion-header{padding: 1rem 0rem;border-bottom:unset; cursor:pointer }
-  .product-description.toggle .accordion-header{ border-bottom: 1px solid lightgrey; }
   .main-{{section.id}} .right .product-description .accordion-header svg { width:1rem;height:1rem }
   .main-{{section.id}} .right .product-description .accordion-content ol li {text-transform: capitalize;}
-  .product-media img:nth-child(1) { display:none; }
   @media (max-width:768px){
   .main-{{ section.id }} .container { grid-template-columns: repeat(1, 2fr) !important; }
   .main-{{ section.id }} .container .left .product-media { grid-template-columns: repeat({{product.images.size}}, 2fr) !important; }
-  .product-media img:nth-child(1) { display:unset; }
   }
 </style>
-
+{{ 'main-product.css' | asset_url | stylesheet_tag }}
 {% schema %}
 {
   "name": "main-product",
