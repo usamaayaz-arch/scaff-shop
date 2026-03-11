@@ -30,24 +30,15 @@
       "announcement": {
         "type": "announcement",
         "blocks": {
-          "advertisment_nDTEhw": {
-            "type": "advertisment",
-            "disabled": true,
-            "settings": {
-              "advertisment_link": "shopify://pages/contact",
-              "advertisment_title": "1 .py-1d5 .py-1d5.py-1d5.py-1d5 .py-1d5 .py-1d5 .py-1d5"
-            }
-          },
           "advertisment_44Ffkg": {
             "type": "advertisment",
             "settings": {
               "advertisment_link": "shopify://pages/contact",
-              "advertisment_title": "2  .py-1d5 .py-1d5.py-1d5.py-1d5 .py-1d5 .py-1d5 .py-1d5"
+              "advertisment_title": "lorem pixem lorem pixem lorem pixem lorem pixem"
             }
           }
         },
         "block_order": [
-          "advertisment_nDTEhw",
           "advertisment_44Ffkg"
         ],
         "settings": {
@@ -107,7 +98,10 @@
           "link_list_BjRVwn",
           "link_list_YgTRif"
         ],
-        "settings": {}
+        "settings": {
+          "bg_color": "#f8f8f8",
+          "policies_flag": false
+        }
       }
     },
     "content_for_index": [],
