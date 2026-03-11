@@ -24,7 +24,7 @@
   .site-header--{{ section.id }} .site-header__menu {
     gap: {{ section.settings.menu_gap }}rem;
   }
-  
+
   @media screen and (max-width:768px){
     .site-header--{{ section.id }} .site-header__menu {
       gap: 0rem !important;
@@ -43,11 +43,6 @@
     width: {{ section.settings.icon_size }}px;
     height: {{ section.settings.icon_size }}px;
   }
-
-  {% comment %} .site-header--{{ section.id }} .site-header__icon svg {
-    width: 100%;
-    height: 100%;
-  } {% endcomment %}
 </style>
 <header-menu>
   <header class="site-header site-header--{{ section.id }} {% if section.settings.sticky %}is-sticky{% endif %} ">
@@ -77,13 +72,23 @@
             </li>
           {% endfor %}
         </ul>
+        {%- render 'search',section -%}
       </nav>
       <div class="site-header__actions d-flex wrap justify-center align-center gap-1">
         {% assign icons = 'search,empty-cart,profile' | split: ',' %}
         {% for icon in icons %}
           {% assign icon_file = icon | append: '-icon.svg' %}
-          <button class="site-header__icon" aria-label="{{ icon }}">
+          <button
+            {% if icon == 'empty-cart' %}
+              style="position:relative"
+            {% endif %}
+            class="site-header__icon"
+            aria-label="{{ icon }}"
+          >
             {{ icon_file | inline_asset_content }}
+            {%- if icon == 'empty-cart' -%}
+              <span style="position: absolute;top: -5px;font-size: smaller;right: -5px;">{{ cart.items.size }}</span>
+            {%- endif -%}
           </button>
         {% endfor %}
       </div>

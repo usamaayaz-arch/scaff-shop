@@ -1,0 +1,100 @@
+<form
+  class="form-{{section.id }}  d-flex justify-center align-center"
+  action="{{ routes.search_url }}"
+  method="get"
+  role="search"
+>
+  <input
+    type="search"
+    id="search-input"
+    name="q"
+    placeholder="Search products..."
+    autocomplete="off"
+    class="search-input-{{ section.id }}"
+  >
+  <div id="search-suggestions"></div>
+  {% comment %} <input type="submit" value="Search"> {% endcomment %}
+</form>
+
+<script>
+  const input = document.getElementById('search-input');
+  const suggestions = document.getElementById('search-suggestions');
+
+  input.addEventListener('input', function () {
+    const query = input.value;
+
+    if (query.length < 2) {
+      suggestions.innerHTML = '';
+      return;
+    }
+
+    fetch(`/search/suggest.json?q=${query}&resources[type]=product`)
+      .then((response) => response.json())
+      .then((data) => {
+        let results = data.resources.results.products;
+
+        if (results.length === 0) {
+          suggestions.innerHTML = '<p>No results found</p>';
+          return;
+        }
+
+        let html = '<ul>';
+
+        results.forEach((product) => {
+          html += `
+          <li>
+            <a href="${product.url}">
+              <img src="${product.image}" width="40">
+              ${product.title}
+            </a>
+          </li>
+        `;
+        });
+
+        html += '</ul>';
+
+        suggestions.innerHTML = html;
+      });
+  });
+</script>
+<style>
+  .form-{{section.id }} {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .search-input-{{ section.id }} {
+    max-width: 35rem;
+    width: 100%;
+  }
+  #search-suggestions {
+    position: absolute;
+    background: white;
+    max-width: 35rem;
+    width: 100%;
+    border: 1px solid #ddd;
+    z-index: 1000;
+    top: 61px;
+  }
+
+  #search-suggestions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #search-suggestions li {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+  }
+
+  #search-suggestions li a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+</style>

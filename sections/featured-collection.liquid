@@ -73,13 +73,16 @@
                           src="{{ product.featured_image | image_url: width: 400 }}"
                           alt="{{ product.title }}"
                         >
-
-                        <div class="p-absolute z-index-1 text-center bottom-0 bg-black white w-100 p-1 add_to_cart_btn">
-                          Add To Cart
-                        </div>
+                        {%- form 'activate_customer_password', attribute: '' -%}
+                          <div class="p-absolute z-index-1 text-center bottom-0 bg-black white w-100 p-1 add_to_cart_btn">
+                            <button type="button" class="add_to_cart_btn">
+                              Add To Cart
+                            </button>
+                          </div>
+                        {%- endform -%}
                       </span>
 
-                      <p>{{ product.title }}</p>
+                      <p class="product-title">{{ product.title }}</p>
                       <span>
                         <strong>{{ product.price | money }}</strong>
                       </span>
@@ -96,6 +99,9 @@
 </div>
 
 <style>
+  .featured-collection-container-{{ section.id }} .product-card .product-title{
+      text-transform: capitalize;
+  }
   .featured-collection-container-{{ section.id }} svg {
   width: 1rem;
   height: 1rem;

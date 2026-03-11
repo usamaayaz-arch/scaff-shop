@@ -4,16 +4,15 @@ if (!customElements.get("variant-selector")) {
       super();
     }
     connectedCallback() {
-      this.onClickFn();
       this.loadProduct();
+      this.onClickFn();
     }
     onClickFn() {
       this.addEventListener("click", (e) => {
         const option = e.target.closest(".option-value");
         if (!option) return;
         const parent = option.dataset.parent;
-        document
-          .querySelectorAll(`.option-value[data-parent="${parent}"]`)
+        document.querySelectorAll(`.option-value[data-parent="${parent}"]`)
           .forEach((el) => el.classList.remove("active"));
         option.classList.add("active");
         console.log("Selected:", option.dataset.value);
@@ -21,12 +20,8 @@ if (!customElements.get("variant-selector")) {
       });
     }
     findVariant(product) {
-      const selectedOptions = Array.from(
-        document.querySelectorAll(".option-value.active"),
-      ).map((el) => el.dataset.value);
-      const variant = product.variants.find((v) =>
-        selectedOptions.every((opt) => v.options.includes(opt)),
-      );
+      const selectedOptions = Array.from(document.querySelectorAll(".option-value.active"),).map((el) => el.dataset.value);
+      const variant = product.variants.find((v) => selectedOptions.every((opt) => v.options.includes(opt)),);
       return variant;
     }
     formatMoney(cents, currency = "USD") {
@@ -37,9 +32,8 @@ if (!customElements.get("variant-selector")) {
     }
 updateInfo(product) {
   const variant = this.findVariant(product);
-  const formated_price = this.formatMoney(variant.price,Shopify.currency.active);
-  document.getElementsByClassName("product-price")[0].innerHTML = formated_price;
-  console.log(formated_price);
+  document.getElementsByClassName("compare-price")[0].innerHTML = this.formatMoney(variant.compare_at_price,Shopify.currency.active);
+  document.getElementsByClassName("product-price")[0].innerHTML = this.formatMoney(variant.price,Shopify.currency.active);
 }
 
     loadProduct() {

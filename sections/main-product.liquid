@@ -38,40 +38,42 @@
           <div class="product-options">
             <ul class="options-list">
               {% for option in product.options_with_values %}
-                {%- if option.name == 'color' or option.name == 'Color' -%}
-                  <li data-parent="{{ option.name }}" class="option-label d-flex column gap-1  mb-2">
-                    <strong>{{ option.name }} </strong>
-                    <ol class="d-flex row align-center gap-1h2">
-                      {%- for value in option.values -%}
-                        <li
-                          data-value="{{ value }}"
-                          data-parent="{{ option.name }}"
-                          class="option-value d-flex wrap justify-center align-center p-relative circle {% if value.selected %}active{% endif %} "
-                          style="border-radius:32px;width:2.2rem;height:2.2rem;cursor:pointer;"
-                        >
-                          <span
-                            style="display:block;width: 1.7rem;height:1.7rem;background: {{value.swatch.color}};border-radius: 32px;position: absolute;"
-                          ></span>
-                        </li>
-                      {%- endfor -%}
-                    </ol>
-                  </li>
-                {%- else -%}
-                  <li data-parent="{{ option.name }}" class="option-label d-flex column gap-1 mb-2">
-                    <strong>{{ option.name }} </strong>
-                    <ol class="d-flex row wrap align-center gap-1h2">
-                      {%- for value in option.values -%}
-                        <li
-                          data-value="{{ value }}"
-                          data-parent="{{ option.name }}"
-                          style="border: 1px solid #9F9F9F;width: 100%;max-width: 198px;text-align: center;padding: 1.063rem 0rem;cursor:pointer;"
-                          class="option-value {% if value.selected %}active{% endif %} "
-                        >
-                          {{ value }}
-                        </li>
-                      {%- endfor -%}
-                    </ol>
-                  </li>
+                {%- if option.name != 'Default Title' -%}
+                  {%- if option.name == 'color' or option.name == 'Color' -%}
+                    <li data-parent="{{ option.name }}" class="option-label d-flex column gap-1  mb-2">
+                      <strong>{{ option.name }} </strong>
+                      <ol class="d-flex row align-center gap-1h2">
+                        {%- for value in option.values -%}
+                          <li
+                            data-value="{{ value }}"
+                            data-parent="{{ option.name }}"
+                            class="option-value d-flex wrap justify-center align-center p-relative circle {% if value.selected %}active{% endif %} "
+                            style="border-radius:32px;width:2.2rem;height:2.2rem;cursor:pointer;"
+                          >
+                            <span
+                              style="display:block;width:1.7rem;height:1.7rem;background:{{value.swatch.color}};border-radius: 32px;position: absolute;"
+                            ></span>
+                          </li>
+                        {%- endfor -%}
+                      </ol>
+                    </li>
+                  {%- else -%}
+                    <li data-parent="{{ option.name }}" class="option-label d-flex column gap-1 mb-2">
+                      <strong>{{ option.name }} </strong>
+                      <ol class="d-flex row wrap align-center gap-1h2">
+                        {%- for value in option.values -%}
+                          <li
+                            data-value="{{ value }}"
+                            data-parent="{{ option.name }}"
+                            style="border: 1px solid #9F9F9F;width: 100%;max-width: 198px;text-align: center;padding: 1.063rem 0rem;cursor:pointer;"
+                            class="option-value {% if value.selected %}active{% endif %} "
+                          >
+                            {{ value }}
+                          </li>
+                        {%- endfor -%}
+                      </ol>
+                    </li>
+                  {%- endif -%}
                 {%- endif -%}
               {% endfor %}
             </ul>
@@ -103,18 +105,19 @@
           </button>
         {%- endform -%}
       </div>
-      <div class="product-description">
-        <div class="accordion-header d-flex row justify-space-between">
-          <strong>{{ 'general.description_label' | t }}</strong>
-          {{ 'arrow-up.svg' | inline_asset_content }}
+      {%- unless product.description -%}
+        <div class="product-description">
+          <div class="accordion-header d-flex row justify-space-between">
+            <strong>{{ 'general.description_label' | t }}</strong>
+            {{ 'arrow-up.svg' | inline_asset_content }}
+          </div>
+          <div class="accordion-content">
+            <ol>
+              <li>{{ product.description }}</li>
+            </ol>
+          </div>
         </div>
-
-        <div class="accordion-content">
-          <ol>
-            <li>{{ product.description }}</li>
-          </ol>
-        </div>
-      </div>
+      {%- endunless -%}
     </div>
   </div>
 </div>
@@ -125,23 +128,23 @@
 </script>
 <script src="{{ 'main-product.js' | asset_url }}" defer="defer"></script>
 <style>
-    .accordion-content { display: block;    border-bottom: 1px solid lightgrey;padding:1rem 0rem; }
-    .product-description.toggle .accordion-content { display: none; }
-    .active{border:1px solid #000000!important;}
-    .product-media img, .featured-image img {display: block;width: 100%; height: auto;}
-    .compare-price { color: darkgrey; text-decoration:line-through; }
-    .add-to-cart-{{ section.id }} { margin:2rem auto; }
-    .add-to-cart-{{ section.id }} .cart-button{padding: 0.85rem; width: 100%; background: black; color: white; border: unset; cursor: pointer; }
-    .product-description .accordion-header{padding: 1rem 0rem;border-bottom:unset; cursor:pointer }
-    .product-description.toggle .accordion-header{ border-bottom: 1px solid lightgrey; }
-    .main-{{section.id}} .right .product-description .accordion-header svg { width:1rem;height:1rem }
-    .main-{{section.id}} .right .product-description .accordion-content ol li {text-transform: capitalize;}
-    .product-media img:nth-child(1) { display:none; }
-    @media (max-width:768px){
-    .main-{{ section.id }} .container { grid-template-columns: repeat(1, 2fr) !important; }
-    .main-{{ section.id }} .container .left .product-media { grid-template-columns: repeat({{product.images.size}}, 2fr) !important; }
-    .product-media img:nth-child(1) { display:unset; }
-    }
+  .accordion-content { display: block;    border-bottom: 1px solid lightgrey;padding:1rem 0rem; }
+  .product-description.toggle .accordion-content { display: none; }
+  .active{border:1px solid #000000!important;}
+  .product-media img, .featured-image img {display: block;width: 100%; height: auto;}
+  .compare-price { color: darkgrey; text-decoration:line-through; }
+  .add-to-cart-{{ section.id }} { margin:2rem auto; }
+  .add-to-cart-{{ section.id }} .cart-button{padding: 0.85rem; width: 100%; background: black; color: white; border: unset; cursor: pointer; }
+  .product-description .accordion-header{padding: 1rem 0rem;border-bottom:unset; cursor:pointer }
+  .product-description.toggle .accordion-header{ border-bottom: 1px solid lightgrey; }
+  .main-{{section.id}} .right .product-description .accordion-header svg { width:1rem;height:1rem }
+  .main-{{section.id}} .right .product-description .accordion-content ol li {text-transform: capitalize;}
+  .product-media img:nth-child(1) { display:none; }
+  @media (max-width:768px){
+  .main-{{ section.id }} .container { grid-template-columns: repeat(1, 2fr) !important; }
+  .main-{{ section.id }} .container .left .product-media { grid-template-columns: repeat({{product.images.size}}, 2fr) !important; }
+  .product-media img:nth-child(1) { display:unset; }
+  }
 </style>
 
 {% schema %}

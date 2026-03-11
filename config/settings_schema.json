@@ -122,6 +122,31 @@
     ]
   },
   {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_status",
+        "label": "Cart",
+        "options": [
+          {
+            "value": "notify",
+            "label": "Notification"
+          },
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          },
+          {
+            "value": "page",
+            "label": "Page"
+          }
+        ],
+        "default": "drawer"
+      }
+    ]
+  },
+  {
     "name": "Footer",
     "settings": [
       {
