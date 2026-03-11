@@ -116,13 +116,14 @@
         <div class="add-to-cart-{{ section.id }}">
           <form action="{{ routes.cart_add_url }}" method="post">
             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-            <input type="hidden" name="quantity" value="1" id="product_quantity">
+            <!-- This hidden input is updated dynamically -->
+            <input type="hidden" name="quantity" value="1" class="product_quantity">
             <button
               {% if product.selected_or_first_available_variant.available == false %}
                 disabled
               {% endif %}
               id="add_to_cart_button"
-              class="button cart-button {% if product.selected_or_first_available_variant.available == false %}cart-button-disable{% endif %}"
+              class="cart-button {% if product.selected_or_first_available_variant.available == false %}cart-button-disable{% endif %}"
               type="submit"
             >
               {{ 'general.cart_button_label' | t }}

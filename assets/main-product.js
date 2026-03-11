@@ -98,43 +98,28 @@ if (!customElements.get("variant-selector")) {
 
 if (!customElements.get("quantity-selector")) {
   class QuantitySelector extends HTMLElement {
-    constructor() {
-      super();
-    }
-
     connectedCallback() {
       const leftbtn = this.querySelector("#decrease_quantity_btn");
       const rightbtn = this.querySelector("#increase_quantity_btn");
-
       if (!leftbtn || !rightbtn) return;
-
       leftbtn.addEventListener("click", () => this.updateQuantity("minus"));
       rightbtn.addEventListener("click", () => this.updateQuantity("plus"));
     }
     updateQuantity(action) {
-      const product_hidden_quantity = this.querySelector("#product_quantity");
-      const product_quantity_view = this.querySelector(
-        ".product_quantity_view",
-      );
-      console.log(product_quantity_view);
-      console.log(product_hidden_quantity);
-
-      if (!product_hidden_quantity || !product_quantity_view) return;
-
-      let qty = parseInt(product_hidden_quantity.value);
-
+      const hiddenInput =
+        this.closest("cart-handler").querySelector(".product_quantity");
+      const quantityView = this.querySelector(".product_quantity_view");
+      if (!hiddenInput || !quantityView) return;
+      let qty = parseInt(hiddenInput.value);
       if (action === "plus") {
-        if (qty < 20) {
-          qty++;
-        }
-      } else if (qty > 1) qty--;
-
-      product_hidden_quantity.value = qty;
-      product_quantity_view.textContent = qty;
-      console.log(qty);
+        if (qty < 20) qty++;
+      } else {
+        if (qty > 1) qty--;
+      }
+      hiddenInput.value = qty;
+      quantityView.textContent = qty;
     }
   }
-
   customElements.define("quantity-selector", QuantitySelector);
 }
 
@@ -142,26 +127,36 @@ class CartHandler extends HTMLElement {
   connectedCallback() {
     const button = this.querySelector("#add_to_cart_button");
     const form = this.querySelector("form");
-    const product_hidden_quantity = this.querySelector("#product_quantity");
-
     if (!button || !form) return;
 
-    button.addEventListener("click", (e) => {
+    button.addEventListener("click", async (e) => {
       e.preventDefault();
 
-      fetch("/cart/add.js", {
-        method: "POST",
-        body: new FormData(form),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("Added to cart:", data);
+      button.disabled = true;
+      button.classList.add("cart-button-disable");
 
-          document.dispatchEvent(
-            new CustomEvent("cart:updated", { detail: data }),
-          );
-        })
-        .catch((err) => console.error("Cart error:", err));
+      try {
+        const res = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+          method: "POST",
+
+          body: new FormData(form),
+        });
+
+        if (!res.ok) throw new Error("Cart request failed");
+
+        const data = await res.json();
+
+        console.log("Added to cart:", data);
+
+        document.dispatchEvent(
+          new CustomEvent("cart:updated", { detail: data }),
+        );
+      } catch (err) {
+        console.error("Cart error:", err);
+      } finally {
+        button.disabled = false;
+        button.classList.remove("cart-button-disable");
+      }
     });
   }
 }
