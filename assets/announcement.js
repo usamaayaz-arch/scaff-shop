@@ -26,8 +26,8 @@ class AnnouncementSlider extends HTMLElement {
     if (!this.slides.length) return;
 
     // Always show first slide initially
-    this.slides.forEach((slide) => slide.classList.remove("active"));
-    this.slides[0].classList.add("active");
+    this.slides.forEach((slide) => slide.classList.remove("announcement__slide-active"));
+    this.slides[0].classList.add("announcement__slide-active");
 
     if (this.slides.length === 1) return;
 
@@ -46,11 +46,11 @@ class AnnouncementSlider extends HTMLElement {
   }
 
   showSlide(index) {
-    this.slides[this.current].classList.remove("active");
+    this.slides[this.current].classList.remove("announcement__slide-active");
 
     this.current = (index + this.slides.length) % this.slides.length;
 
-    this.slides[this.current].classList.add("active");
+    this.slides[this.current].classList.add("announcement__slide-active");
   }
 
   startAutoPlay() {

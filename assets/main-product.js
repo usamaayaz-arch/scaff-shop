@@ -12,17 +12,36 @@ if (!customElements.get("variant-selector")) {
         const option = e.target.closest(".option-value");
         if (!option) return;
         const parent = option.dataset.parent;
-        document.querySelectorAll(`.option-value[data-parent="${parent}"]`)
-          .forEach((el) => el.classList.remove("active"));
+        this.querySelectorAll(`.option-value[data-parent="${parent}"]`).forEach(
+          (el) => el.classList.remove("active"),
+        );
         option.classList.add("active");
         console.log("Selected:", option.dataset.value);
+        if (parent.toLowerCase() === "color") {
+          const colorLabel = this.querySelector(".selected-variant-color");
+          if (colorLabel) {
+            colorLabel.innerHTML = option.dataset.value;
+          }
+        }
         this.updateInfo(this.product);
       });
     }
     findVariant(product) {
-      const selectedOptions = Array.from(document.querySelectorAll(".option-value.active"),).map((el) => el.dataset.value);
-      const variant = product.variants.find((v) => selectedOptions.every((opt) => v.options.includes(opt)),);
+      const selectedOptions = Array.from(
+        this.querySelectorAll(".option-value.active"),
+      ).map((el) => el.dataset.value);
+      const variant = product.variants.find((v) =>
+        selectedOptions.every((opt) => v.options.includes(opt)),
+      );
+      this.updateUrl(variant.id, variant.available);
       return variant;
+    }
+    updateUrl(variantId, available) {
+      if (!variantId) return;
+      const url = new URL(window.location.href);
+      url.searchParams.set("variant", variantId);
+      url.searchParams.set("available", available);
+      window.history.replaceState({}, "", url);
     }
     formatMoney(cents, currency = "USD") {
       return new Intl.NumberFormat("en-US", {
@@ -30,16 +49,44 @@ if (!customElements.get("variant-selector")) {
         currency: currency,
       }).format(cents / 100);
     }
-updateInfo(product) {
-  const variant = this.findVariant(product);
-  document.getElementsByClassName("compare-price")[0].innerHTML = this.formatMoney(variant.compare_at_price,Shopify.currency.active);
-  document.getElementsByClassName("product-price")[0].innerHTML = this.formatMoney(variant.price,Shopify.currency.active);
-}
+    updateInfo(product) {
+      const variant = this.findVariant(product);
+      const addToCartBtn = document.querySelector("#add_to_cart_button");
+      if (addToCartBtn) {
+        addToCartBtn.disabled = !variant.available;
+        if (!variant.available) {
+          addToCartBtn.classList.add("cart-button-disable");
+        } else {
+          addToCartBtn.classList.remove("cart-button-disable");
+        }
+      }
+      const compareEl = document.querySelector(".compare-price");
+      const priceEl = document.querySelector(".product-price");
+
+      if (compareEl && variant.compare_at_price) {
+        compareEl.innerHTML = this.formatMoney(
+          variant.compare_at_price,
+          Shopify.currency.active,
+        );
+      }
+
+      if (priceEl) {
+        priceEl.innerHTML = this.formatMoney(
+          variant.price,
+          Shopify.currency.active,
+        );
+      }
+      const variantInput = document.querySelector('input[name="id"]');
+      if (variantInput) {
+        variantInput.value = variant.id;
+      }
+    }
 
     loadProduct() {
       const productData = this.dataset.product;
       if (productData) {
         this.product = JSON.parse(productData);
+        this.findVariant(this.product);
       }
       console.log(this.product);
     }
@@ -56,26 +103,32 @@ if (!customElements.get("quantity-selector")) {
     }
 
     connectedCallback() {
-      const leftbtn = document.getElementById("decrease_quantity_btn");
-      const rightbtn = document.getElementById("increase_quantity_btn");
+      const leftbtn = this.querySelector("#decrease_quantity_btn");
+      const rightbtn = this.querySelector("#increase_quantity_btn");
+
+      if (!leftbtn || !rightbtn) return;
 
       leftbtn.addEventListener("click", () => this.updateQuantity("minus"));
       rightbtn.addEventListener("click", () => this.updateQuantity("plus"));
     }
-
     updateQuantity(action) {
       const product_hidden_quantity = this.querySelector("#product_quantity");
-      const product_quantity_view = this.querySelector(".product_quantity_view");
+      const product_quantity_view = this.querySelector(
+        ".product_quantity_view",
+      );
       console.log(product_quantity_view);
       console.log(product_hidden_quantity);
 
       if (!product_hidden_quantity || !product_quantity_view) return;
 
       let qty = parseInt(product_hidden_quantity.value);
-      
-      if (action === "plus"){ if(qty < 20){qty++;}}
-      else if (qty > 1) qty--;
-      
+
+      if (action === "plus") {
+        if (qty < 20) {
+          qty++;
+        }
+      } else if (qty > 1) qty--;
+
       product_hidden_quantity.value = qty;
       product_quantity_view.textContent = qty;
       console.log(qty);
@@ -83,4 +136,36 @@ if (!customElements.get("quantity-selector")) {
   }
 
   customElements.define("quantity-selector", QuantitySelector);
+}
+
+class CartHandler extends HTMLElement {
+  connectedCallback() {
+    const button = this.querySelector("#add_to_cart_button");
+    const form = this.querySelector("form");
+    const product_hidden_quantity = this.querySelector("#product_quantity");
+
+    if (!button || !form) return;
+
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      fetch("/cart/add.js", {
+        method: "POST",
+        body: new FormData(form),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Added to cart:", data);
+
+          document.dispatchEvent(
+            new CustomEvent("cart:updated", { detail: data }),
+          );
+        })
+        .catch((err) => console.error("Cart error:", err));
+    });
+  }
+}
+
+if (!customElements.get("cart-handler")) {
+  customElements.define("cart-handler", CartHandler);
 }

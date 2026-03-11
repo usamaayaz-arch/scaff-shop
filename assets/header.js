@@ -4,15 +4,19 @@ if (!customElements.get("header-icon")) {
       super();
     }
 
-    connectedCallback(){
-       const temp = document.getElementById('header-search-icon');
-        const searchProductForm = document.getElementById('searchProductForm');
-        temp.addEventListener('click', () => {
-          searchProductForm.style.display = 'flex';
-        });
+    connectedCallback() {
+      const temp = document.getElementById("header-search-icon");
+      const overlay = document.getElementsByClassName("search-overlay")[0];
+
+      const searchProductForm = document.getElementById("searchProductForm");
+      temp.addEventListener("click", () => {
+        searchProductForm.style.display = "flex";
+        overlay.style.display = "unset";
+        searchProductForm.classList.add("search-form-header-active");
+      });
     }
   }
-    if (!customElements.get("header-icon")) {
+  if (!customElements.get("header-icon")) {
     customElements.define("header-icon", HeaderIcon);
   }
 }

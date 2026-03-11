@@ -62,7 +62,7 @@
           </a>
         </div>
       {% endif %}
-      {%- render 'search',section -%}
+      {%- render 'search',section:section -%}
       <nav class="site-header__nav" role="navigation">
         <ul class="site-header__menu d-flex wrap justify-center align-center py-1">
           {% for link in section.settings.menu.links %}

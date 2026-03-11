@@ -43,7 +43,7 @@
     min-width: 10rem;
 }
 
-.announcement__slide.active {
+.announcement__slide.announcement__slide-active {
     display: block;
 }
 

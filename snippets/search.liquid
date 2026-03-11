@@ -21,7 +21,7 @@
 
   <div id="search-results-dropdown"></div>
 </form>
-
+<div class="search-overlay search-overlay-{{ section.id }}"></div>
 <script>
   const closeIcon = document.querySelector('.close-icon-wrapper');
   const input = document.getElementById('search-input');
@@ -40,35 +40,56 @@
       .then((data) => {
         let results = data.resources.results.products;
 
-        if (results.length === 0) {
+        if (!results || results.length === 0) {
           suggestions.innerHTML = '<p>No results found</p>';
           return;
         }
+
         let html = '<ul>';
         results.forEach((product) => {
           html += `
-            <li>
-              <a href="${product.url}">
-                <img src="${product.image}" width="40">
-                ${product.title}
-              </a>
-            </li>
-          `;
+          <li>
+            <a href="${product.url}">
+              <img src="${product.image}" width="40">
+              ${product.title}
+            </a>
+          </li>
+        `;
         });
-
         html += '</ul>';
         suggestions.innerHTML = html;
       });
   });
 
-  // Close icon functionality
   closeIcon.addEventListener('click', function () {
-    const temp = document.getElementById('searchProductForm');
-    temp.style.display = 'none';
+    const t = document.getElementsByClassName(`search-overlay-{{ section.id }}`)[0];
+    const searchProductForm = document.getElementById('searchProductForm');
+
+    if (searchProductForm) {
+      searchProductForm.classList.remove('search-form-header-active');
+      searchProductForm.style.display = 'none';
+    }
+
+    if (t) t.style.display = 'none';
   });
 </script>
 
 <style>
+    .search-overlay-{{ section.id }}{
+      display:none;
+          position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    opacity: .75;
+    background: #000000;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(75px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    }
     .search-form-{{ section.id }} svg{cursor:pointer}
     .search-form-{{ section.id }} {
       position: absolute;
@@ -77,12 +98,11 @@
       left: 0;
       right: 0;
       bottom: 0;
-      z-index: 1;
+      z-index: 2;
       margin: auto 1rem !important;
-      background: #ffffffd6;
       display:none;
     }
-    
+
     #search-results-dropdown:empty {
       display: none;
     }

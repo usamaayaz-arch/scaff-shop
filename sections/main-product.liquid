@@ -6,7 +6,7 @@
           <img
             height="auto"
             width="auto"
-            src="{{ product.featured_image | image_url}}"
+            src="{{ product.featured_image | image_url: width: 800 }}"
             alt="{{ product.featured_image.alt }}"
           >
         </div>
@@ -41,7 +41,15 @@
                 {%- if option.name != 'Title' -%}
                   {%- if option.name == 'color' or option.name == 'Color' -%}
                     <li data-parent="{{ option.name }}" class="option-label d-flex column gap-1  mb-2">
-                      <strong>{{ option.name }} </strong>
+                      {%- for value in option.values -%}
+                        {%- if value.selected -%}
+                          {%- assign color_selected = value.name -%}
+                        {%- endif -%}
+                      {% endfor %}
+                      <span class="variant-color d-flex gap-1 justify-left align-center wrap row capitalize">
+                        <strong>{{ option.name }} : </strong>
+                        <span class="selected-variant-color"> {{ color_selected -}}</span>
+                      </span>
                       <ol class="d-flex row align-center gap-1h2">
                         {%- for value in option.values -%}
                           <li
@@ -51,8 +59,14 @@
                             style="border-radius:32px;width:2.2rem;height:2.2rem;cursor:pointer;"
                           >
                             <span
-                              style="display:block;width:1.7rem;height:1.7rem;background:{{value.swatch.color}};border-radius: 32px;position: absolute;"
+                              style="
+                                display:block;width:1.7rem;height:1.7rem;border-radius:32px;position:absolute;
+                                {% if value.swatch.image %}background-image:url({{ value.swatch.image | image_url: width: 50 }});
+                                 background-size:cover;background-position:center;
+                                 {% elsif value.swatch.color %}background:{{ value.swatch.color }};{% else %}background:{{ value.name }};{% endif %}
+                              "
                             ></span>
+                            {% comment %} <span style="display:block;width:1.7rem;height:1.7rem;background:{%if value.swatch.image%}{{value.swatch.image}}{% elsif value.swatch.color %} {{value.swatch.color}} {%else%}{{value.name}}{%endif%};border-radius: 32px;position: absolute;" ></span> {% endcomment %}
                           </li>
                         {%- endfor -%}
                       </ol>
@@ -80,44 +94,57 @@
           </div>
         </variant-selector>
       {% endif %}
-      <div class="qunatity-price-container d-flex justify-space-between align-end">
-        <div class="quantity-selector">
-          <quantity-selector>
-            {%- render 'quantity-selector', product: product.selected_or_first_available_variant ,section -%}
-          </quantity-selector>
-        </div>
-        <div class="product-pricing pb-1 d-flex align-center gap-1">
-          {% if product.compare_at_price > product.price %}
-            <span class="compare-price">
-              {{ product.compare_at_price | money }}
+      <cart-handler>
+        <div class="qunatity-price-container d-flex justify-space-between align-center">
+          <div class="quantity-selector">
+            <quantity-selector>
+              {%- render 'quantity-selector', product: product.selected_or_first_available_variant, section: section -%}
+            </quantity-selector>
+          </div>
+          {% assign variant = product.selected_or_first_available_variant %}
+          <div class="d-flex align-center gap-1">
+            {% if variant.compare_at_price > variant.price %}
+              <span class="compare-price">
+                {{ variant.compare_at_price | money }}
+              </span>
+            {% endif %}
+            <span class="product-price">
+              {{ variant.price | money }}
             </span>
-          {% endif %}
-
-          <span class="product-price">
-            {{ product.price | money }}
-          </span>
+          </div>
         </div>
-      </div>
-      <div class="add-to-cart-{{ section.id }}">
-        {%- form 'activate_customer_password', attribute: '' -%}
-          <button id="add_to_cart_button" class="button cart-button" type="button">
-            {{ 'general.cart_button_label' | t }}
-          </button>
-        {%- endform -%}
-      </div>
-      {%- unless product.description -%}
+        <div class="add-to-cart-{{ section.id }}">
+          <form action="{{ routes.cart_add_url }}" method="post">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <input type="hidden" name="quantity" value="1" id="product_quantity">
+            <button
+              {% if product.selected_or_first_available_variant.available == false %}
+                disabled
+              {% endif %}
+              id="add_to_cart_button"
+              class="button cart-button {% if product.selected_or_first_available_variant.available == false %}cart-button-disable{% endif %}"
+              type="submit"
+            >
+              {{ 'general.cart_button_label' | t }}
+            </button>
+          </form>
+        </div>
+      </cart-handler>
+
+      {%- if product.description != blank -%}
         <div class="product-description">
           <div class="accordion-header d-flex row justify-space-between">
             <strong>{{ 'general.description_label' | t }}</strong>
             {{ 'arrow-up.svg' | inline_asset_content }}
           </div>
+
           <div class="accordion-content">
             <ol>
               <li>{{ product.description }}</li>
             </ol>
           </div>
         </div>
-      {%- endunless -%}
+      {%- endif -%}
     </div>
   </div>
 </div>
@@ -130,6 +157,7 @@
 <style>
   .add-to-cart-{{ section.id }} { margin:2rem auto; }
   .add-to-cart-{{ section.id }} .cart-button{padding: 0.85rem; width: 100%; background: black; color: white; border: unset; cursor: pointer; }
+  .add-to-cart-{{ section.id }} .cart-button-disable{background: #6a6868;    cursor: no-drop;}
   .main-{{section.id}} .right .product-description .accordion-header svg { width:1rem;height:1rem }
   .main-{{section.id}} .right .product-description .accordion-content ol li {text-transform: capitalize;}
   @media (max-width:768px){

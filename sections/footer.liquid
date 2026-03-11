@@ -71,6 +71,9 @@
     {% assign total_columns = section.blocks.size | plus: 1 %}
     grid-template-columns: repeat({{ total_columns }}, 1fr);
   }
+  .footer .logo-description img {
+  mix-blend-mode: {{settings.footer_logo_blend}};
+}
 </style>
 
 {% schema %}

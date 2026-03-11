@@ -155,6 +155,26 @@
         "label": "Logo"
       },
       {
+        "id":"footer_logo_blend",
+        "type": "select",
+        "label": "Blend Mode",
+        "options": [
+          {
+            "value": "difference",
+            "label": "Difference"
+          },
+          {
+            "value": "multiply",
+            "label": "Multiply"
+          },
+          {
+            "value": "normal",
+            "label": "Normal"
+          }
+        ],
+        "default":"normal"
+      },
+      {
         "label": "Logo Width",
         "id": "footer_logo_width",
         "type": "range",
