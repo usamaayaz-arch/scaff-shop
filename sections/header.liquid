@@ -78,16 +78,27 @@
         {% assign icons = 'search,empty-cart,profile' | split: ',' %}
         {% for icon in icons %}
           {% assign icon_file = icon | append: '-icon.svg' %}
-          <button
-            {% if icon == 'empty-cart' %}style="position:relative"{% endif %} class="site-header__icon" aria-label="{{ icon }}"
-            {% if icon == 'search' %}id="header-search-icon"{% endif %}
-          >
-            {{ icon_file | inline_asset_content }}
-            {%- if icon == 'empty-cart' -%}
-              <span style="position: absolute;top: -5px;font-size: smaller;right: -5px;">{{ cart.items.size }}</span>
-            {%- endif -%}
-          </button>
+          {%- unless icon == 'profile' -%}
+            <button
+              {% if icon == 'empty-cart' %}
+                style="position:relative"
+              {% endif %}
+              class="site-header__icon"
+              aria-label="{{ icon }}"
+              {% if icon == 'search' %}
+                id="header-search-icon"
+              {% endif %}
+            >
+              {{ icon_file | inline_asset_content }}
+              {%- if icon == 'empty-cart' -%}
+                <span style="position: absolute;top: -5px;font-size: smaller;right: -5px;">{{ cart.items.size }}</span>
+              {%- endif -%}
+            </button>
+          {%- endunless -%}
         {% endfor %}
+        <button class="site-header__icon" aria-label="profile">
+          <a href="/account/login"> {{ icon_file | inline_asset_content }}</a>
+        </button>
       </div>
       <script>
         const temp = document.getElementById('header-search-icon');
