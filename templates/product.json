@@ -11,15 +11,177 @@
   "sections": {
     "main": {
       "type": "main-product",
-      "settings": {}
+      "settings": {
+        "vendor": false
+      }
     },
     "related": {
       "type": "related-products",
       "settings": {}
+    },
+    "featured_collection_FkpVFV": {
+      "type": "featured-collection",
+      "blocks": {
+        "collection_dea4P8": {
+          "type": "collection",
+          "settings": {
+            "collection": "shop-by-look"
+          }
+        }
+      },
+      "block_order": [
+        "collection_dea4P8"
+      ],
+      "name": "Featured Collection",
+      "settings": {
+        "heading": "<h1>shop all</h1>",
+        "heading_alignment": "justify-self-center",
+        "slider_view": true,
+        "heading_case": "uppercase"
+      }
+    },
+    "image_with_text_overlay_jeW64K": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "text_VTqq9j": {
+          "type": "text",
+          "settings": {
+            "text": "Low Carbon Process",
+            "top": 50,
+            "left": 99
+          }
+        },
+        "text_FNTkVh": {
+          "type": "text",
+          "settings": {
+            "text": "Handmade in the UK",
+            "top": 12,
+            "left": 87
+          }
+        },
+        "text_3teQrc": {
+          "type": "text",
+          "settings": {
+            "text": "100% Reclaimed Wood",
+            "top": 56,
+            "left": 0
+          }
+        }
+      },
+      "block_order": [
+        "text_VTqq9j",
+        "text_FNTkVh",
+        "text_3teQrc"
+      ],
+      "name": "Image with overlay",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_70.png",
+        "image_2": "shopify://shop_images/Workshop_to_home_Blend.jpg",
+        "heading": "<h1>Sustainably Crafted. Consciously Designed.</h1>",
+        "description": "Every piece we create begins with something that already exists. By reclaiming scaffold boards, we give new life to old materials — reducing waste and celebrating natural character.",
+        "button_label": "Learn About Our Process",
+        "link": ""
+      }
+    },
+    "accordian_Q6xfUB": {
+      "type": "accordian",
+      "blocks": {
+        "accordion_item_grQjRk": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "What materials do you use?",
+            "content": "<p>All of our pieces are made from reclaimed scaffold boards sourced from trusted local suppliers across the UK. Each board is individually restored, sanded, and finished by hand, ensuring that no two products are ever exactly alike.<br/><br/></p>"
+          }
+        },
+        "accordion_item_hqUdRD": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Are all your products handmade?",
+            "content": "<p>All of our pieces are made from reclaimed scaffold boards sourced from trusted local suppliers across the UK. Each board is individually restored, sanded, and finished by hand, ensuring that no two products are ever exactly alike.<br/><br/></p>"
+          }
+        },
+        "accordion_item_AfgEjq": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "Can I customize the size or finish of my furniture?",
+            "content": "<p>All of our pieces are made from reclaimed scaffold boards sourced from trusted local suppliers across the UK. Each board is individually restored, sanded, and finished by hand, ensuring that no two products are ever exactly alike.<br/><br/></p>"
+          }
+        },
+        "accordion_item_zzHpPK": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "What kind of finishes do you offer?",
+            "content": "<p>All of our pieces are made from reclaimed scaffold boards sourced from trusted local suppliers across the UK. Each board is individually restored, sanded, and finished by hand, ensuring that no two products are ever exactly alike.<br/><br/></p>"
+          }
+        },
+        "accordion_item_GcUC47": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "What kind of finishes do you offer?",
+            "content": "<p>All of our pieces are made from reclaimed scaffold boards sourced from trusted local suppliers across the UK. Each board is individually restored, sanded, and finished by hand, ensuring that no two products are ever exactly alike.<br/><br/></p>"
+          }
+        },
+        "accordion_item_G4w3BP": {
+          "type": "accordion_item",
+          "settings": {
+            "title": "How sustainable is your production process?",
+            "content": "<p>All of our pieces are made from reclaimed scaffold boards sourced from trusted local suppliers across the UK. Each board is individually restored, sanded, and finished by hand, ensuring that no two products are ever exactly alike.<br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "accordion_item_grQjRk",
+        "accordion_item_hqUdRD",
+        "accordion_item_AfgEjq",
+        "accordion_item_zzHpPK",
+        "accordion_item_GcUC47",
+        "accordion_item_G4w3BP"
+      ],
+      "name": "Advanced Accordion",
+      "settings": {
+        "section_heading": "Frequently Asked Questions",
+        "section_description": "",
+        "full_width": false,
+        "text_transform": "none",
+        "bg_color": "#f9f9f9",
+        "text_color": "#333333",
+        "header_bg": "#ffffff",
+        "allow_multiple": false,
+        "first_open": true,
+        "show_icon": true,
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "image_with_text_3MEC77": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_55.png",
+        "heading": "Stay Inspired by Sustainable Design",
+        "text_transform": "uppercase",
+        "sub_heading": "",
+        "description": "<p>Be part of The Scaff Shop community — where reclaimed materials meet modern design.<br/><br/></p>",
+        "container_width_flag": true,
+        "padding_flag": false,
+        "container_width": 525,
+        "row_direction": "1",
+        "margin_flag": false,
+        "bg_color": "#f8f8f8",
+        "email_flag": true,
+        "button_label": "About Us",
+        "button_bg_color": "#000000",
+        "button_text_color": "#ffffff",
+        "button_url": ""
+      }
     }
   },
   "order": [
     "main",
-    "related"
+    "related",
+    "featured_collection_FkpVFV",
+    "image_with_text_overlay_jeW64K",
+    "accordian_Q6xfUB",
+    "image_with_text_3MEC77"
   ]
 }
